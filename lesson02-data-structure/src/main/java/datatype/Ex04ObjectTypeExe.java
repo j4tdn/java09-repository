@@ -1,0 +1,29 @@
+package datatype;
+
+public class Ex04ObjectTypeExe {
+	public static void main(String[] args) {
+		   Integer a=10;
+		   Integer b=20;
+		   Integer c=10;
+		   System.out.println("a code:"+ System.identityHashCode(a));
+		   System.out.println("b code:"+ System.identityHashCode(b));
+		   System.out.println("a code:"+ System.identityHashCode(c));
+		   modified(a);
+		   swap(a,b); 
+		   System.out.println("a:"+ a);
+		   System.out.println("b:"+ b);
+	   }
+	   private static void modified(Integer a) {
+		   System.out.println("a mothod code  01"+ System.identityHashCode(a));
+		   a=20;
+		   System.out.println("a mothod code 02"+ System.identityHashCode(a));
+
+	   }
+	   //a->01
+	   //b->02
+	   public static void swap(int a,int b) {
+		   a=a+b;
+		   b=a-b;
+		   a=a-b;
+	   }
+}
