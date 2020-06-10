@@ -9,6 +9,7 @@ tmp/
 .settings/
 .loadpath
 .recommenders
+**/target
 
 # External tool builders
 .externalToolBuilders/
