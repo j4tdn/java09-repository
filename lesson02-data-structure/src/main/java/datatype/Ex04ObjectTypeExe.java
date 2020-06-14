@@ -2,6 +2,7 @@ package datatype;
 
 public class Ex04ObjectTypeExe {
 	public static void main(String[] args) {
+		// Em tao project ko dc a.dung roi a.ma
 		Integer a=10;
 		Integer b=20;
 		
