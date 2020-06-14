@@ -1,7 +1,9 @@
 package datatype;
 
+
 public class Ex04ObjectTypeExe {
 	public static void main(String[] args) {
+	
 		Integer a = 10;
 		Integer b = 20;
 		Integer c = 10;
