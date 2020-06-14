@@ -20,9 +20,9 @@ public class Ex04ObjectTypeExe {
 		a = 30;
 		System.out.println("a method code 02: " + System.identityHashCode(a));
 	}
-	private static void swap(int a, int b) {
-		int tmp = a;
-		a = b;
-		b = tmp;
+	private static void swap(Integer a, Integer b) {
+		a = a + b;
+		b = a - b;
+		a = a - b;
 	}
 }
