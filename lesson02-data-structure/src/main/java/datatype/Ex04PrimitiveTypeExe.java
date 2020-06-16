@@ -2,7 +2,7 @@ package datatype;
 
 public class Ex04PrimitiveTypeExe {
 	public static void main(String[] args ) {
-		Integer a=10;
+		Integer a= new Integer(10);
 		Integer b=20;
 		
 		//a=b;
