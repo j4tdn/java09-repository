@@ -2,7 +2,7 @@ package datatype;
 
 public class Ex04ObjectTypeExe {
 	public static void main(String[] args) {
-		Integer a = 10;
+		Integer a = new Integer(10);
 		Integer b = 20;
 		
 		System.out.println("a code: " + System.identityHashCode(a));
@@ -23,7 +23,7 @@ public class Ex04ObjectTypeExe {
 	// 
 	private static void swap(Integer a, Integer b) {
 		a = a + b; // a->03
-		b = a - b; // b->01 
+		b = a - b; // b->01
 		a = a - b; // a->02
 	}
 	
