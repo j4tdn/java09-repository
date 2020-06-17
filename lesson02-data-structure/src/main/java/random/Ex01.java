@@ -8,8 +8,6 @@ public class Ex01 {
 		Random rd =new Random();
 		int number= rd.nextInt(10);
 		System.out.println("number : "+number);
-		
-		
 		String[] students = {"Nam", "Teo", "Hoang" };
 		System.out.println(students[rd.nextInt(students.length)]);
 	}
