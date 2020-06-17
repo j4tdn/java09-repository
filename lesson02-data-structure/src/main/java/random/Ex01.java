@@ -9,7 +9,7 @@ public class Ex01 {
 		int number= rd.nextInt(10);
 		System.out.println(number);
 		
-		String[] students= {"Nam", "Thao", "Hoang"}
+		String[] students= {"Nam", "Thao", "Hoang"};
 		System.out.println(students[rd.nextInt(students.length)]);
 	}
 
