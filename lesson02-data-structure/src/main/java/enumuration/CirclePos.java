@@ -3,7 +3,7 @@ package enumuration;
 public enum CirclePos {
 	INSIDE("Trong duong tron"),
 	ONSIDE("Tren duong tron"), 
-	OUTSIDE("Ngoai đường tron");
+	OUTSIDE("Ngoai duong tron");
 	
 	String message;
 	private CirclePos(String message) {
