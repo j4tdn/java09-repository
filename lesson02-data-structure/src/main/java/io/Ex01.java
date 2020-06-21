@@ -23,7 +23,7 @@ public class Ex01 {
 		System.out.print("hobbies: ");
 		String hobbies = ip.nextLine();
 		
-		
+		 	
 		
 		System.out.println("\nFull name :" + fullname
 				+"\nage " +(Year.now().getValue() - year)

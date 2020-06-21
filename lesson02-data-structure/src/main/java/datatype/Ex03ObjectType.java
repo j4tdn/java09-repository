@@ -5,7 +5,7 @@ public class Ex03ObjectType {
 		// Apply with available object types of stadard JAVA libs
 		
 		Integer a = 10 ;
-		Integer aa = new Integer(12);
+	//	Integer aa = new Integer(12);
 		Float b = 5.2f ;
 		Double c = 3.3d ;
 		Character d = 'd' ;
@@ -15,6 +15,6 @@ public class Ex03ObjectType {
 		String g = new String ("hello");
 		
 		System.out.println("a :" + a );
-		System.out.println("aa :" + aa );
+	//	System.out.println("aa :" + aa );
 	}
 }
