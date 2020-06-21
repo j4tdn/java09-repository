@@ -11,8 +11,7 @@ private static	Scanner ip = new Scanner(System.in);
 		System.out.print("fullname: ");
 		
 		String fullname= ip.nextLine();
-	
-		System.out.println("nhap nam: ");
+
 		int year=inputNumber("year: ");
 		
 		//ip.nextLine();
