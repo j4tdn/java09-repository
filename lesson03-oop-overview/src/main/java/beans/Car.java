@@ -18,11 +18,11 @@ public class Car {
 		}
 		this.capacity=capacity;
 	}
-	public void setCurrentPassenger(int currentPassengers) {
-		if(currentPassengers>this.capacity) {
+	public void setCurrentPassengers(Integer currentPassengers) {
+		/*if(currentPassengers>this.capacity) {
 			System.out.println("Customer cannot exceed "+this.capacity);
 			return;
-		}
+		}*/
 		this.currentPassengers=currentPassengers;
 	}
 	public void setCapacity(Integer pcapacity) {
@@ -31,6 +31,32 @@ public class Car {
 		}
 		System.out.println("come here");
 		this.capacity=capacity;
+	}
+	//setter, getter
+	public void setId(String id) {
+		this.id=id;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public String getColor() {
+		return color;
+	}
+	public String getModel() {
+		return model;
+	}
+	public Integer getCapacity() {
+		return capacity;
+	}
+	public int getCurrentPassengers() {
+		return currentPassengers;
 	}
 	@Override
 	public String toString() {
@@ -48,19 +74,5 @@ public class Car {
 		return true;
 		
 	}
-	public static void main(String[] args) {
-		Car c1=new Car();
-		c1.id="abc";
-		c1.color="green";
-		c1.model="benz";
-		//c1.currentAmountOfPeople=2;
-		c1.setCapacity(8);
-		c1.setCurrentPassenger(3);
-		//c1.setCapacity(8);
-		
-		Car c2=new Car("456","organe","lambo",8);
-		c2.currentPassengers=3;
-		System.out.println(c1);
-		System.out.println(c2);
-	}
+
 }
