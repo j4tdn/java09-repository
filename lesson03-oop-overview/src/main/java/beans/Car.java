@@ -24,6 +24,31 @@ public class Car {
 		this.capacity = capacity;
 	}
 
+	// setter, getter
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
 	public void setCapacity(Integer capacity) {
 		if (this.capacity == null || this.capacity <= 0) {
 			throw new RuntimeException("Invalid capacity!!!");
@@ -55,17 +80,6 @@ public class Car {
 	@Override
 	public String toString() {
 		return "id: " + id + ", color: " + color + ", model: " + model + ", current passengers: " + currentPassengers;
-	}
-
-	public static void main(String[] args) {
-		Car c1 = new Car("123abc", "Green", "Lamborghini", 7);
-		c1.setCurrentPassengers(6);
-
-		Car c2 = new Car("456xyz", "Black", "Porsche", 9);
-		c2.setCurrentPassengers(3);
-		c1.transfer(c2, 1);
-		System.out.println(c1);
-		System.out.println(c2);
 	}
 
 }
