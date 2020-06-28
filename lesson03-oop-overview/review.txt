@@ -1,0 +1,12 @@
+lesson03: OOP Review
+Class & object: Theory & Code
+Access modifier: public, private
+Attributes
+Constructor
+Getter/Setter
+toString
+Heap/Stack : new
+Static & non-static
+Utility class
+==============
+Xem truoc design patterns: builder, singleton
