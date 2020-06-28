@@ -35,11 +35,23 @@ public class Car {
 		return id + "," + color + "," + model + "," + currentPassenger;
 	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public void setCapacity(Integer capacity) {
 		if (capacity == null || capacity <= 0) {
 			throw new RuntimeException("Invalid capacity!");
 		}
 		this.capacity = capacity;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
 	}
 
 	public void setCurrentPassenger(int currentAmountOfPeople) {
@@ -48,6 +60,26 @@ public class Car {
 			return;
 		}
 		this.currentPassenger = currentAmountOfPeople;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public int getCurrentPassenger() {
+		return currentPassenger;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
 	}
 
 	public boolean transfer(Car received, int quantity) {
