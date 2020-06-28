@@ -11,6 +11,26 @@ public class Car {
 	// number of people in car at the moment
 	private int currentPassenger;
 
+	public String getId() {
+		return id;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+	public int getCurrentPassenger() {
+		return currentPassenger;
+	}
+
 	// default constructor
 	public Car() {
 	}
@@ -27,7 +47,21 @@ public class Car {
 		capacity = pcapacity;
 
 	}
+   //setter, getter
+	public void setId(String id )
+	{
+		this.id=id;
+	}
 
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
 	public void setCapacity(Integer capacity) {
 		if (capacity == null || capacity <= 0) {
 			throw new RuntimeException(" Valid capacity !");
@@ -60,17 +94,5 @@ public class Car {
 
 	}
 
-	public static void main(String[] args) {
-		Car c1 = new Car();
-		c1.id = "123abc";
-		c1.color = "green";
-		c1.model = "benz";
-		c1.setCapacity (1);
-		c1.setCurentPassenger(6);
-		Car c2 = new Car("456xyz", "yellow", "lambo", 8);
-		c2.currentPassenger = 3;
-		c1.transfer(c2, 1);
-		System.out.println(c1);
-		System.out.println(c2);
-	}
+
 }

@@ -1,0 +1,12 @@
+Lesson03: OPP Overview
+class vs Object:Theory & Code
+Access modifier:public,private.
+Atttributes
+Constructor
+Getter/Setter
+ToString
+heap/Stack: new
+Static, NonStatic
+utility class
+===========================================
+Design Pattern: Buile
