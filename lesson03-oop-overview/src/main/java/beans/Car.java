@@ -1,7 +1,7 @@
 package beans;
 
 public class Car {
-	private String iD;
+	private String id;
 	private String color;
 	private String model;
 
@@ -15,7 +15,7 @@ public class Car {
 
 	// constructor
 	public Car(String pid, String pcolor, String pmodel, Integer pcapacity) {
-		iD = pid;
+		id = pid;
 		color = pcolor;
 		model = pmodel;
 		if (pcapacity == null || pcapacity <= 0) {
@@ -23,6 +23,48 @@ public class Car {
 		}
 		capacity = pcapacity;
 	}
+	/////getter, setter
+	public void setId(String iD) {
+		this.id=iD;
+	}
+	
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
+	public void setPassengers(int passengers) {
+		this.Passengers = passengers;
+	}
+
+////////getter	
+	
+
+	public int getPassengers() {
+		return Passengers;
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
 	public void setCapacity(Integer capacity) {
 		if (capacity == null || capacity <= 0) {
 			throw new RuntimeException("invalid capacticy");
@@ -41,7 +83,7 @@ public class Car {
 	@Override
 	public String toString() {
 
-		return (iD + "   " + color + "   " + model + "   " + Passengers);
+		return (id + "   " + color + "   " + model + "   " + Passengers);
 	}
 
 	public boolean transfer(Car received, int qty) {
@@ -57,17 +99,6 @@ public class Car {
 	}
 
 	public static void main(String[] args) {
-		Car c1 = new Car();
-		c1.iD = "123";
-		c1.color = "black";
-		c1.model = "mec";
-		c1.setCapacity(8);
-		c1.setCurrentPassengers(6);
-
-		Car c2 = new Car("456", "while", "lambo", 8);
-		c2.Passengers = 5;
-		c1.transfer(c2, 2);
-		System.out.println(c1);
-		System.out.println(c2);
+	
 	}
 }
