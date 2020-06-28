@@ -10,6 +10,38 @@ public class Car {
 	public Car() {
 	}
 	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public int getCurrentAmountOfPeople() {
+		return currentAmountOfPeople;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
 	public Car(String id, String color, String model, int capacity) throws RuntimeException {
 		this.id = id;
 		this.color = color;
@@ -33,19 +65,6 @@ public class Car {
 		} else {
 			System.out.println("Error over capacity");
 		}
-	}
-
-	public static void main(String[] args) {
-		Car c1 = new Car("nxcd12", "green", "mercedes", 0);
-		Car c2 = new Car("123jgf", "red", "lamboghini", 20);
-		
-		c1.currentAmountOfPeople = 4;
-		c2.currentAmountOfPeople = 7;
-		
-		c1.transfer(c2, 1);
-
-		System.out.println("id: " + c1);
-		System.out.println("id: " + c2);
 	}
 
 	@Override
