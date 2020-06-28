@@ -20,6 +20,32 @@ public class Car {
 		this.currentPassengers = currentPassengers;
 
 	}
+	
+
+	public String getId() {
+		return id;
+	}
+
+
+	public String getColor() {
+		return color;
+	}
+
+
+	public String getModel() {
+		return model;
+	}
+
+
+	public int getCurrentPassengers() {
+		return currentPassengers;
+	}
+
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
 
 	// Default constructor
 	public Car() {
@@ -36,6 +62,20 @@ public class Car {
 		}
 		System.out.println("Come here !");
 		capacity = pcapacity;
+	}
+	
+	//setter, getter
+	public void setId(String id) {
+		this.id=id;
+	}
+	
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
 	}
 
 	public void setCapacity(Integer capacity) {
@@ -63,7 +103,7 @@ public class Car {
 	}
 
 	public static void main(String[] args) {
-		Car c1 = new Car();
+		final Car c1 = new Car(); //restrict garbage in heap
 		c1.id = "1108";
 		c1.color = "blue";
 		c1.model = "audi";
