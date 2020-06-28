@@ -39,6 +39,35 @@ public class Car {
 	}
 	}
 	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
+	
+	public String getId() {
+		return id;
+	}
+	public String getColor() {
+		return color;
+	}
+	public String getModel() {
+		return model;
+	}
+	public Integer getCapacity() {
+		return capacity;
+	}
+	public int getCurrentAmountOfPeople() {
+		return currentAmountOfPeople;
+	}
+	
 	
 	@Override
 	public String toString() {
