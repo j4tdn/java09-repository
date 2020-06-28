@@ -27,6 +27,19 @@ public class Car {
 		capacity = pcapacity;
 
 	}
+//setter, getter
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
 
 	public void setCapacity(Integer capacity) {
 		if (capacity == null || capacity <= 0) {
@@ -37,6 +50,7 @@ public class Car {
 		this.capacity = capacity;
 
 	}
+	
 
 	public void setPassengers(int currentAmountOfPeople) {
 		if (currentAmountOfPeople > this.capacity) {
@@ -45,6 +59,26 @@ public class Car {
 		}
 		this.currentPassengers = currentAmountOfPeople;
 
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+	public int getCurrentPassengers() {
+		return currentPassengers;
 	}
 
 	@Override
@@ -66,21 +100,6 @@ public class Car {
 
 	}
 
-	public static void main(String[] args) {
-		Car c1 = new Car();
-		c1.id = "123abc";
-		c1.color = "green";
-		c1.model = " benz";
-		//catch error for capacity
-		c1.setCapacity(1);
-		c1.setPassengers(6);
-		Car c2 = new Car("456xyz", "yellow", "lambo", 8);
-		c2.currentPassengers = 3;
-		c1.transfer(c2, 100);
-
-		System.out.println(c1);
-		System.out.println(c2);
-
-	}
+	
 
 }
