@@ -52,15 +52,37 @@ public class Car {
 		return true;
 	}
 
-	public static void main(String[] args) {
-		Car c1 = new Car("123", "green", "benz", 29);
-		c1.setCurrentPassengers(6);
-
-		Car c2 = new Car("456", "yellow", "bmw", 19);
-		c2.setCurrentPassengers(3);
-
-		System.out.println(c1.transfer(c2, 1));
-		System.out.println(c1);
-		System.out.println(c2);
+	public String getId() {
+		return id;
 	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+	public int getCurrentPassengers() {
+		return currentPassengers;
+	}
+
+	
 }
