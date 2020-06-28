@@ -7,7 +7,7 @@ public class Car {
 	private int capacity; // suc chua
 
 	// number of people in car at the moment
-	private int currentAmountOfPeople;
+	public int currentAmountOfPeople;
 
 	// default constructor
 	public Car() {
@@ -24,6 +24,19 @@ public class Car {
 		}
 		capacity = pcapacity;
 	}
+	
+	//setter, getter
+	public void setId(String id) {
+		this.id=id;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
 
 	public void setCapacity(Integer capacity) {
 		if (capacity == null || capacity <= 0) {
@@ -39,6 +52,28 @@ public class Car {
 			return;
 		}
 		this.currentAmountOfPeople = currentAmountOfPeople;
+	}
+
+	
+	
+	public String getId() {
+		return id;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public int getCurrentAmountOfPeople() {
+		return currentAmountOfPeople;
 	}
 
 	@Override
@@ -58,21 +93,5 @@ public class Car {
 		return true;
 	}
 
-	public static void main(String[] args) {
-		Car c1 = new Car();
-		c1.id = "123abc";
-		c1.color = "red";
-		c1.model = "ducati";
-		c1.setCapacity(8);
-		c1.setcurrentPassengers(6);
-
-		Car c2 = new Car("456xyz", "blue", "lambogini", 8);
-		c2.currentAmountOfPeople = 3;
-
-		c1.transfer(c2, 1);
-
-		System.out.println(c1);
-		System.out.println(c2);
-
-	}
+	
 }

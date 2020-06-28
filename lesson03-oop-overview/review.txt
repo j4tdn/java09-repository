@@ -1,0 +1,12 @@
+lesson03 : oop overview
+ class va object: theo & code
+ access modifile: public, private
+ attributes
+ constructor
+ getter, setter
+ toString
+ heap/ stack: new
+ static/ non static
+ utility class
+ ======
+ design , pattern,builder, singleton
