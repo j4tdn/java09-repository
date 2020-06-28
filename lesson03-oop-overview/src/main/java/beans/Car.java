@@ -27,6 +27,20 @@ public class Car {
 		}
 	}
 
+	//setter , getter
+	public void setId(String id) {
+		this.id =id;
+	}
+	
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
 	public void setCapacity(Integer capacity) {
 		if (capacity == null || capacity <= 0) {
 			throw new RuntimeException("Invalid capacity !");
@@ -45,12 +59,32 @@ public class Car {
 	}
 
 	// constructor
+	public String getId() {
+		return id;
+	}
 
+	public String getColor() {
+		return color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+	public int getCurrentPassengers() {
+		return currentPassengers;
+	}
 	@Override
 	public String toString() {
 		return id + " , " + color + " , " + model + "  , " + currentPassengers;
 
 	}
+
+	
 
 	public boolean transfer(Car received, int qty) {
 
