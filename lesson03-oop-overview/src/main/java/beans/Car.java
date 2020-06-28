@@ -46,10 +46,26 @@ public class Car {
 
 	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return id + "," + color + "," + model + "," + currentPassenger;
 	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
+	//getter
+	
+	
 
 	public boolean transfer(Car received, int qty) {
 		int max = received.currentPassenger + qty;
@@ -62,23 +78,25 @@ public class Car {
 		return true;
 	}
 
-	public static void main(String[] args) {
-		Car c1 = new Car();
-		c1.id = "123";
-		c1.color = "green";
-		c1.model = "benz";
-		// catch error for capacity
-		c1.setCapacity(1);
-		c1.setCurrentPassenger(6);
-
-		Car c2 = new Car("456", "orange", "lambo", 8);
-		c2.currentPassenger = 3;
-
-		c1.transfer(c2, 100);
-
-		System.out.println(c1);
-		System.out.println(c2);
-
+	public String getId() {
+		return id;
 	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+	public int getCurrentPassenger() {
+		return currentPassenger;
+	}
+	
 
 }
