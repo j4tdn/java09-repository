@@ -28,6 +28,21 @@ public class Car {
 	}
 		capacity=pcapacity;
 	}
+	
+	//setter, getter
+	public void setID(String id) {
+		this.id=id;
+	}
+		
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
 	public void setCapasity(Integer capacity) {
 		if ( capacity ==null || capacity <= 0) {
 			throw new RuntimeException("invald capacity !");
@@ -47,11 +62,33 @@ public class Car {
 	// number of people in car at the moment
 	// default constructor
 	
-
+	
+	
+	
 	@Override
 	public String toString() {
 		return id + ", " + color + ", " + model + "," + currentPassengers;
 
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+	public int getCurrentPassengers() {
+		return currentPassengers;
 	}
 
 	public boolean transfer(Car received, int qty) {
@@ -68,26 +105,5 @@ public class Car {
 		return true;
 
 	}
-
-	public static void main(String[] args) {
-		Integer a = new Integer(5);
-		Car c1 = new Car();
-		c1.id = "123abc";
-		c1.color = "green";
-		c1.model = "benz";
-		c1.setCapasity(6);
-		c1.setCurrentPassengers(2);
-
-		System.out.println(c1);
-
-		Car c2 = new Car("456xyz", "yellow", "lambo", 4);
-		c2.setCurrentPassengers(2);
-		System.out.println(c2);
-
-		c1.transfer(c2, 2);
-		
-		System.out.println(c1);
-		System.out.println(c2);
-	}
-
 }
+
