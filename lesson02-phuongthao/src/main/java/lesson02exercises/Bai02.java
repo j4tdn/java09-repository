@@ -1,12 +1,12 @@
 package lesson02exercises;
 
-//Bài 2: Viết chương trình tính tổng S=4!+7!+12!+18!
+//Bai 2: S=4!+7!+12!+18!
 
 public class Bai02 {
 	public static void main(String[] args) {
 		// int a=4, b=7, c=12, d=18;
 
-		System.out.println("tổng S=4!+7!+12!+18!=" + (giaithua(4) + giaithua(7) + giaithua(12) + giaithua(18)));
+		System.out.println("Sum S=4!+7!+12!+18!=" + (giaithua(4) + giaithua(7) + giaithua(12) + giaithua(18)));
 
 	}
 
