@@ -2,11 +2,11 @@ package beans;
 
 import java.time.LocalDate;
 
-import view.Custom;
+import view.Customer;
 import view.Item;
 
 public class ItemDetail {
-	private  Custom custom;
+	private  Customer custom;
 	private Item[] items;
 	private LocalDate date;
 	
@@ -14,17 +14,17 @@ public class ItemDetail {
 		
 	}
 
-	public ItemDetail(Custom custom, Item[] items, LocalDate date) {
+	public ItemDetail(Customer custom, Item[] items, LocalDate date) {
 		this.custom = custom;
 		this.items = items;
 		this.date = date;
 	}
 
-	public Custom getCustom() {
+	public Customer getCustom() {
 		return custom;
 	}
 
-	public void setCustom(Custom custom) {
+	public void setCustom(Customer custom) {
 		this.custom = custom;
 	}
 

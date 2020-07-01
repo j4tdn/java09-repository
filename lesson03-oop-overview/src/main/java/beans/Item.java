@@ -1,4 +1,4 @@
-package view;
+package beans;
 
 public class Item {
 	private String id;
@@ -10,7 +10,7 @@ public Item() {
 
 }
 
-public Item(String id, String os, String color, double price) {
+public Item(String id, String os, String color, Double price) {
 	this.id = id;
 	this.os = os;
 	this.color = color;
