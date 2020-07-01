@@ -23,8 +23,10 @@ public class ShopView {
 	}
 
 	private static Phone[] getPhones() {
-		return new Phone[] { new Phone("Y8", "Android", "yellow", 100d),
-				new Phone("Xiaomi Redmi", "Android", "black", 2000d), new Phone("Iphone 8", "IOS", "white", 1000d),
+		return new Phone[] {
+				new Phone("Y8", "Android", "yellow", 100d),
+				new Phone("Xiaomi Redmi", "Android", "black", 2000d), 
+				new Phone("Iphone 8", "IOS", "white", 1000d),
 				new Phone("Samsung", "Android", "red", 150d) };
 	}
 
