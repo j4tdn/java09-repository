@@ -3,11 +3,10 @@ package beans;
 import java.time.LocalDate;
 
 import view.Customers;
-import view.Item;
 
 public class ItemDetail {
 	private Customers customer ;
-	private Item[] items;
+	private ItemAdv[] items;
 	private LocalDate date;
 	
 	
@@ -16,7 +15,7 @@ public class ItemDetail {
 	}
 
 
-	public ItemDetail(Customers customers, Item[] item, LocalDate date) {
+	public ItemDetail(Customers customers, ItemAdv[] item, LocalDate date) {
 		super();
 		this.customer = customers;
 		this.items = item;
@@ -34,12 +33,12 @@ public class ItemDetail {
 	}
 
 
-	public Item[] getItem() {
+	public ItemAdv[] getItem() {
 		return items;
 	}
 
 
-	public void setItem(Item[] item) {
+	public void setItem(ItemAdv[] item) {
 		this.items = item;
 	}
 

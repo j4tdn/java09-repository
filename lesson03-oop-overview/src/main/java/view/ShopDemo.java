@@ -3,6 +3,7 @@ package view;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 
+import beans.ItemAdv;
 import beans.ItemDetail;
 import static utils.StringUtils.format;
 
@@ -10,13 +11,13 @@ import static utils.ItemsDetailUtils.getBill;
 
 public class ShopDemo {
 	public static void main(String[] args) {
-		Item[] items = getItems();
+		ItemAdv[] items = getItems();
 		Customers[] customers = getCustomers();
 
-		Item[] LeNaItems = new Item[] { items[0], items[1] };
+		ItemAdv[] LeNaItems = new ItemAdv[] { items[0], items[1] };
 		ItemDetail LeNaBillDetail = new ItemDetail(customers[0], LeNaItems, LocalDate.of(2020, 5, 5));
 
-		Item[] hoangteoItems = new Item[] { items[0], items[3] };
+		ItemAdv[] hoangteoItems = new ItemAdv[] { items[0], items[3] };
 		ItemDetail hoangteoDetail = new ItemDetail(customers[1], hoangteoItems, LocalDate.of(2020, 5, 6));
 		double lenaBill = getBill(LeNaBillDetail);
 		double hoangteoBill = getBill(hoangteoDetail);
@@ -25,9 +26,9 @@ public class ShopDemo {
 	}
 
 	// khoi tao du lieu cho cua hang
-	private static Item[] getItems() {
-		return new Item[] { new Item("nokia", "undefined", "black", 500), new Item("iphone4", "ios", "black", 1000),
-				new Item("lgG3", "android", "yellow", 800), new Item("sámung", "android", "black", 1300),
+	private static ItemAdv[] getItems() {
+		return new ItemAdv[] { new ItemAdv("nokia", "undefined", "black", 500), new ItemAdv("iphone4", "ios", "black", 1000),
+				new ItemAdv("lgG3", "android", "yellow", 800), new ItemAdv("sámung", "android", "black", 1300),
 
 		};
 	}
