@@ -28,6 +28,12 @@ public class car {
 		capacity = pcapacity;
 	}
 	
+	//getter, setter
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	public void setCapacity(Integer capacity) {
 		if (capacity == null || capacity <= 0) {
 			throw new RuntimeException("Invalid capacity !");
@@ -61,6 +67,41 @@ public class car {
 		currentPassengers = currentPassengers - qty;
 		return true;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+
+	public String getColor() {
+		return color;
+	}
+
+
+	public String getModel() {
+		return model;
+	}
+
+
+	public int getCurrentPassengers() {
+		return currentPassengers;
+	}
+
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+//=============================
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
 
 	public static void main(String[] args) {
 		car c1 = new car();
