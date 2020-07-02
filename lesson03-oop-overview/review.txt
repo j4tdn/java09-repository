@@ -1,5 +1,6 @@
 lesson03:OOP Overview
 class and object:theory & code
+access modifier
 attributes
 contructor
 getter & setter
@@ -7,3 +8,4 @@ toString
 heap/stack: new
 Static &nonStatic
 Utility class
+desgin pattern:builder,singleton.

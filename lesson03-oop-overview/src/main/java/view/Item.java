@@ -1,16 +1,17 @@
 package view;
 
-public class Device {
+public class Item {
 	private String id;
-	private String system;
+	private String os;
 	private String color;
 	private double price;
-	
-	public Device() {
+	public Item() {
+		// TODO Auto-generated constructor stub
 	}
-	public Device(String id, String system, String color, double price) {
+	public Item(String id, String os, String color, double price) {
+		super();
 		this.id = id;
-		this.system = system;
+		this.os = os;
 		this.color = color;
 		this.price = price;
 	}
@@ -20,11 +21,11 @@ public class Device {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getSystem() {
-		return system;
+	public String getOs() {
+		return os;
 	}
-	public void setSystem(String system) {
-		this.system = system;
+	public void setOs(String os) {
+		this.os = os;
 	}
 	public String getColor() {
 		return color;
@@ -38,9 +39,11 @@ public class Device {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return (id+os+color+price);
+	}
 	
-	
-	
-	
-
 }
+

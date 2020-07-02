@@ -1,46 +1,57 @@
 package view;
 
-import java.awt.event.ItemEvent;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.Locale;
 
-import beans.ItemDetail;
+
+import lesson03_OOP.ItemDetail;
+import util.ItemDetaileUtils;
 import util.StringUtil;
 
-import static util.ItemDetaileUtils.getBill;;
 
 public class ShopDemo {
 	public static void main(String[] args) {
-		Device[] Devices = getDevice();
-		Customer[] customers = getCustomers();
-		Device[] LenaItem = new Device[] { Devices[0], Devices[1] };
-		ItemDetail leNaBillDetail = new ItemDetail(customers[0], LenaItem, LocalDate.of(2020, 12, 12));
-		Device[] hoanglocItem= new Device[] {Devices[0],Devices[1]};
-		ItemDetail hoangLocBillDetail = new ItemDetail(customers[0],hoanglocItem,LocalDate.of(2020, 12, 13));
-		double leNaBill = getBill(hoangLocBillDetail);
-		double hoanglocBill=getBill(leNaBillDetail);
-		System.out.println("bill le na"+StringUtil.format(leNaBill));
-		System.out.println(hoanglocBill);
-
+		Item[] items=getItem();
+		//tạo đối tượng customers- khách hàng		
+		Customer[]customers =getCustomers();
+		
+		//tạo đối tượng  locItems chứa thiết bị đã mua
+		Item[] locItems=new Item[] {items[0], items[1]};
+		//tạo đối tượng hoangLocBill gồm cso khách hàng,
+		ItemDetail hoangLocBillDetail=new ItemDetail(customers[0], locItems, LocalDate.of(2020, 06, 30));
+		
+		Item[] linhItems= new Item[] {items[3]};
+		ItemDetail linhBillDetail=new ItemDetail(customers[1], linhItems, LocalDate.of(2020, 06, 05));
+		
+		//tinh tien
+		double hoangLocBill=ItemDetaileUtils.getBill(hoangLocBillDetail);
+		double hoanglinhBill=ItemDetaileUtils.getBill(linhBillDetail);
+		System.out.println(StringUtil.format(hoangLocBill));
+		System.out.println(StringUtil.format(hoanglinhBill));
 	}       
 
-
+///tạo hàm tính tiền
 
 	
 
 	/// khoi tao du lieu cho thiet bi
-	private static Device[] getDevice() {
-		return new Device[] { new Device("nokia", "androi", "black", 500), new Device("iphone", "IOS", "while", 600),
-				new Device("nokia2", "androi", "black", 700), new Device("nokia3", "androi", "black", 800),
+	private static Item[] getItem() {
+		return new Item[] { 
+				new Item("nokia", "androi", "black", 9000000),
+				new Item("iphone", "IOS", "while", 6000000),
+				new Item("nokia2", "androi", "black", 7000000),
+				new Item("nokia3", "androi", "black", 8000000),
 
 		};
 	}
 
 ///khoi tao du lieu cho khac hang
 	private static Customer[] getCustomers() {
-		return new Customer[] { new Customer("lena", "0905", "123", "da nang"),
-				new Customer("leteo", "0169", "456", "da nang"), };
+		return new Customer[] { 
+				new Customer("hoangloc", "0905", "123", "da nang"),
+				new Customer("hoanglinh", "0169", "456", "da nang"), 
+				};
 	}
 
 }
