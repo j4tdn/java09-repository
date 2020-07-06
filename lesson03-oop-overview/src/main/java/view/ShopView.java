@@ -4,6 +4,11 @@ import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.Locale;
 
+import utils.ItemDetailUtils;
+import utils.StringUtils;
+
+import static utils.ItemDetailUtils.getBill;;;
+
 public class ShopView {
 	public static void main(String[] args) {
 		Customer[] customers=getCustomer();
@@ -16,16 +21,14 @@ public class ShopView {
 	    Device[] hoangTeoDevice=new Device[] {device[1],device[2]};
 	    ItemDetail hoangTeoBillDetail=new ItemDetail(customers[0],hoangTeoDevice,LocalDate.of(2020, 6, 5));
 	
-	    double lenaBill=getBill(leNaBillDetail);
-	    double hoangteoBill=getBill(hoangTeoBillDetail);
+	    double lenaBill=ItemDetailUtils.getBill(leNaBillDetail);
+	    double hoangteoBill=ItemDetailUtils.getBill(hoangTeoBillDetail);
 	    
-	    System.out.println("Le na: "+format(lenaBill));
-	    System.out.println("Hoang teo: "+format(hoangteoBill));
+	    System.out.println("Le na: "+StringUtils.format(lenaBill));
+	    System.out.println("Hoang teo: "+StringUtils.format(hoangteoBill));
 	    
 	}
-	private static String format(double money) {
-		return NumberFormat.getCurrencyInstance(new Locale("vi","VN")).format(money);
-	}
+
 	private static Device[] getDeivce() {
 		return new Device[] {
 				new Device("Nokia1202","undefined","Black",500),
@@ -33,19 +36,6 @@ public class ShopView {
 				new Device("LgG3","android","Black",860),
 				new Device("SamsungS6","android","White",1200),				
 		};
-	}
-	private static double getBill(ItemDetail itemDetail) {
-		double result=0;
-		LocalDate date=itemDetail.getDate();
-		Device[] device=itemDetail.getDevice();
-		for(Device dv:device) {
-			double price=dv.getPrice();
-			if(date.isEqual(LocalDate.of(2020, 5, 5))&&price>559) {
-				price*=0.9;
-			}
-			result+=price;
-		}	
-		return result;
 	}
 	private static Customer[] getCustomer() {
 		return  new Customer[] {
