@@ -5,9 +5,9 @@ public class Car {
 	private String id;
 	private String color;
 	private String model;
-	private Integer capacity; // sức chứa
+	private Integer capacity;
 
-	private int currentPassenger; // number of pp in car at the moment
+	private int currentPassenger;
 
 	public Car() {
 
@@ -15,14 +15,10 @@ public class Car {
 
 	// constructor
 	public Car(String pid, String pcolor, String pmodel, Integer pcapacity) {
-		// phải đặt tên khác nếu không nó chỉ hiểu ở hiện tại{
+
 		id = pid;
 		color = pcolor;
 		model = pmodel;
-		/*
-		 * if (capacity > 0) // bound-unbound-autobound không cần ép kiểu đổi int qua
-		 * Int.. { capacity = pcapacity;
-		 */
 
 		if (pcapacity == null || pcapacity <= 0) {
 
@@ -30,11 +26,12 @@ public class Car {
 		}
 		capacity = pcapacity;
 	}
-	//setter getter
+
+	
 	public void setId(String id) {
-		this.id=id;
+		this.id = id;
 	}
-	 
+
 	public void setColor(String color) {
 		this.color = color;
 	}
@@ -53,18 +50,15 @@ public class Car {
 
 	}
 
-	public void setPassenger(int currentAmountOfpeople) {
+	public void setPassenger(int currentPassenger) {
 		if (currentPassenger > this.capacity) {
 			System.out.println("customers cannot exceed" + capacity);
 			return;
 		}
 		this.currentPassenger = currentPassenger;
 	}
-	
 
 	// defaut constructor
-	
-
 
 	// ham khoi tao khong co kieu du lieu tra ve. Ten ham khoi tao trung ten Class
 	@Override
@@ -112,7 +106,7 @@ public class Car {
 	}
 
 	public static void main(String[] args) {
-		// Iteger a = new integer(5) a la tham chieu
+
 		Car c1 = new Car();
 		c1.id = "123abc";
 		c1.color = "green";
