@@ -1,6 +1,6 @@
 package outsite;
 
-import polymorphism.Parent;
+import polymorphism.method.Parent;
 
 public class Child extends Parent{
 @Override
