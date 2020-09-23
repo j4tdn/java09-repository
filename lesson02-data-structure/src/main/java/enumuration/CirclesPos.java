@@ -1,12 +1,11 @@
 package enumuration;
 
 public enum CirclesPos {
-	INSIDE ("trong Đường tron"),
-	 ONSIDE("tren Đường tron"),
-	 OUTSIDE(" ngoai Đường tron");
+	INSIDE("trong Đường tron"), ONSIDE("tren Đường tron"), OUTSIDE(" ngoai Đường tron");
+
 	public String value;
-	
-	CirclesPos(String val){
+
+	CirclesPos(String val) {
 		value = val;
 	}
 }
