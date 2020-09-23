@@ -16,15 +16,9 @@ public class BuilderDemo {
 				.color("green");
 		
 		ItemAdv second = builder
-				.devId("456")
-				.cost(150)
-				.color("green")
 				.build();
 		
 		ItemAdv third = builder
-				.devId("456")
-				.cost(150)
-				.color("green")
 				.operateSystem("android")
 				.build();
 		

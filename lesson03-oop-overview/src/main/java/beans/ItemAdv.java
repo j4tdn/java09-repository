@@ -11,6 +11,7 @@ public class ItemAdv {
 
 	private ItemAdv(Builder builder) {
 		this.devId = builder.devId;
+		this.operateSystem = builder.operateSystem;
 		this.color = builder.color;
 		this.cost = builder.cost;
 	}
@@ -55,6 +56,7 @@ public class ItemAdv {
 			this.devId = devId;
 			return this;
 		}
+		
 
 		public Builder operateSystem(String operateSystem) {
 			this.operateSystem = operateSystem;
