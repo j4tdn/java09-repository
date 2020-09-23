@@ -32,7 +32,7 @@ public class ItemAdv {
 	public String getId() {
 		return id;
 	}
-
+	
 	public String getSystem() {
 		return system;
 	}
