@@ -1,7 +1,10 @@
-package polymorphism;
+package polymorphism.method;
 
-public class Parent {
+public class Child extends Parent{
+
+	@Override
 	protected void playSport() {
 		System.out.println(getClass().getName()+"PlaySport..");
 	}
+	
 }
