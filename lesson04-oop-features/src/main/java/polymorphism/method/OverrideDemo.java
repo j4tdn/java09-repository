@@ -1,4 +1,4 @@
-package polymorphism;
+package polymorphism.method;
 
 public class OverrideDemo {
 	 public static void main(String[] args) {
