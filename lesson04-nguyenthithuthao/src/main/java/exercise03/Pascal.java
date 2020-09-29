@@ -17,17 +17,16 @@ public class Pascal {
 			for (j = 0; j <= i; j++) {
 				if (i == j || j == 0) {
 					A[i][j] = 1;
-					System.out.printf("%d\t" , A[i][j]);
+					System.out.printf("%d\t", A[i][j]);
 				} else {
 					A[i][j] = A[i - 1][j - 1] + A[i - 1][j];
-					System.out.printf("%d\t" , A[i][j]);
+					System.out.printf("%d\t", A[i][j]);
 
 				}
 
 			}
 			System.out.printf("\n");
 		}
-		
 
 	}
 

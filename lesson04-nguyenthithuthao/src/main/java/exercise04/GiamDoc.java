@@ -16,7 +16,7 @@ public class GiamDoc extends People {
 		// TODO Auto-generated constructor stub
 	}
 
-	public GiamDoc(String name, String birthday, float coesalary, float hschucvu) {
+	public GiamDoc(String name, int birthday, float coesalary, float hschucvu) {
 		super(name, birthday, coesalary);
 		this.hschucvu = hschucvu;
 	}
@@ -29,13 +29,13 @@ public class GiamDoc extends People {
 		this.hschucvu = hschucvu;
 	}
 
-	public long luong() {
+	public long salary() {
 		return (long) ((coesalary + hschucvu) * 3000000);
 	}
 
 	@Override
 	public String toString() {
-		return this.name + "		" + this.coesalary + "	" + this.hschucvu + "	" + luong();
+		return this.name + "		" + this.coesalary + "	" + this.hschucvu + "	" + salary();
 	}
 
 }

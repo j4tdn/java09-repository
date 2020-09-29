@@ -1,7 +1,8 @@
 package exercise04;
 
-public class demo {
+public class Demo {
 	public static void main(String[] args) {
+
 		GiamDoc giamdoc = new GiamDoc();
 		System.out.println("Nhập thông tin giám đốc: ");
 		giamdoc.nhap();
@@ -18,9 +19,7 @@ public class demo {
 		System.out.println(tp);
 		System.out.println(nv01);
 		System.out.println(nv02);
-		
-		
-		
+
 	}
 
 }
