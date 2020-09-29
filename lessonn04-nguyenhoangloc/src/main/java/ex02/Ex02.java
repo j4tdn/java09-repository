@@ -2,11 +2,17 @@ package ex02;
 
 public class Ex02 {
 	public static void main(String[] args) {
-		int[] ranges = { 7, 35, 70, 5, 20,50,50,50,50, 7, 14, 28,7,21,17,14,35,35,70 };
+		int[] ranges = { 7, 35, 70, 5, 20, 50, 50, 50, 50, 7, 14, 28, 7, 21, 17, 14, 35, 35, 70 };
 		int first = 0;
 		int last = ranges.length - 1;
 		int mid = ranges.length / 2;
 
+		for (int i = 0; i <= last; i++) {
+			if (ranges[i] % 7 == 0 && ranges[i] % 5 == 0) {
+//				System.out.println("mid" + mid);
+				swap(mid, i, ranges);
+			}
+		}
 		for (int i = 0; i <= last; i++) {
 
 			if (ranges[i] % 7 == 0 && ranges[i] % 5 != 0) {
@@ -21,16 +27,11 @@ public class Ex02 {
 			}
 
 		}
-		for (int i = 0; i <= last; i++) {
-			if (ranges[i] % 7 == 0 && ranges[i] % 5 == 0) {
-//				System.out.println("mid" + mid);
-				swap(mid, i, ranges);
-			}
-		}
+
 		System.out.println();
 		System.out.println("Chuoi sau khi xu ly:");
 		for (int i = 0; i < ranges.length; i++) {
-			System.out.print( ranges[i]+"-");
+			System.out.print(ranges[i] + "-");
 		}
 	}
 
