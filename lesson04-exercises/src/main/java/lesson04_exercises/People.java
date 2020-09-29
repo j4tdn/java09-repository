@@ -38,7 +38,7 @@ public class People {
 	public People(String name, int birthday, float coeficientsSalary) {
 		this.name = name;
 		this.birthday = birthday;
-		this.coefficientsSalary=coefficientsSalary;
+		this.coefficientsSalary = coefficientsSalary;
 	}
 
 	public void Input()
@@ -52,6 +52,5 @@ public class People {
 		System.out.println("Hệ số lương:");
 		coefficientsSalary = sc.nextInt();
 	}
-
 
 }

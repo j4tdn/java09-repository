@@ -27,8 +27,8 @@ public void InputManager() {
 	
 }
 public void OutputManager() {
-	System.out.printf(" %20s %15s %15s %15s %15s\n","Họ tên","Năm sinh","Hệ số lương","Số lượng nhân viên quản lý","Lương");
-	System.out.printf(" %20s %15d %15d %15d %15.2f\n",name,birthday,coefficientsSalary,numberOfManagementStaff,Salary(numberOfManagementStaff));
+	System.out.printf(" %10s %15s %17s %17s %15s\n","Họ tên","Năm sinh","Hệ số lương","Số lượng nhân viên quản lý","Lương");
+	System.out.printf(" %32s %15d %15d %17d %28f\n",name,birthday,coefficientsSalary,numberOfManagementStaff,Salary(numberOfManagementStaff));
 	
 }
 }

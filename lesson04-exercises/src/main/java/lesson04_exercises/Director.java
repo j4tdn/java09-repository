@@ -31,7 +31,7 @@ public class Director extends People {
 		
 	}
 	public void OutputDirector() {
-		System.out.printf(" %20s %15s %15s %15s %15s\n","Họ tên","Năm sinh","Hệ số lương","Hệ số chức vụ","Lương");
-		System.out.printf(" %20s %15d %15d %15f %15.2f\n",name,birthday,coefficientsSalary,position,Salary(coefficientsSalary, position));
+		System.out.printf(" %10s %15s %15s %15s %15s\n","Họ tên","Năm sinh","Hệ số lương","Hệ số chức vụ","Lương");
+		System.out.printf(" %30s %15d %15d %15f %18f\n",name,birthday,coefficientsSalary,position,Salary(coefficientsSalary, position));
 	}
 }

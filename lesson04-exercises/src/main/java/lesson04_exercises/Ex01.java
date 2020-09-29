@@ -58,7 +58,7 @@ public class Ex01 {
 		return id + " - " + name + " diem Tb : " + MediumScore();
 	}
 
-	public void Print() {
+	public void Output() {
 		System.out.printf("%6d %16s %12f %13f %13f \n", id, name, point_LT, point_TH, MediumScore());
 	}
 
@@ -76,10 +76,10 @@ public class Ex01 {
 		sv3.setPoint_LT(sc.nextFloat());
 		System.out.println("Nhập điểm thực hành: ");
 		sv3.setPoint_TH(sc.nextFloat());
-		System.out.printf("%6s %10s %20s %10s %10s \n", "Mã sinh viên", "Họ tên", "Điểm lý thuyết", "Điểm thực hành",
+		System.out.printf("%10s %10s %20s %10s %10s \n", "Mã sinh viên", "Họ tên", "Điểm lý thuyết", "Điểm thực hành",
 				"Điểm trung bình");
-		sv1.Print();
-		sv2.Print();
-		sv3.Print();
+		sv1.Output();
+		sv2.Output();
+		sv3.Output();
 	}
 }

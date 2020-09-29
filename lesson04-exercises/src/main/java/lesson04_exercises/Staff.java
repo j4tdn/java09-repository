@@ -26,8 +26,8 @@ public void InputStaff() {
 	
 }
 public void OutputStaff() {
-	System.out.printf(" %20s %15s %15s %15s %15s\n","Họ tên","Năm sinh","Hệ số lương",
+	System.out.printf(" %10s %15s %15s %15s %15s\n","Họ tên","Năm sinh","Hệ số lương",
 			"Tên Đơn Vị","Lương");
-	System.out.printf(" %20s %15d %15.2d %15s %15.2f\n",name,birthday,coefficientsSalary,unitName,Salary(coefficientsSalary));
+	System.out.printf(" %40s  %15d  %13d  %12s  %15f\n",name,birthday,coefficientsSalary,unitName,Salary(coefficientsSalary));
 }
 }
