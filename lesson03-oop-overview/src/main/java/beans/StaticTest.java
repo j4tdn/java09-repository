@@ -31,11 +31,11 @@ public class StaticTest {
 		st3.sum(a,b);
 		st4.sum(a,b);
 		st5.sum(a,b);
-		st6.sum(a,b);
+		System.out.println(st5.sum(a,b));
 			
 	}
 	
-	private static int staticSum(int a,int b) {
+	private static int staticSum(int a,int b) {//cung co the de non-static nhung ma ko nen
 		return a + b;
 	}
 	
