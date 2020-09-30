@@ -26,5 +26,10 @@ public class ReferenceBook extends Book{
 		return super.toString()
 				+ ", tax: " + tax;
 	}
+
+	@Override
+	public float getLastPrice() {
+		return this.price * (1 + tax);
+	}
 	
 }

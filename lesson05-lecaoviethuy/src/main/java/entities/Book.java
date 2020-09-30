@@ -1,6 +1,6 @@
 package entities;
 
-public class Book {
+public abstract class Book {
 	protected BookType type;
 	protected String id;
 	protected int price;
@@ -41,11 +41,12 @@ public class Book {
 		this.publishingCompany = publishingCompany;
 	}
 	
+	abstract public float getLastPrice();
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "type: " + type
-				+ ", id: " + id
+		return "id:" + type + "-" + id
 				+ ", price: " + price
 				+ ", publishing company: " + publishingCompany;
 	}

@@ -25,6 +25,15 @@ public class TextBook extends Book{
 		return super.toString() 
 				+ ", status: " + status;
 	}
+
+	@Override
+	public float getLastPrice() {
+		if(this.status.equalsIgnoreCase("cũ")) {
+			return this.price * 0.7f;
+		} else {
+			return this.price;
+		}
+	}
 	
 	
 }

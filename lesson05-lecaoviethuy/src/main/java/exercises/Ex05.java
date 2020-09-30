@@ -61,17 +61,7 @@ public class Ex05 {
 	private static float caculateBooks(List<Book> boughtBook) {
 		float sum = 0;
 		for(Book book : boughtBook) {
-			if(book.getType() == BookType.TEXT_BOOK) {
-				TextBook textBook = (TextBook) book;
-				if(textBook.getStatus().equalsIgnoreCase("cũ")) {
-					sum += textBook.getPrice() * 0.7;
-				} else {
-					sum += textBook.getPrice();
-				}
-			} else {
-				ReferenceBook referenceBook = (ReferenceBook) book;
-				sum += referenceBook.getPrice() * (1 + referenceBook.getTax());
-			}
+			sum += book.getLastPrice();
 		}
 		
 		return sum;
