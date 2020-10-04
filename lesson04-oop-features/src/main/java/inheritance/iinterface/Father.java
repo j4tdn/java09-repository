@@ -7,3 +7,4 @@ public interface Father {
 	void playGame();
 	void drinkBeer();
 }
+
