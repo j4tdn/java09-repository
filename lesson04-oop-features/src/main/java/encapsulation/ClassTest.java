@@ -25,6 +25,7 @@ public class ClassTest {
 		return phone;
 	}
 
+	
 	public void setPhone(int phone) {
 		this.phone = phone;
 	}
