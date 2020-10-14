@@ -2,7 +2,7 @@ package exception;
 
 import java.util.Scanner;
 
-public class Ex2 {
+public class Ex02 {
 	private static Scanner ip = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class Ex2 {
 				number = Integer.parseInt(ip.nextLine());
 				break;
 			} catch (NumberFormatException e) {
-				System.out.println(e.getMessage());
+				System.out.println("invalid number !!!");
 			}
 
 		} while (true);
