@@ -3,17 +3,14 @@ package polymorphism.method;
 public class OverrideDemo {
 	public static void main(String[] args) {
 		Parent father = new Parent();
-		father.playSport();
-		
-		System.out.println("=====");
-		
+		father.drinkBeer();
+		System.out.println("----------------------------");
 		Child son = new Child();
-		son.playSport();
-		
-		System.out.println("=====");
-		
-		Parent undefined = new Child();	
-		System.out.println("runtime: " + undefined.getClass());
-		undefined.playSport();
+		son.drinkBeer();
+
+		System.out.println("----------------------------");
+		Parent undefine = new Child();
+		System.out.println("runtime instance: " + undefine.getClass());
+		undefine.drinkBeer();
 	}
 }

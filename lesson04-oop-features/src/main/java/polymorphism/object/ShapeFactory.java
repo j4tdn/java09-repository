@@ -1,19 +1,19 @@
 package polymorphism.object;
 
 public class ShapeFactory {
-	//plac create shape instance
+	// place to create shape instance
+	
 	public static Shape getShape(ShapeInstance instance) {
-		Shape shape=null;
+		Shape shape = null;
 		switch (instance) {
 		case RECTANGLE:
-			shape=new Rectangle();
+			shape = new Rectangle();
 			break;
 		case SQUARE:
-			shape=new Square();
+			shape = new Square();
 			break;
 		default:
-			shape=new Shape();
-			break;
+			shape = new Shape();
 		}
 		return shape;
 	}
