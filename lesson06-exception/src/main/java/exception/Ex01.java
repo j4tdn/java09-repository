@@ -17,4 +17,9 @@ public class Ex01 {
 			System.out.println("Enter number:");
 		}
 	}
+	private static int inputNumber()throws NumberFormatException{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Number: ");
+		return Integer.parseInt(sc.nextLine());
+	}
 }
