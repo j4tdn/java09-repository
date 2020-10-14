@@ -17,5 +17,5 @@ public class Ex01 {
 			}
 			System.out.println("enter number: ");
 		}  while(true);
-}
+}	
 }
