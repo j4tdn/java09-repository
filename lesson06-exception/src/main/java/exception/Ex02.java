@@ -11,7 +11,7 @@ public class Ex02 {
 
 	public static void main(String[] args) {
 		System.out.println("Enter number: ");
-		int number = 0;
+		int number = 0; 
 do {
 		try {
 			number = Integer.parseInt(ip.nextLine());
