@@ -3,21 +3,22 @@ package exception;
 import java.util.Scanner;
 
 public class Ex02 {
-
-	private static Scanner ip = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		System.out.println("Enter Number: ");
-
+		System.out.print("Enter number: ");
 		int number = 0;
 		do {
 			try {
-				number = Integer.parseInt(ip.nextLine());
+				number = Integer.parseInt(sc.nextLine());
 				break;
+
 			} catch (NumberFormatException e) {
-				System.out.println("Invalid number: ");
+				System.out.println(e.getMessage());
 			}
+
 		} while (true);
-		System.out.println("Value: " + number);
+		System.out.println("value: " + number);
+
 	}
 }

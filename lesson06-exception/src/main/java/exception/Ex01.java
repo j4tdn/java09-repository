@@ -3,21 +3,20 @@ package exception;
 import java.util.Scanner;
 
 public class Ex01 {
-
-	private static Scanner ip = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		System.out.println("Enter Number: ");
+		System.out.print("Enter number: ");
 
 		do {
-			String s = ip.nextLine();
+			String s = sc.nextLine();
 			if (s.matches("\\d+")) {
 				int number = Integer.parseInt(s);
 				System.out.println("Value: " + number);
 				break;
+			} else {
+				System.out.print("Enter number \\d+: ");
 			}
-
-			System.out.println("Enter number(\\d+): ");
 		} while (true);
 	}
 }
