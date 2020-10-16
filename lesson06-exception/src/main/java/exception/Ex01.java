@@ -11,7 +11,7 @@ public class Ex01 {
 			System.out.printf("Enter number:");
 			s = ip.nextLine();
 			if (s.matches("[0-9]{1,}")) { //("\\d+")
-				int number = Integer.parseInt(ip.nextLine());
+				int number = Integer.parseInt(s);
 				System.out.println("Value: " + number);
 				break;
 			} 
