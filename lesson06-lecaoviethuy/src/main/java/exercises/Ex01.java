@@ -6,7 +6,7 @@ public class Ex01 {
 	public static void main(String[] args) {
 		System.out.println("===GIAI PHUONG TRINH BAC NHAT===");
 		Scanner sc = new Scanner(System.in);
-		int a, b;
+		int a = -1, b = -1;
 		float result = 0;
 		while(true) {
 			try {
@@ -14,12 +14,21 @@ public class Ex01 {
 				a = Integer.parseInt(sc.nextLine());
 				System.out.print("Nhap b: ");
 				b = Integer.parseInt(sc.nextLine());
-				result = (float)-b/a;
+				if(a == 0) {
+					throw new ArithmeticException();
+				}
+				
+				result = (float) -b/a;
 				break;
 			} catch (NumberFormatException e) {
 				System.out.println("Nhap khong dung dinh dang so! Vui long nhap lai");
 			} catch (ArithmeticException e1) {
-				System.out.println("Loi chia voi 0. Vui long nhap lai!");
+				if(b == 0) {
+					System.out.println("Phuong trinh vo so nghiem");
+					return;
+				} else {
+					System.out.println("Loi chia 0");
+				}
 			}
 		}
 		

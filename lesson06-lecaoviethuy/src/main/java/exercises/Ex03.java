@@ -22,7 +22,7 @@ public class Ex03 {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Nhap email: ");
 		String email = sc.nextLine();
-		if(!email.matches("^[A-Za-z0-9.-]+@[A-Za-z0-9.-]+$")) {
+		if(!email.matches("^[A-Za-z0-9]+@[A-Za-z0-9]+.{1}[A-Za-z0-9]+$")) {
 			throw new EmailException();
 		}
 		return email;
