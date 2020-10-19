@@ -54,7 +54,7 @@ public class Ex01 {
 		
 		//first dow
 		//int fdow= c.get(DAY_OF_MONTH)- c.get(DAY_OF_WEEK) + c.getFirstDayOfWeek();
-		c.add(DAY_OF_MONTH, c.getFirstDayOfWeek() - c.get(DAY_OF_WEEK);
+		//c.add(DAY_OF_MONTH, c.getFirstDayOfWeek() - c.get(DAY_OF_WEEK);
 		System.out.println("default locale: " + Locale.getDefault());
 		System.out.println("fdow wkday : "+ c.getFirstDayOfWeek());
 		//System.out.println("fdow : "+ fdow);
