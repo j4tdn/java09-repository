@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.spi.LocaleNameProvider;
 
+import common.DayOfWeek;
+
 import static java.util.Calendar.*;
 
 public class Ex01 {
@@ -51,7 +53,5 @@ public class Ex01 {
 		System.out.println(DAY_OF_MONTH);
 	}
 
-	enum DayOfWeek {
-		Sunday, Monday, Tusday, Wednesday, Thusday, Friday, Saturday
-	}
+	
 }
