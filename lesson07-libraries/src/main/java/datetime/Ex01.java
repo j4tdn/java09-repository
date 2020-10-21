@@ -6,6 +6,8 @@ import static java.util.Calendar.*;
 import java.util.Date; // import date.ulti
 import java.util.Locale;
 
+import common.DayOfWeek;
+
 public class Ex01 {
 	public static void main(String[] args) {
 		printDateTimeInfo();
@@ -54,7 +56,5 @@ public class Ex01 {
 		System.out.println("First day of week : " + c.getFirstDayOfWeek());
 	}
 	
-	enum DayOfWeek{
-		Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday;
-	}
+
 }
