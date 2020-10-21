@@ -5,6 +5,10 @@ import static java.util.Calendar.*;// rut gon calendar.day_of_month -> day_of_mo
 import java.util.Date;
 import java.util.Locale;
 
+import common.DayOfWeek;
+
+
+
 public class Ex01 {
 	public static void main(String[] args) {
 		// date, month, year
@@ -53,9 +57,7 @@ public class Ex01 {
 	}
 	
 
-	enum DayOfWeek {
-		Sunday, Monday, Tuesday, Wednesday, Thursday, Fiday, Saturday
-	}
+	
 	
 
 }
