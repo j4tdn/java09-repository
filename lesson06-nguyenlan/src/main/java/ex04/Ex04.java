@@ -31,57 +31,58 @@ public class Ex04 {
 			System.out.print(NUMBERS[numbers[count]+1]);
 			break;
 		case 2:
-			switch(numbers[0]) {
+			switch(numbers[1]) {
 			case 1:
-				System.out.print("mười ");
-				switch(numbers[1]) {
-				case 4:
-					System.out.print(" tư ");
-					break;
+				System.out.print("mười");
+				switch(numbers[0]) {
 				case 5: 
 					System.out.print(" lăm");
 					break;
 				default:
-					System.out.print(NUMBERS[numbers[1]]);
+					System.out.print(" " + NUMBERS[numbers[0]]);
 				}
 				break;
 			default:
-				System.out.print(NUMBERS[numbers[0]] + " mươi ");
-				switch(numbers[1]) {
+				System.out.print(NUMBERS[numbers[1]] + " mươi ");
+				switch(numbers[0]) {
 				case 1: 
 					System.out.print(" mốt");
-					break;
-				case 4:
-					System.out.print(" tư ");
 					break;
 				case 5: 
 					System.out.print(" lăm");
 					break;
 				default:
-					System.out.print(NUMBERS[numbers[1]]);
+					System.out.print(" " + NUMBERS[numbers[0]]);
 				}
 			}		
 			break;
 		case 3:
-			System.out.print(NUMBERS[numbers[0]] + " trăm " + NUMBERS[numbers[1]]);
+			System.out.print(NUMBERS[numbers[2]] + " trăm");
 			switch(numbers[1]) {
+			case 0:
+				switch(numbers[0]) {
+				case 0:
+					return;
+				default:
+					System.out.print(" lẻ");
+					System.out.print(" " + NUMBERS[numbers[0]]);
+					return;	
+				}
 			case 1:
 				System.out.print("mười ");
+				System.out.print(" " + NUMBERS[numbers[0]]);
 				break;
 			default:
-				System.out.print(NUMBERS[numbers[0]] + " mươi ");
-				switch(numbers[2]) {
+				System.out.print(" " + NUMBERS[numbers[1]] + " mươi ");
+				switch(numbers[0]) {
 				case 1: 
 					System.out.print(" mốt");
-					break;
-				case 4:
-					System.out.print(" tư ");
 					break;
 				case 5: 
 					System.out.print(" lăm");
 					break;
 				default:
-					System.out.print(NUMBERS[numbers[1]]);
+					System.out.print(NUMBERS[numbers[0]]);
 				}
 			}
 		}	
