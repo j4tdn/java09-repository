@@ -7,6 +7,8 @@ import static java.util.Calendar.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import commom.DaysOfWeek;
 /**
  * Hello world!
  *
@@ -45,7 +47,7 @@ public class Ex01
     		System.out.println(doMonth+"-"+month+"-"+year+"-"+hour12);
     		
     		//days of week
-    		DayOfWeek[] dows = DayOfWeek.values();
+    		DaysOfWeek[] dows = DaysOfWeek.values();
     		c.set(Calendar.DAY_OF_MONTH ,14);
     		c.set(DAY_OF_MONTH, 2);
     		System.out.println("dow: "+ dows[c.get(DAY_OF_WEEK)-1]);
@@ -66,7 +68,5 @@ public class Ex01
     		System.out.println("first day of weeK " + c.get(DAY_OF_MONTH));
     }
     
-    enum DayOfWeek {
-    	sunday,Monday, Tuesday, Wednesday, Thursday, Friday, Stauday
-    }
+    
 }
