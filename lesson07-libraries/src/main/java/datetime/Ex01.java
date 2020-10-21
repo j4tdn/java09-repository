@@ -4,6 +4,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import common.DayOfWeek;
+
 import static java.util.Calendar.*;
 
 public class Ex01 {
@@ -58,9 +60,5 @@ public class Ex01 {
 		c.add(DAY_OF_MONTH, c.getFirstDayOfWeek() - c.get(DAY_OF_WEEK));
 		System.out.println("fdow: " + c.get(DAY_OF_MONTH));
 
-	}
-
-	enum DayOfWeek {
-		Sunday, Month, Tuesday, Wednesday, Thurday, Friday, Saturday
 	}
 }
