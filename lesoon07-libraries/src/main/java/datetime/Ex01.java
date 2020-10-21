@@ -4,6 +4,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import common.DayOfWeek;
+
 import static java.util.Calendar.*;
 
 public class Ex01 {
@@ -55,7 +57,5 @@ public class Ex01 {
 
 	}
 
-	enum DayOfWeek {
-		Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Satuday
 	}
-}
+
