@@ -5,6 +5,8 @@ import static java.util.Calendar.*;
 import java.util.Date;
 import java.util.Locale;
 
+import common.DayOfWeek;
+
 
 public class Ex01 {
 	public static void main(String[] args) {
@@ -58,8 +60,6 @@ public class Ex01 {
 		
 		
 	}
+
 	
-	enum DayOfWeek {
-		Sunday, Monday, Tuesday, Webnesday, Thursday, Friday, Saturday
-	}
 }
