@@ -53,7 +53,5 @@ public class Ex01 {
 		System.out.println("fdow wkday: " + c.getFirstDayOfWeek());
 		System.out.println("fdow value: " + c.get(DAY_OF_MONTH));
 	}
-	enum DayOfWeek {
-		Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Sartuday
-	}
+	
 }
