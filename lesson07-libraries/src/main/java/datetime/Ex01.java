@@ -24,7 +24,7 @@ public class Ex01 {
 //		Calendar c = Calendar.getInstance();
 		Calendar c = Calendar.getInstance(Locale.FRANCE); 
 //		c.set(MONTH, 3);//set month 4
-		c.set(DAY_OF_MONTH, 2);
+//		c.set(DAY_OF_MONTH, 2);
 		System.out.println("calendar: " + c);
 
 		int doMonth = c.get(DAY_OF_MONTH);
@@ -41,6 +41,7 @@ public class Ex01 {
 		// 1 2 3 4 5 6 7
 		// SUN, MON, TUE, WED, THU, FRI, SAT
 		DayOfWeek[] dows = DayOfWeek.values();
+		System.out.println(c.get(DAY_OF_WEEK));
 		System.out.println("Day of week: " + dows[c.get(DAY_OF_WEEK) - 1]);
 
 		// day of month
@@ -52,11 +53,13 @@ public class Ex01 {
 		
 		// first dow
 		//getFirstDayOfWeek() : sunday of US, monday of VN
-		System.out.println("default locale: " + Locale.getDefault());
-		c.set(DAY_OF_MONTH, 14);
+//		System.out.println("default locale: " + Locale.getDefault());
+//		c.set(DAY_OF_MONTH, 14);
 //		int fdow = c.get(DAY_OF_MONTH) - c.get(DAY_OF_WEEK) + c.getFirstDayOfWeek();
 		c.add(DAY_OF_MONTH, c.getFirstDayOfWeek() - c.get(DAY_OF_WEEK));
 		System.out.println("fdow: " + c.get(DAY_OF_MONTH));
+		System.out.println(c.getFirstDayOfWeek());
+		System.out.println(c.get(DAY_OF_WEEK));
 
 	}
 
