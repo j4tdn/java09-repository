@@ -5,6 +5,8 @@ import static java.util.Calendar.*;
 import java.util.Date;
 import java.util.Locale;
 
+import common.DayOfWeek;
+
 public class Ex01 {
 	public static void main(String[] args) {
 		//date, month, year
@@ -48,7 +50,5 @@ public class Ex01 {
 		System.out.println("days in year:" + c.getActualMaximum(DAY_OF_YEAR));
 		
 	}
-	enum DayOfWeek{
-		Sunday,Monday, Tuesday, Wednesday,Thursday,Friday,Saturday
-	}
+
 }
