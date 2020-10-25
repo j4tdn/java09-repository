@@ -37,7 +37,5 @@ public class Ex03 {
 							+ "\nhours: " + hours
 							+ "\nminutes: " + minutes
 							+ "\nseconds: " + seconds);
-		
-		
 	}
 }
