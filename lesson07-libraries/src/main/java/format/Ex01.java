@@ -2,6 +2,7 @@ package format;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -14,6 +15,8 @@ public class Ex01 {
 		DateFormat df = new SimpleDateFormat(pattern);
 		Date date = c.getTime();
 		System.out.println(df.format(date).toString());
+		
+		
 		
 		c.setTime(date);//Date -> Calendar
 	}
