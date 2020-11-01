@@ -38,7 +38,7 @@ public class Ex02 {
 		for (int day = 1; day <= daysInMonth; day++) {
 			c.set(Calendar.DAY_OF_MONTH, day);
 			int dow = c.get(Calendar.DAY_OF_WEEK);
-			String dowString = DateUtils.getDateOfWeek(dow);
+			String dowString = DateUtils.getDayOfWeek(dow);
 			String dmy = day + "/" + month + "/" + year + " " + dowString;
 			System.out.println(dmy);
 		}
@@ -50,7 +50,7 @@ public class Ex02 {
 		int fdow = c.get(Calendar.DAY_OF_MONTH) - c.get(Calendar.DAY_OF_WEEK) + c.getFirstDayOfWeek();
 		c.set(Calendar.DAY_OF_MONTH, fdow);
 		for (int dow = Calendar.SUNDAY; dow <= Calendar.SATURDAY; dow++) {
-			String dowString = DateUtils.getDateOfWeek(dow);
+			String dowString = DateUtils.getDayOfWeek(dow);
 			int day=c.get(Calendar.DAY_OF_MONTH);
 			int month=c.get(Calendar.MONTH)+1;
 			int year=c.get(Calendar.YEAR);
