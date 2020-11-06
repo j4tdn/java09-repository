@@ -1,4 +1,4 @@
-package common;
+package lesson07.bai2;
 
 public class TimeRange {
 	private long hours;
