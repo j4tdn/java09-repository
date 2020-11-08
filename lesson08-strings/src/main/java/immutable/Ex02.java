@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Ex02 {
 	public static void main(String[] args) {
-		String s = "Le Cao Viet Huy ahihi bcd";
+		String s = "Nguyen Thai Binh ahihi bcd";
 		System.out.println("length: " + s.length());
 		
 		String s1 = "kkkkk";
