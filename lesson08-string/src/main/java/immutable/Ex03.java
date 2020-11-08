@@ -8,10 +8,10 @@ public class Ex03 {
 		String s2=s.substring(s.length()-s1.length(),s.length());
 		//System.out.println(s2);
 		if(s.startsWith(s1)) {
-			System.out.println("Bắt đầu");
+			System.out.println("bắt đầu");
 		}
 		else if(s.endsWith(s1)) {
-			System.out.println("Kết thức");
+			System.out.println("kết thúc");
 		}else System.out.println("không");
 		String s3="   cheers from Da Nang";
 		//System.out.println("trailing:"+s3.stripTrailling);
