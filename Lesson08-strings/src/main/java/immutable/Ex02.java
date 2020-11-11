@@ -12,8 +12,7 @@ public class Ex02 {
 		// 3
 		System.out.println(s1.charAt(2));
 		// 4
-		Conditional conditional = (String result, String input,
-				int i) -> !result.contains(String.valueOf(input.charAt(i)));
+		Conditional conditional = (String result, String input,int i) -> !result.contains(String.valueOf(input.charAt(i)));
 		Conditional conditional2 = (String result, String input,
 				int i) -> input.substring(0, i).indexOf(input.charAt(i)) == -1;
 

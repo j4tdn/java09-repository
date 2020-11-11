@@ -3,7 +3,8 @@ package immutable;import javax.management.StringValueExp;
 public class Ex03 {
 	public static void main(String[] args) {
 		String s="SGK123";
-		String s1="dGK";
+		String s1="SGK";
+		System.out.println(s.indexOf('K'));
 		if(s.indexOf(s1)==0) {
 			System.out.println("co bat dau");
 		}else System.out.println("khong bat dau");
@@ -18,6 +19,7 @@ public class Ex03 {
 		System.out.println(s3.stripTrailing());
 		
 		//cat full. \\s{1,}==\\s+
+		System.out.println("------");
 		System.out.println("replaceALL:"+s3.trim().replaceAll("\\s{1,}","-" ));
 	
 	
