@@ -16,8 +16,9 @@ public class Ex01 {
 		System.out.println("min: " + result.getMin());
 		int[] addArray = add(digits, 99, 3);
 		iteration(addArray);
-		// int[] removeArray = remove(digits, 2);
-		// iteration(removeArray);
+		System.out.println("====================");
+		 int[] removeArray = remove(digits, 2);
+		 iteration(removeArray);
 		System.out.println("===================");
 		sort(digits);
 		Arrays.sort(digits);
@@ -84,14 +85,11 @@ public class Ex01 {
 		int[] result = new int[digits.length - 1];
 		for (int i = 0; i < index; i++) {
 			result[i] = digits[i];
-
 		}
-		for (int i = index; i < digits.length; i++) {
-			result[i + 1] = digits[i];
+		for (int i = index; i < result.length; i++) {
+			result[i] = digits[i + 1];
 		}
-
 		return result;
-
 	}
 
 	// sort an arrays
