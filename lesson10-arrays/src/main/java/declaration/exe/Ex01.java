@@ -13,10 +13,15 @@ public class Ex01 {
 		DigitDto result = getMaxmin(digitsInit);
 		System.out.println(result.getMax());
 		System.out.println(result.getMin());
+		iterate(digitsInit);
+		System.out.println("====================");
 		int[] digits = add(digitsInit, 5, 2);
-		 int[] digit = remove(digitsInit, 1);
 		iterate(digits);
+		System.out.println("===================");
+		 int[] digit = remove(digitsInit, 1);
+		
 		 iterate(digit);
+//		 reverse(digitsInit);
 
 	}
 
@@ -67,24 +72,31 @@ public class Ex01 {
 		for (int i = 0; i < digits.length; i++) {
 			result[i] = digits[i];
 		}
-		for (int i = result.length - 1; i <= index; i++) {
+		for (int i = result.length; i < index; i++) {
 			result[i] = result[i - 1];
 		}
 		result[index] = newValue;
 		return result;
 	}
-
+private static void reverse (int [] digits)
+{
+	for ( int i=0;i<digits.length/2;i++)
+	{
+		int tmp=digits[i];
+		digits[i]=digits[digits.length-i-1];
+		digits[digits.length-i-1]=tmp;
+	}
+}
 	private static int[] remove(int[] digits, int index) {
-		int[] result = new int[digits.length ];
+		int[] result = new int[digits.length];
 		for (int i = 0; i < digits.length; i++) {
 			result[i] = digits[i];
 		}
-		for (int i = index; i < result.length; i++) {
-			result[i] = result[i + 1];
+		for (int i = index; i < result.length-1; i++) {
+			result[i] = result[i+1];
 		}
 		return result;
 	}
-
 	private static void sort(int[] digits) {
 		for (int i = 0; i < digits.length - 1; i++) {
 			for (int j = i + 1; j > digits.length; j++) {
