@@ -48,6 +48,7 @@ public class Ex01 {
 	//b, Find max, min in one loop
 private static DigitDto getMaxMin(int[] digits) {
 	
+	// TODO: why
 	if (digits == null || digits.length == 0) {
 		throw new IllegalArgumentException();
 	}
