@@ -1,25 +1,27 @@
 package sorting;
+
 import java.util.Arrays;
+import java.util.Comparator;
+
 import bean.Item;
-import static java.util.Comparator.*; 
+import static java.util.Comparator.*;
 
 public class Ex05 {
 public static void main(String[] args) {
-	Item[] item = getItems();
-	Arrays.sort(item);
+	Item[] items = getItems();
+	
+	Comparator<Item> comp = comparing(item -> item.getId());		
+	Arrays.sort(items, comp.thenComparing(item -> item.getName()));
+	printf(items);
 }
-private static void printf(Item[] items) {
-	for(Item item: items) {
-		System.out.println(item);
+
+	private static void printf(Item[] items) {
+		for (Item item : items) {
+			System.out.println(item);
+		}
 	}
-}
-private static Item[] getItem() {
-	return new Item[] {
-			new Item(1, "A"),
-			new Item(7, "C"),
-			new Item(2, "D"),
-			new Item(5, "B"),
-			new Item(3, "E"),
-	};
-}
+
+	private static Item[] getItems() {
+		return new Item[] { new Item(1, "A"), new Item(7, "D"), new Item(2, "C"), new Item(5, "E"), new Item(5, "B"), };
+	}
 }
