@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 import bean.DigitDto;
 
-public class Ex01 {
+public class ReverseArray {
 	public static void main(String[] args) {
 		int[] digits = {1,9,5,36,12,33};
 		int sum = sumOfOddDigit(digits,t -> t % 2 == 1);

@@ -12,6 +12,13 @@ public class Ex05Swap {
 		
 		modified(a);
 		
+		System.out.println("=======================");
+		int x = 5;
+		int y = 10;
+		swap(x, y);
+		System.out.println(x);
+		System.out.println(y);
+		
 	}
 	
 	private static void modified(Int a) {
@@ -23,6 +30,11 @@ public class Ex05Swap {
 		int temp = a.value;
 		a.value = b.value;
 		b.value = temp;
+	}
+	private static void swap(int a,int b) {
+		int temp = a;
+		a = b;
+		b = temp;
 	}
 }
 
