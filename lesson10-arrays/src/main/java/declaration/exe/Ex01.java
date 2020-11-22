@@ -9,12 +9,13 @@ public class Ex01 {
 	public static void main(String[] args) {
 		int[] digit = {1, 9, 5, 36, 12, 33};
 		
-		int sum1 = sum(digit, t -> t%2!=0);
-		System.out.println(sum1);
+		int sum = sum(digit, t -> t%2!=0);
+		System.out.println(sum);
 		DigitDto result = getMaxMin(digit);
 		System.out.println(result.getMax());
 		System.out.println(result.getMin());
 		iteration(add(digit, 99, 3));
+		
 		iteration(remove(digit, 2));
 		
 		
@@ -23,7 +24,7 @@ public class Ex01 {
 		Arrays.sort(digit);
 		reverse(digit);
 		iteration(digit);
-		//iteration(sum1);
+		
 	}
 
 	// a
@@ -36,10 +37,7 @@ public class Ex01 {
 						sum+=digits[i];
 						
 					}
-				}
-			
-			
-			
+				}	
 		}
 			return sum;
 	}
