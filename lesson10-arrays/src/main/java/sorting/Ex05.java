@@ -11,7 +11,8 @@ import bean.Item;
 public class Ex05 {
 	public static void main(String[] args) {
 		Item[] items=getItem();
-		Arrays.sort(items,Comparator.comparing(item->item.getId()));
+		Comparator<Item> com=comparing(item->item.getId());
+		Arrays.sort(items,com.thencomparing(item->item.getName()));//tang dan,//giam dan-.		reverseOrder
 		print(items);
 	}
 	private static void print(Item[] items) {

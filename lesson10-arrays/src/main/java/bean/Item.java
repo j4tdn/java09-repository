@@ -40,7 +40,7 @@ public class Item implements Comparable<Item>{
 	@Override
 	public int compareTo(Item o) {
 		// TODO Auto-generated method stub
-		return getId() - o.getId();
+		return getName().compareTo(o.getName());
 	}
 
 
