@@ -9,7 +9,9 @@ public class Ex05 {
 	public static void main(String[] args) {
 		Item[] items = getItems();
 		//defalt sort for E[] 
-		//require: E is subclass of Comparable
+		//require: E is subclass/child of Comparable (implements Comparable<E>
+		//Arrays.sort(items, comparing(item->item.getName(), reverseOrder()));  => sắp xếp theo tên giảm dần
+		
 		
 		Comparator<Item> comp = comparing(item -> item.getId());
 		
