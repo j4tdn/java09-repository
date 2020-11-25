@@ -7,9 +7,17 @@ public class ListUtils {
 		
 	}
 	
-	public static void printf (List<String> elements) {
+	public static void printfStr (List<String> elements) {
 		for (String element : elements) {
-			System.out.println(element);
+			System.out.print(element + " ");
 		}
+		System.out.println();
+	}
+	
+	public static void printfInt (List<Integer> elements) {
+		for (Integer element : elements) {
+			System.out.print(element + " ");
+		}
+		System.out.println();
 	}
 }
