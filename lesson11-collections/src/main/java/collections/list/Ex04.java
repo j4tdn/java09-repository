@@ -11,9 +11,7 @@ public class Ex04 {
 		List<String> students = Arrays.asList("Hồng", "Thảo", "Chiến", "Lan", "Phi");
 		Collections.reverse(students);
 		Collections.shuffle(students);
-
-		printf(students);
+		printfString(students);
 		System.out.println("contains: " + students.contains("Nam"));
-
 	}
 }
