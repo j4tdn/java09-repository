@@ -13,7 +13,7 @@ public class Ex04 {
 		List<String> students = Arrays.asList("Nam", "Hoang", "Teo", "Nguyen");
 		Collections.reverse(students);
 		Collections.shuffle(students);
-		printf(students);
+		printfStr(students);
 		System.out.println("contains: "+students.contains("Nam"));
 	}
 
