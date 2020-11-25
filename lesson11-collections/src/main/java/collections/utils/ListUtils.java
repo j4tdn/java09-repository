@@ -7,9 +7,10 @@ public class ListUtils {
 		
 	}
 	
-	public static void printf(List<String> sequences) {
-		for(String item : sequences) {
-			System.out.println(item);
+	public static <T> void printf(List<T> numbers) {
+		for(T item : numbers) {
+			System.out.print(item + " ");
 		}
+		System.out.println();
 	}
 }
