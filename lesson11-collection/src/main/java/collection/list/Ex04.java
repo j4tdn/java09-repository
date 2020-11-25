@@ -15,11 +15,11 @@ public class Ex04 {
 	public static void main(String[] args) {
 		//List<String>  students = new ArrayList<String>();
 		//Arrays.asList => return fixed-size list
-		List<String>  students = Arrays.asList("nam"," hoang","teo","nguyen");
+		List<String>  students = Arrays.asList("nam","hoang","teo","nguyen");
 		Collections.reverse(students);
-		Collections.shuffle(students);
+		//Collections.shuffle(students);
 		System.out.println("contains:"+students.contains("nam"));
-		prinf(students);
+		prinfStr(students);
 		
 	}
 }
