@@ -39,18 +39,13 @@ public class Ex03 {
 			}
 		}
 		 
-		
-		
-		
-		
-//		không thể xóa 1 cái list đang sử dụng		
+//		không thể xóa 1 phần tử trong 1  list chạy( đang sử dụng)		
 //		for(String sequence: sequences) {
 //			if(sequence.startsWith(text)) {
 //				sequences.remove(sequence);
 //			}
 //		}
 	}
-	
 	
 	
 	private static void printf(List<String> sequences) {

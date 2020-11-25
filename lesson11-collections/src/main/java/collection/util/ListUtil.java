@@ -3,13 +3,19 @@ package collection.util;
 import java.util.List;
 
 public class ListUtil {
-	public ListUtil() {
-		// TODO Auto-generated constructor stub
+	private ListUtil() {
 	}
 
-	public static void printf(List<String> sequences) {
+	public static void printfString(List<String> sequences) {
 		for (String sequence : sequences) {
 			System.out.println(sequence);
 		}
+	}
+	
+	public static void printfInteger(List<Integer> numbers) {
+		for (Integer number : numbers) {
+			System.out.print(numbers+"  ");
+		}
+		System.out.println("");
 	}
 }
