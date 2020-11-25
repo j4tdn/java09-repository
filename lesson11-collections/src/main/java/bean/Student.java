@@ -1,14 +1,14 @@
 package bean;
 
-public class Item implements Comparable<Item> {
+public class Student  {
 	private int id;
 	private String name;
 
-	public Item() {
+	public Student() {
 
 	}
 
-	public Item(int id, String name) {
+	public Student(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -28,19 +28,23 @@ public class Item implements Comparable<Item> {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	@Override
+	public boolean equals(Object obj) {
+		if(this == obj) {
+			return true;
+		}
+		
+		if(!(obj instanceof Student)) {
+			return false;
+			
+		}
+		Student that = (Student)obj;
+		return getId() == that.getId();
+	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return id + ", " + name;
-	}
-
-	@Override
-	public int compareTo(Item o) {
-		// o1 : this
-		// o2: o
-		// lấy id : 
-		return getId() - o.getId();
-		// lay name :  return getName() - compareTo(o.getName());
 	}
 }
