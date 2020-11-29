@@ -7,14 +7,12 @@ public class ListUtils {
 		
 	}
 	
-	public static void prinfStr(List<String> elements) {
-		for ( String element:elements) {
-			System.out.print(element+" ");
-		}
-		System.out.println();
-	}
-	public static void prinfInt(List<Integer> elements) {
-		for ( Integer element:elements) {
+	//generic method
+	//E: generic type => object (compiler)
+	//					  Integer,String...runtime	
+	
+	public static <E> void prinf(List<E> elements) {
+		for (E element:elements) {
 			System.out.print(element+" ");
 		}
 		System.out.println();

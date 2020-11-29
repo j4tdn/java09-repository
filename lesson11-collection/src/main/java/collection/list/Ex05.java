@@ -20,8 +20,8 @@ public class Ex05 {
 		List<Integer> retainAll= new ArrayList<>(firstIds);
 		retainAll.retainAll(secondIds);
 		
-		prinfInt(addAll);//hop
-		ListUtils.prinfInt(removeAll);//hieu
-		ListUtils.prinfInt(retainAll);//giao
+		prinf(addAll);//hop
+		ListUtils.prinf(removeAll);//hieu
+		ListUtils.prinf(retainAll);//giao
 	}
 }
