@@ -4,14 +4,9 @@ import java.util.List;
 
 public class ListUtils {
 
-	public static void printfString(List<String> sequences) {
-		for (String s : sequences) {
-			System.out.print(s + "  ,  ");
-		}
-	}
-	public static void printfInt(List<Integer> numbers) {
-		for (int num: numbers) {
-			System.out.print(num + "  ,  ");
+	public static <E> void printf(List<E> elements) {
+		for (E e : elements) {
+			System.out.print(e + "  ,  ");
 		}
 		System.out.println();
 	}

@@ -22,7 +22,7 @@ public class Ex03 {
 		System.out.println("size: " + sequences.size());
 		System.out.println("firstElement" + firstElement);
 
-		ListUtils.printfString(sequences);
+		ListUtils.printf(sequences);
 	}
 
 	private static void remove(List<String> sequences, String text) {
