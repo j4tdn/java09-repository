@@ -26,9 +26,9 @@ public class Ex05 {
 		retainAll.retainAll(secondIds);
 		
 		
-		printfInt(addAll);			//hop
-		printfInt(removeAll);		//hieu
-		printfInt(retainAll);		//giao
+		printf(addAll);			//hop
+		printf(removeAll);		//hieu
+		printf(retainAll);		//giao
 	}
 
 }

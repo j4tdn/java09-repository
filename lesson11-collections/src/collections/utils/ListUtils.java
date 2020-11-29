@@ -7,15 +7,11 @@ public class ListUtils {
 
 	}
 
-	public static void printfInt(List<Integer> elements) {
-		for (Integer element : elements) {
-			System.out.print(element+ "	");
-		}
-		System.out.println();
-	}
+	//generic method
+	//E: generic type => compile time
 
-	public static void printfStr(List<String> elements) {
-		for (String element : elements) {
+	public static <E> void printf(List<E> elements) {
+		for (E element : elements) {
 			System.out.println(element);
 		}
 	}
