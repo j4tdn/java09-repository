@@ -21,8 +21,8 @@ public class Ex05 {
 		List<Integer> retailAll = new ArrayList<>(firstIds);
 		retailAll.retainAll(secondIds);
 		
-		printfInt(addAll);
-		printfInt(removeAll);
-		printfInt(retailAll);
+		printf(addAll);
+		printf(removeAll);
+		printf(retailAll);
 	}
 }

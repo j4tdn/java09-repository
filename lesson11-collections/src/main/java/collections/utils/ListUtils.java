@@ -6,17 +6,12 @@ public class ListUtils {
 	private ListUtils() {
 		
 	}
-	
-	public static void printfStr(List<String> elements) {
-		for (String element:elements) {
+
+	//generic method
+	//E: generic type 
+	public static <E> void printf(List<E> elements) {
+		for (E element:elements) {
 			System.out.println(element);
 		}
-	}
-	
-	public static void printfInt(List<Integer> elements) {
-		for (Integer element:elements) {
-			System.out.printf(element + " ");
-		}
-		System.out.println();
 	}
 }
