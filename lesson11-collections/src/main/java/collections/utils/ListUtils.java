@@ -6,9 +6,10 @@ public class ListUtils {
 	private ListUtils() {
 		
 	}
-	public static void printf(List<String> elements) {
-		for(String sequence : elements) {
+	public static <E> void printf(List<E> elements) {
+		for(E sequence : elements) {
 			System.out.print(sequence + " ");
 		}
+		System.out.println();
 	}
 }
