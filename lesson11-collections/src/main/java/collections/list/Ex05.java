@@ -14,25 +14,19 @@ public class Ex05 {
 		List<Integer> firtsIDs = Arrays.asList(1, 2, 3, 4, 5);
 		List<Integer> secondIDs = Arrays.asList(4, 5, 6, 7, 8);
 
-		List<Integer> addAll=new ArrayList<>(firtsIDs);
+		List<Integer> addAll = new ArrayList<>(firtsIDs);
 		addAll.addAll(secondIDs);
 
-		List<Integer> removeAll=new ArrayList<>(firtsIDs);
+		List<Integer> removeAll = new ArrayList<>(firtsIDs);
 		removeAll.removeAll(secondIDs);
 
-		List<Integer> retainAll=new ArrayList<>(firtsIDs);
+		List<Integer> retainAll = new ArrayList<>(firtsIDs);
 		retainAll.retainAll(secondIDs);
 
-		printfInteger(addAll);
+		ListUtils.printf(addAll);
 		System.out.println("=====");
+		ListUtils.printf(removeAll);
 		System.out.println("=====");
-		ListUtils.printfInteger(removeAll);
-		System.out.println("=====");
-		ListUtils.printfInteger(retainAll);
-	}
-
-	private static void printfInteger(List<Integer> addAll) {
-		// TODO Auto-generated method stub
-		
+		ListUtils.printf(retainAll);
 	}
 }
