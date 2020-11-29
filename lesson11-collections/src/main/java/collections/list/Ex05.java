@@ -22,8 +22,8 @@ public class Ex05 {
 		List<Integer> retainAll = new ArrayList<>(firstIds);
 		retainAll.retainAll(secondIds);
 		
-		printfInt(addAll); // Hợp 
-		printfInt(removeAll); // Hiệu
-		printfInt(retainAll); // Giao
+		printf(addAll); // Hợp 
+		printf(removeAll); // Hiệu
+		printf(retainAll); // Giao
 	}
 }
