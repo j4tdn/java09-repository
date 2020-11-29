@@ -28,7 +28,6 @@ public class Ex06 {
 	}
 
 	private static List<Student> getItems() {
-	
 		return new ArrayList<>(List.of(
 				new Student(1, "Nam"), 
 				new Student(13, "Nam"),
