@@ -12,4 +12,10 @@ public static void printf(List<String> sequences) {
 		System.out.println(sequence);
 	}
 }
+public static void printfInteger(List<Integer> numbers) {
+	for (Integer number : numbers) {
+		System.out.print(numbers+"  ");
+	}
+	System.out.println("");
+}
 }
