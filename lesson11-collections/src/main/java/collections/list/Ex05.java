@@ -18,10 +18,9 @@ public class Ex05 {
 		removeAll.remove(secondIds);
 		List<Integer> retainAll = new ArrayList<Integer>(firstIds);
 		retainAll.retainAll(secondIds);
-		printfInt(addAll);
-		printfInt(removeAll);
-
-		printfInt(retainAll);
+		printf(addAll);//hợp
+		printf(removeAll);// hieu
+		printf(retainAll);// giao
 
 
 	}
