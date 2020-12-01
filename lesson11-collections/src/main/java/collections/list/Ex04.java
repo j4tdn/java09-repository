@@ -17,7 +17,7 @@ public class Ex04 {
 		
 		Collections.reverse(studen);
 		Collections.shuffle(studen);
-		printfString(studen);
+		printf(studen);
 		System.out.println("contains:  "+ studen.contains("nam"));
 	}
 }

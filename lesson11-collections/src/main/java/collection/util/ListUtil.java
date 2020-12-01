@@ -6,14 +6,10 @@ public class ListUtil {
 	private ListUtil() {
 	}
 
-	public static void printfString(List<String> sequences) {
-		for (String sequence : sequences) {
-			System.out.println(sequence);
-		}
-	}
 	
-	public static void printfInteger(List<Integer> numbers) {
-		for (Integer number : numbers) {
+	
+	public static <E> void printf(List<E> numbers) {
+		for (E number : numbers) {
 			System.out.print(numbers+"  ");
 		}
 		System.out.println("");

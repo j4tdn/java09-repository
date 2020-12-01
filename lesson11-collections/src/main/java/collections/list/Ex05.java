@@ -21,12 +21,12 @@ public class Ex05 {
 		List<Integer> retainAll=new ArrayList<>(firtsIDs);
 		retainAll.retainAll(secondIDs);
 		
-		printfInteger(addAll);
+		printf(addAll);
 		System.out.println("=====");
 		System.out.println("=====");
-		ListUtil.printfInteger(removeAll);
+		ListUtil.printf(removeAll);
 		System.out.println("=====");
-		ListUtil.printfInteger(retainAll);
+		ListUtil.printf(retainAll);
 	}
 	
 	
