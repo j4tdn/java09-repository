@@ -1,6 +1,7 @@
 package generic;
 
 import java.lang.reflect.Array;
+import java.util.function.Predicate;
 
 public class JavaList<E> implements IList<E> {
 
@@ -42,6 +43,21 @@ public class JavaList<E> implements IList<E> {
 		}
 
 		return true;
+	}
+
+	@Override
+	public int count(Predicate<E> predicate) {
+		if (predicate == null) {
+			return elements.length;
+		}
+		int count = 0;
+		for (int i=0; i<modCount; i++) {
+			
+			if (elements[i]!= null && predicate.test(elements[i])) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package collections.list;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +30,12 @@ public class Ex05 {
 		printf(addAll);			//hop
 		printf(removeAll);		//hieu
 		printf(retainAll);		//giao
+		
+		//printfwc(Arrays.asList(""));
+		List<Object> list = Arrays.asList("");
+		//printfwc(list);				
 	}
+
+	
 
 }
