@@ -24,5 +24,8 @@ public class Ex05 {
 		printf(addAll);
 		printf(removeAll);
 		printf(retailAll);
+		
+		List<Object> list = Arrays.asList("");
+		printfwc(list);
 	}
 }

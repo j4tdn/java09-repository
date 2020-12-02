@@ -1,28 +1,29 @@
 package generic;
 
 import java.lang.reflect.Array;
+import java.util.function.Predicate;
 
 public class JavaList<E> implements IList<E> {
 
 	private E[] elements;
 	private int defaultCapacity = 10;
 	private int modCount = 0;
-	
+
 	public JavaList() {
 		elements = create(defaultCapacity);
 	}
-	
+
 	public JavaList(int capacity) {
 		defaultCapacity = capacity > defaultCapacity ? capacity : defaultCapacity;
 		elements = create(defaultCapacity);
 	}
-	
+
 	@Override
 	public boolean add(E e) {
 		if (modCount == defaultCapacity) {
 			defaultCapacity += 1;
 			E[] result = create(defaultCapacity);
-			for (int i=0; i<modCount; i++) {
+			for (int i = 0; i < modCount; i++) {
 				result[i] = elements[i];
 			}
 			result[modCount++] = e;
@@ -35,7 +36,7 @@ public class JavaList<E> implements IList<E> {
 
 	@Override
 	public boolean add(int index, E e) {
-		
+
 		return false;
 	}
 
@@ -62,10 +63,10 @@ public class JavaList<E> implements IList<E> {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private E[] create(int size) {
-		return (E[])Array.newInstance(Object.class, size);
+		return (E[]) Array.newInstance(Object.class, size);
 	}
 
 	@Override
@@ -77,5 +78,19 @@ public class JavaList<E> implements IList<E> {
 	public int size() {
 		return modCount;
 	}
-	
+
+	@Override
+	public int count(Predicate<E> predicate) {
+		if (predicate == null) {
+			return modCount;
+		}
+		int count = 0;
+		for (int i = 0; i<modCount; i++) {
+			if (elements[i] != null && predicate.test(elements[i])) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 }
