@@ -1,6 +1,7 @@
 package generic;
 
 import java.lang.reflect.Array;
+import java.util.function.Predicate;
 
 public class JavaList<E> implements IList<E> {
 
@@ -26,7 +27,7 @@ public class JavaList<E> implements IList<E> {
 		if (modCount == defaultCapacity) {
 			defaultCapacity++;
 			E[] result = create(defaultCapacity);
-			for(int i = 0;i<result.length;i++) {
+			for (int i = 0; i < result.length; i++) {
 				result[i] = elements[i];
 			}
 			result[modCount++] = e;
@@ -68,7 +69,6 @@ public class JavaList<E> implements IList<E> {
 		return (E[]) Array.newInstance(Object.class, size);
 	}
 
-	
 	@Override
 	public boolean isEmpty() {
 		return modCount == 0;
@@ -77,6 +77,20 @@ public class JavaList<E> implements IList<E> {
 	@Override
 	public int size() {
 		return modCount;
+	}
+
+	@Override
+	public int count(Predicate<E> predicate) {
+		if (predicate == null) {
+			return elements.length;
+		}
+		int count = 0;
+		for (int i = 0; i < modCount; i++) {
+			if (elements[i] != null && predicate.test(elements[i])) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 }

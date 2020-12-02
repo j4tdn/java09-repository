@@ -25,5 +25,7 @@ public class Ex05 {
 		printf(addAll); // Hợp 
 		printf(removeAll); // Hiệu
 		printf(retainAll); // Giao
+		List<Object> list = Arrays.asList("");
+		printfwc(list);
 	}
 }
