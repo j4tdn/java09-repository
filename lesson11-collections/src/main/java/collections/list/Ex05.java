@@ -25,5 +25,7 @@ public class Ex05 {
 		printf(addAll);
 		printf(removeAll);
 		printf(retainAll);// Giao
+		List<Object> list = Arrays.asList("");
+		printfwc(list);
 	}
 }
