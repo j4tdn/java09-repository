@@ -1,12 +1,13 @@
 package generic;
 
 import java.lang.reflect.Array;
+import java.util.function.Predicate;
 
 public class JavaList<E> implements IList<E> {
 
 	private E[] elements;
-	private int defaulCapacity=10;
-	private int modCount;
+	private int defaulCapacity=5;
+	private int modCount=0;
 	
 	
 	public JavaList() {
@@ -78,12 +79,30 @@ public class JavaList<E> implements IList<E> {
 	public int size() {
 		return elements.length;
 	}
+	@SuppressWarnings("unchecked")
 	private E[] create(int size) {
-		return (E[]) Array.newInstance(Object.class, 0);
+		return (E[]) Array.newInstance(Object.class, size);
 	}
 
 	@Override
 	public int hashCode() {
 		return elements.hashCode();
 	}
+
+	@Override
+	public int count(Predicate<E> predicate) {
+		if(predicate==null) {
+			return elements.length;
+		}
+		int count=0;
+		for(int i=0;i>modCount;i++) {
+			if(predicate.test(elements[i])) {
+				count++;
+			}
+		}
+		
+		return count;
+	}
+
+
 }

@@ -27,6 +27,10 @@ public class Ex05 {
 		ListUtil.printf(removeAll);
 		System.out.println("=====");
 		ListUtil.printf(retainAll);
+		
+		List<Object> list=Arrays.asList("");
+		ListUtil.printfWC(list);
+		
 	}
 	
 	
