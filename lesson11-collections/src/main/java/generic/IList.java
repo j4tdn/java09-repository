@@ -1,5 +1,7 @@
 package generic;
 
+import java.util.function.Predicate;
+
 public interface IList<E> {
 	boolean add(int index, E e);
 	boolean add(E e);
@@ -9,5 +11,5 @@ public interface IList<E> {
 	boolean get(int index);
 	boolean isEmpty();
 	int size();
-	
+	int count(Predicate<E> predicate);
 }

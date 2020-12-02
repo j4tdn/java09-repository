@@ -2,6 +2,8 @@ package generic;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
 
 public class JavaList<E> implements IList<E> {
 
@@ -20,6 +22,16 @@ public class JavaList<E> implements IList<E> {
 		elements = create(defaultCapacity);
 	}
 
+	/*public  int count(Predicate<E> predicate , List<E> elements) {
+		int count = 0;
+		for(E element: elements) {
+			if(predicate.test(E)) {
+				count++;
+			}
+		}
+		return count;
+	}*/
+	
 	@Override
 	public boolean add(int index, E e) {
 		// TODO Auto-generated method stub
@@ -82,5 +94,19 @@ public class JavaList<E> implements IList<E> {
 	@Override
 	public int size() {
 		return modCount;
+	}
+
+	@Override
+	public int count(Predicate<E> predicate) {
+		int count = 0;
+		if(predicate == null) {
+			return elements.length;
+		}
+		for(int i = 0; i < modCount ; i++) {
+			if(elements[i] != null && predicate.test(elements[i]) ) {
+				count++;
+			}
+		}
+		return count;
 	}
 }
