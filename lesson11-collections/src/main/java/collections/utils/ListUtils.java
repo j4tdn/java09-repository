@@ -7,16 +7,16 @@ public class ListUtils {
 		
 	}
 	
-	public static void printfStr(List<String> elements) {
-		for (String element: elements) {
+	public static<E> void printf(List<E> elements) {
+		for (E element: elements) {
 			System.out.println(element);
 		}
 	}
+
 	
-	public static void printfInt(List<Integer> elements) {
-		for (Integer element: elements) {
-			System.out.print(element + " ");
+	public static<E> void printfwc(List<? super Number>  elements) {
+		for (Object element: elements) {
+			System.out.println(element);
 		}
-		System.out.println();
-	}
+}
 }

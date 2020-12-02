@@ -1,6 +1,7 @@
 package collections.list;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,8 +25,11 @@ public class Ex05 {
 		retainAll.retainAll(secondIds);
 		
 		
-		printfInt(addAll);// Hợp
-		printfInt(removeAll); // Hiệu
-		printfInt(retainAll); //Giao
+		printf(addAll);// Hợp
+		printf(removeAll); // Hiệu
+		printf(retainAll); //Giao
+		
+		List<Object>list=Arrays.asList("");
+		printfwc(list);
 	}
 }
