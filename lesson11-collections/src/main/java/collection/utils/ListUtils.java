@@ -12,4 +12,11 @@ public class ListUtils {
 		}
 		System.out.println(" ");
 	}
+	//printf same same printwc
+	public static  void printfwc(List<? super Number> elements) {
+		for (Object element : elements) {
+			System.out.print(element + " ");
+		}
+		System.out.println(" ");
+	}
 }
