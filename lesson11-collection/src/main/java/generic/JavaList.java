@@ -2,17 +2,18 @@ package generic;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 public class JavaList<E> implements Ilist<E> {
 
 	private E[] elements;
-	private int defaultCapacity = 10;
+	private int defaultCapacity = 0;
 	private int modCount = 0;
 
 	@SuppressWarnings("unchecked")
 	public JavaList() {
 
-		elements = create(0);
+		elements = create(defaultCapacity);
 	}
 
 	public JavaList(int capacity) {
@@ -22,9 +23,10 @@ public class JavaList<E> implements Ilist<E> {
 		elements = create(defaultCapacity);
 	}
 
+	@SuppressWarnings("unchecked")
 	private E[] create(int i) {
 		// TODO Auto-generated method stub
-		return (E[]) Array.newInstance(Object.class, 10);
+		return (E[]) Array.newInstance(Object.class, i);
 	}
 
 	@Override
@@ -37,6 +39,7 @@ public class JavaList<E> implements Ilist<E> {
 				result[i] = elements[i];
 			}
 			result[modCount++] = e;
+			elements=result;
 		} else {
 			elements[modCount++] = e;
 		}
@@ -85,5 +88,20 @@ public class JavaList<E> implements Ilist<E> {
 		// TODO Auto-generated method stub
 		return modCount;
 	}
+
+	public int count(Predicate<E> predicate) {
+		if(predicate==null) {
+			return elements.length;
+		}
+		int count=0;
+		for (int i=0;i<modCount;i++) {
+			if(elements[i]!=null &&predicate.test(elements[i])) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	
 
 }

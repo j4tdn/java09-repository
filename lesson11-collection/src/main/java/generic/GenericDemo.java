@@ -10,5 +10,13 @@ public class GenericDemo {
 		System.out.println("size "+ digits.size());
 	
 		System.out.println("empty "+ digits.isEmpty());
-		}
+		Ilist<String> items = new JavaList<>();
+		items.add("wellcome to java09");
+		items.add("cheer to java09");
+		items.add("hello to java09");
+		//items.count(item -> item.startsWith("wellcome"));
+		System.out.println(items.count(item -> item.startsWith("wellcome")));
+		System.out.println(items.size());
+	}
+	
 }

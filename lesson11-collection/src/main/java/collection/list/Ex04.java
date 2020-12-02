@@ -19,7 +19,8 @@ public class Ex04 {
 		Collections.reverse(students);
 		//Collections.shuffle(students);
 		System.out.println("contains:"+students.contains("nam"));
-		prinf(students);
+		List<Object> list = Arrays.asList("");
+		printfwc(list);
 		
 	}
 }
