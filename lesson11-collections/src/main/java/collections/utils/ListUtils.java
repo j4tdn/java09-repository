@@ -13,4 +13,11 @@ public class ListUtils {
 		}
 		System.out.println();
 	}
+	
+	public static void printfwc(List<?> numbers) {
+		for(Object item : numbers) {
+			System.out.print(item + " ");
+		}
+		System.out.println();
+	}
 }

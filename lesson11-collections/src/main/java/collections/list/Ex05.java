@@ -19,7 +19,7 @@ public class Ex05 {
 		List<Integer> retainAll = new ArrayList<Integer>(firstIds);
 		retainAll.retainAll(secondIds);
 		
-		printf(addAll); // Hợp
+		printfwc(addAll); // Hợp
 		printf(removeAll); // Giao
 		printf(retainAll); // Hiệu
 	}

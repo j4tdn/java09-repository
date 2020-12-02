@@ -2,6 +2,7 @@ package generic;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 public class JavaList<E> implements IList<E> {
 	private E[] elements;
@@ -77,6 +78,17 @@ public class JavaList<E> implements IList<E> {
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
 		return modCount == 0;
+	}
+
+	@Override
+	public int count(Predicate<E> predicate) {
+		int count = 0;
+		for(int i = 0; i < modCount; i++) {
+			if(predicate.test(elements[i])) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 }
