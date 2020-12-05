@@ -18,4 +18,9 @@ public class ListUtils {
 		}
 		System.out.println("");
 	}
+	public static void printfwc(List<? super Number> elements) {
+		for (Object element:elements) {
+			System.out.println(element);
+		}
+	}
 }

@@ -13,6 +13,14 @@ public class GenericDemo {
 		System.out.println(digits.hashCode());
 		System.out.println("size: " + digits.size());
 		System.out.println("size: " + digits.isEmpty());
+		
+		IList<String> sequences = new JavaList<>();
+		sequences.add("welcome to Java09");
+		sequences.add("cheers from Java09");
+		sequences.add("hello from Java09");
+		System.out.println("=========================");
+		System.out.println(sequences.count(sequence -> sequence.startsWith("welcome")));
+		System.out.println(sequences.count(null)); 
 
 	}
 }

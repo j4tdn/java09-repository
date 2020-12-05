@@ -28,5 +28,13 @@ public class Ex05 {
 		ListUtils.printf(removeAll);
 		System.out.println("=====");
 		ListUtils.printf(retainAll);
+		
+		List<Object> list = Arrays.asList("");
+		printfwc(list);
+	}
+
+	private static void printfwc(List<Object> list) {
+		
+		
 	}
 }
