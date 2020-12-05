@@ -18,6 +18,7 @@ public class Ex05 {
 		print(addAll);// Hợp
 		print(removeAll);// Hiệu
 		print(retainAll);// Giao
-
+		List<Object> list=Arrays.asList("");
+		printwc(list);
 	}
 }
