@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Student {
 	private int id;
 	private String name;
@@ -43,5 +45,11 @@ public class Student {
 	public String toString() {
 		return this.id + "," + this.name;
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId());
+	}
 
+	
 }
