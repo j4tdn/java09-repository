@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.function.Function;
 
@@ -23,7 +24,9 @@ public class Ex01 {
 		iterate(models);
 		iterateKey(models);
 		iterateValue(models);
+		
 		System.out.println("===============");
+		
 		Map<Integer, String> sortedMap = sort(models);
 		iterate(sortedMap);
 		iterateKey(sortedMap);
@@ -32,10 +35,27 @@ public class Ex01 {
 	private static Map<Integer, String> sort(Map<Integer, String> models) {
 		// b1: convert MAP to List => List<Entry<K , V>>
 		// b2: Sort List<Entry> Key, Value
+
 		// b3: create a MAP => Map<k, V>
 		// b4:Put sortedList's entry to newMap
-		List<java.util.Map.Entry<Integer, String>> sortedList = new LinkedList<>();
-		sortedList.sort(nullsFirst(comparing(e -> e.getValue())));
+		List<java.util.Map.Entry<Integer, String>> sortedList = new LinkedList<>(models.entrySet());
+		sortedList.sort(new Comparator<Entry<Integer, String>>() {
+
+			@Override
+			public int compare(Entry<Integer, String> e1, Entry<Integer, String> e2) {
+				Integer k1 = e1.getKey();
+				Integer k2 = e2.getKey();
+				
+				if(k1 == null) {
+					return -1;
+				}
+				if(k2 == null) {
+					return 1;
+				}
+				return k1-k2;
+			}
+		});
+		sortedList.sort(comparing(entry -> entry.getValue()));
 		Map<Integer, String> sortedMap = new LinkedHashMap<>();
 		for (java.util.Map.Entry<Integer, String> entry : sortedList) {
 			sortedMap.put(entry.getKey(), entry.getValue());

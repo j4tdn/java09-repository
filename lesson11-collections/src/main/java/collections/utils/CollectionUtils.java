@@ -1,15 +1,16 @@
 package collections.utils;
 
+import java.util.Collection;
 import java.util.List;
 
-public class ListUtils {
-	private ListUtils() {
+public class CollectionUtils {
+	private CollectionUtils() {
 
 	}
 
 	// generic method
 	// E: generic type => compile: object
-	public static <E> void printf(List<E> elements) {
+	public static <E> void printf(Collection<E> elements) {
 		for (E element : elements) {
 			System.out.println(element);
 		}

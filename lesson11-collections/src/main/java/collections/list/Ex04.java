@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static collections.utils.ListUtils.*;
+import static collections.utils.CollectionUtils.*;
 
 
 public class Ex04 {
