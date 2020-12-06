@@ -1,12 +1,14 @@
 package bean;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Studen{
 	private int id;
 	private String name;
 
 	public Studen() {
+		
 	}
 
 
@@ -50,7 +52,11 @@ public class Studen{
 		Studen that=(Studen)obj;
 		return getId()==that.getId();
 	}
-
+ @Override
+public int hashCode() {
+	
+	return Objects.hash(getId());
+}
 
 
 }

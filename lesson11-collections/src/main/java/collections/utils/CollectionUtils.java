@@ -1,9 +1,11 @@
 package collections.utils;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-public class ListUtils {
-	private ListUtils() {
+public class CollectionUtils {
+	private CollectionUtils() {
 
 	}
 
@@ -12,7 +14,7 @@ public class ListUtils {
 //		System.out.println(sequence);
 //	}
 //}
-	public static <E> void printf(List<E> numbers) {
+	public static <E> void printf(Collection<E> numbers) {
 		for (E number : numbers) {
 			System.out.print(numbers + "  ");
 		}

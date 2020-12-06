@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import collections.utils.ListUtil;
-import collections.utils.ListUtils;
+import collections.utils.CollectionUtils;
 
 import static collections.utils.ListUtil.*;
 
@@ -23,18 +23,18 @@ public class Ex05 {
 		List<Integer> retainAll = new ArrayList<>(firtsIDs);
 		retainAll.retainAll(secondIDs);
 
-		ListUtils.printf(addAll);
+		CollectionUtils.printf(addAll);
 		System.out.println("=====");
-		ListUtils.printf(removeAll);
+		CollectionUtils.printf(removeAll);
 		System.out.println("=====");
-		ListUtils.printf(retainAll);
+		CollectionUtils.printf(retainAll);
 		
 		List<Object> list = Arrays.asList("");
 		printfwc(list);
 	}
 
 	private static void printfwc(List<Object> list) {
-		
+	
 		
 	}
 }
