@@ -1,0 +1,12 @@
+Lesson03: OOP Overview
+. Class vs Object: Theory & Code
+. Access modifier: public, private
+. Attributes
+. Constructor
+. Getter/Setter
+. toString
+. Heap/Stack: new
+. Static, NonStatic
+. Utility class
+====================================
+. Design Pattern: Builder, Singleton

@@ -1,0 +1,30 @@
+Lesson03
+=========================
+Class, Object
++ Method: getter, setter
++ Attribute
++ toString
++ static: class || object
++ access modifier
+  . public, private, protected, __
+  
+Lesson04
++ Encapsulation
+Được thể hiện qua những access modifier
+
+++ Polymorphism
+* Method
+. Overloading
+. Overriding
+* Object
+Shape shape = Rec
+      shape = Square
+++ Inheritance
++ Class
++ Abstract class
++ Interface
+  . Functional Interface = Lambda
+  . Strategy patter
++ Abstraction
+  
+  
