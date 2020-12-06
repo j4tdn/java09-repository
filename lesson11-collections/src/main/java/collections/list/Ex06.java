@@ -10,14 +10,14 @@ import java.util.Comparator;
 
 import static java.util.Comparator.*;
 import java.util.List;
-import static collections.utils.ListUtils.*;
+import static collections.utils.CollectionUtils.*;
 
-import bean.students;
+import bean.Student;
 
 public class Ex06 {
 	public static void main(String[] args) {
-		List<students> students=getItems();
-		students user=new students(1,"John");
+		List<Student> students=getItems();
+		Student user=new Student(1,"John");
 		System.out.println("contains: " + students.contains(user));
 		students.removeIf(student -> student.equals(user));
 		
@@ -31,18 +31,18 @@ public class Ex06 {
 				return 0;
 			}
 		});*/
-		Comparator<students> comp=comparing(student ->student.getId());
+		Comparator<Student> comp=comparing(student ->student.getId());
 		students.sort(comp.thenComparing(student -> student.getName(),reverseOrder()));
 		students.forEach(student->System.out.println(student));
 	}
-	private static List<students> getItems() {
+	private static List<Student> getItems() {
 		return new ArrayList<> (List.of(
-				new students(1,"Nam"),
-				new students(7,"Hoa"),
-				new students(13,"Nam"),
-				new students(13,"Ngoc"),
-				new students(8,"Dung"),
-				new students(1,"Nhan")
+				new Student(1,"Nam"),
+				new Student(7,"Hoa"),
+				new Student(13,"Nam"),
+				new Student(13,"Ngoc"),
+				new Student(8,"Dung"),
+				new Student(1,"Nhan")
 				
 		));
 }

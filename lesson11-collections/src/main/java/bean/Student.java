@@ -1,14 +1,16 @@
 package bean;
 
-public class students {
+import java.util.Objects;
+
+public class Student {
 	private int id;
 	private String name;
 
-	public students() {
+	public Student() {
 
 	}
 
-	public students(int id, String name) {
+	public Student(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -34,16 +36,22 @@ public class students {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof students)) {
+		if (!(obj instanceof Student)) {
 			return false;
 		}
-		students that = (students) obj;
+		Student that = (Student) obj;
 		return getId() == that.getId();
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId());
 	}
 
 	@Override
 	public String toString() {
 		return id + "," + name;
 	}
+	
 
 }
