@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 import javax.security.auth.login.FailedLoginException;
 
 public class Student {
@@ -49,6 +51,10 @@ public class Student {
 	public String toString() {
 		return id + ", " + name;
 
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId());
 	}
 
 	/*@Override
