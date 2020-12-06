@@ -1,4 +1,4 @@
-package testing;
+package collections.list;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

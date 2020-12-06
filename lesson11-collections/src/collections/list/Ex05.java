@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import collections.utils.ListUtils;
+import collections.utils.CollectiontUtils;
 
-import static collections.utils.ListUtils.*;
+import static collections.utils.CollectiontUtils.*;
 
 
 

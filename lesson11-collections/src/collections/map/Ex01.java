@@ -21,7 +21,7 @@ public class Ex01 {
 		models.put(92, "Quang Nam");
 		models.put(43, "Da Nang");
 		models.put(75, "Hue");
-		//models.put(null, "unknow");
+		models.put(null, "unknow");
 		models.put(74, "Quang Tri");
 		models.put(73, "Quang Binh");
 
@@ -40,7 +40,26 @@ public class Ex01 {
 		// b3: create a map => map<K, V>
 		// b4: put sortedList entry to new map
 		List<Entry<Integer, String>> sortedList = new LinkedList<>(models.entrySet());
-		sortedList.sort(nullsFirst(comparing(e -> e.getKey())));
+		// sortedList.sort(comparing(entry -> entry.getKey()));
+
+		sortedList.sort(new Comparator<Entry<Integer, String>>() {
+			@Override
+			public int compare(Entry<Integer, String> e1, Entry<Integer, String> e2) {
+
+				Integer k1 = e1.getKey();
+				Integer k2 = e2.getKey();
+
+				if (k1 == null) {
+					return -1;
+				}
+				if (k2 == null) {
+					return 1;
+				}
+				return k1 - k2;
+
+			}
+		});
+
 		Map<Integer, String> sortedMap = new LinkedHashMap<>();
 		for (Entry<Integer, String> entry : sortedList) {
 			sortedMap.put(entry.getKey(), entry.getValue());

@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Student implements Comparable<Student>{
 	private int id;
 	private String name;
@@ -49,5 +51,11 @@ public class Student implements Comparable<Student>{
 	@Override
 	public int compareTo(Student o) {
 		return id - o.getId();
+	}
+	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return Objects.hash(getId());
 	}
 }
