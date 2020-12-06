@@ -2,6 +2,8 @@ package bean;
 
 import static java.util.Comparator.*;
 
+import java.util.Objects;
+
 public class Student implements Comparable<Student>{
 	private int id;
 	private String name;
@@ -52,5 +54,8 @@ public class Student implements Comparable<Student>{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId());
+	}
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static collections.utils.ListUtils.*;
+import static collections.utils.CollectionsUtils.*;
 
 public class Ex05 {
 	public static void main(String[] args) {
@@ -23,5 +23,8 @@ public class Ex05 {
 		printf(addAll);
 		printf(removeAll);
 		printf(retainAll);
+		
+		List<Object> list = Arrays.asList("");
+		printfwc(list);
 	}
 }
