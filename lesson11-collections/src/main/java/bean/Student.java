@@ -1,11 +1,13 @@
 package bean;
 
+import java.util.Objects;
+
 public class Student {
 	private int id;
 	private String name;
-	
+
 	public Student() {
-		
+
 	}
 
 	public Student(int id, String name) {
@@ -32,7 +34,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return  id + ", " + name ;
+		return id + ", " + name + "\n";
 	}
 
 	@Override
@@ -40,14 +42,17 @@ public class Student {
 		if (this == o) {
 			return true;
 		}
-		
+
 		if (!(o instanceof Student)) {
 			return false;
 		}
-		
+
 		Student that = (Student) o;
 		return getId() == that.getId();
 	}
-	
-	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId());
+	}
 }
