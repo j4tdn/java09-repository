@@ -1,9 +1,10 @@
 package collection.utils;
 
+import java.util.Collection;
 import java.util.List;
 
-public class ListUtils {
-	private  ListUtils() {
+public class CollectionUtils {
+	private  CollectionUtils() {
 		
 	}
 	
@@ -11,7 +12,7 @@ public class ListUtils {
 	//E: generic type => object (compiler)
 	//					  Integer,String...runtime	
 	
-	public static <E> void prinf(List<E> elements) {
+	public static <E> void prinf(Collection<E> elements) {
 		for (E element:elements) {
 			System.out.print(element+" ");
 		}

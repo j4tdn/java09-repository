@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import static collection.utils.ListUtils.*;
+import static collection.utils.CollectionUtils.*;
 import java.util.List;
 
 import javax.sound.sampled.ReverbType;
 
-import collection.utils.ListUtils;
+import collection.utils.CollectionUtils;
 
 public class Ex04 {
 	public static void main(String[] args) {

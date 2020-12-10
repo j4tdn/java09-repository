@@ -3,8 +3,8 @@ package collection.list;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import static collection.utils.ListUtils.*;
-import collection.utils.ListUtils;
+import static collection.utils.CollectionUtils.*;
+import collection.utils.CollectionUtils;
 
 public class Ex05 {
 	public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class Ex05 {
 		retainAll.retainAll(secondIds);
 		
 		prinf(addAll);//hop
-		ListUtils.prinf(removeAll);//hieu
-		ListUtils.prinf(retainAll);//giao
+		CollectionUtils.prinf(removeAll);//hieu
+		CollectionUtils.prinf(retainAll);//giao
 	}
 }
