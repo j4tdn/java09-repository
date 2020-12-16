@@ -11,21 +11,23 @@ import java.util.function.Function;
 
 import static java.util.Comparator.*;
 
+import java.util.Comparator;
+
 public class Ex01 {
 	public static void main(String[] args) {
 		Map<Integer, String> models = new HashMap<>();
 		models.put(92, "Quang Nam");
 		models.put(43, "Da Nang");
 		models.put(75, "Thua Thien Hue");
-		// models.put(null, "unknown");
+		models.put(null, "unknown");
 		models.put(74, "Quang Tri");
 		models.put(73, "Quang Binh");
 		
 		Map<Integer, String> sortedMap =  sort(models);
 		
-		interate(models);
-		interateKey(models);
-		interateValue(models);
+//		interate(models);
+//		interateKey(models);
+//		interateValue(models);
 		interate(sortedMap);
 	}
 	
@@ -35,7 +37,20 @@ public class Ex01 {
 		// B3: Create a MAP => MAP<K, V>
 		// B4: Put sortedList's entry to newMap
 		List<Entry<Integer, String>> sortedList = new LinkedList<>(models.entrySet());
-		sortedList.sort(nullsFirst(comparing(e -> e.getValue())));
+//		sortedList.sort(nullsFirst(comparing(e -> e.getValue())));
+		sortedList.sort(new Comparator<Entry<Integer, String>>() {
+
+			@Override
+			public int compare(Entry<Integer, String> e1, Entry<Integer, String> e2) {
+				if(e1.getKey() == null) {
+					return -1;
+				}
+				if(e2.getKey() == null) {
+					return 1;
+				}
+				return e1.getKey() - e2.getKey();
+			}
+		});
 		Map<Integer, String> sortedMap = new LinkedHashMap<>();
 		for (Entry<Integer, String> entry : sortedList) {
 			sortedMap.put(entry.getKey(), entry.getValue());

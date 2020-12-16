@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import collections.utils.ListUtils;
+import collections.utils.CollectionUtils;
 
-import static collections.utils.ListUtils.*;
+import static collections.utils.CollectionUtils.*;
 
 public class Ex05 {
 	public static void main(String[] args) {

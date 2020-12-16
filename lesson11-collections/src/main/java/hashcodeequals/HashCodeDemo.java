@@ -1,0 +1,23 @@
+package hashcodeequals;
+
+public class HashCodeDemo {
+	public static void main(String[] args) {
+		// hashcode, identityHashCode
+		String s1 = "hello";
+		String s2 = "hello";
+
+		hashcode(s1);
+		hashcode(s2);
+		
+		identityHashcode(s1);
+		identityHashcode(s2);
+	}
+
+	private static void hashcode(String s) {
+		System.out.println(s.hashCode());
+	}
+
+	private static void identityHashcode(String s) {
+		System.out.println(System.identityHashCode(s));
+	}
+}
