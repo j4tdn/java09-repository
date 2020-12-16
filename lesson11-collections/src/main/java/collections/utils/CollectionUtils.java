@@ -1,8 +1,9 @@
 package collections.utils;
 
+import java.util.Collection;
 import java.util.List;
 
-public class ListUtils {
+public class CollectionUtils {
 	public static void prinf(List<String> elements) {
 		for (String element : elements) {
 			System.out.println(element);
@@ -13,7 +14,7 @@ public class ListUtils {
 	// E: generic type => compile: Object
 	// hỗ trợ bắt lỗi tại compile
 	// giới hạn kiểu tham số truyền vào <E extends Number>
-	public static <E> void printf(List<E> elements) {
+	public static <E> void printf(Collection<E> elements) {
 		for (E element : elements) {
 			System.out.println(element);
 		}

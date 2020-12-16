@@ -64,7 +64,24 @@ public class Ex01 {
 		// B3: Create a MAP => Map<K, V>
 		// B4: Put sortedList's Entry to newMap
 		List<Entry<Integer, String>> sortedList = new LinkedList<>(models.entrySet());
-		sortedList.sort(nullsFirst(comparing(e -> e.getValue())));
+		sortedList.sort(new Comparator<Entry<Integer, String>>() {
+
+			@Override
+			public int compare(Entry<Integer, String> e1, Entry<Integer, String> e2) {
+				Integer k1 = e1.getKey();
+				Integer k2 = e2.getKey();
+				
+				if(k1 == null) {
+					return -1;
+				}
+				if (k2 == null) {
+					return 1;
+				}
+				return k1 - k2;
+			}
+		});
+//		sortedList.sort(comparing(entry -> entry.getKey()));
+//		sortedList.sort(nullsFirst(comparing(e -> e.getValue())));
 		Map<Integer, String> sortedMap = new LinkedHashMap<>();
 		for(Entry<Integer, String> entry: sortedList) {
 			sortedMap.put(entry.getKey(), entry.getValue());
