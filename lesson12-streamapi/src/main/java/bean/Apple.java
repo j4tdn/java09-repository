@@ -11,7 +11,6 @@ public class Apple {
 		super();
 	}
 	
-	
 	public Apple(String id) {
 		super();
 		this.id = id;
