@@ -11,6 +11,10 @@ public class Apple {
 	public Apple() {
 	}
 
+	public Apple(String id) {
+		this.id = id;
+	}
+
 	public Apple(String id, String color, double weight, String origin) {
 		super();
 		this.id = id;
@@ -54,18 +58,22 @@ public class Apple {
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
-			return true;}
+			return true;
+		}
 		if (!(o instanceof Apple)) {
-			return false;}
-		Apple that=(Apple) o;
+			return false;
+		}
+		Apple that = (Apple) o;
 		return getId().equals(that.getId());
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(getId());
 	}
+
 	@Override
 	public String toString() {
-		return id+","+color+","+weight+","+origin;
+		return id + "," + color + "," + weight + "," + origin;
 	}
 }
