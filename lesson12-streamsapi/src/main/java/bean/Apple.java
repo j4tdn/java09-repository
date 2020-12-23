@@ -66,13 +66,13 @@ public class Apple {
 		}
 
 		Apple that = (Apple) o;
-		return getId().equals(that.getId());
+		return getColor().equals(that.getColor());
 	}
 
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated method stub
-		return Objects.hash(getId());
+		return Objects.hash(getColor());
 	}
 
 	@Override
