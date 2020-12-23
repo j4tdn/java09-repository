@@ -66,12 +66,12 @@ public class Apple {
 			return false;
 		}
 		Apple that = (Apple) o;
-		return getId().equals(that.getId());
+		return getColor().equals(that.getColor());
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(getId());
+		return Objects.hash(getColor());
 	}
 
 	@Override
