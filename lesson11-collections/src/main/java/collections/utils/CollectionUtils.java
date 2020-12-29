@@ -1,9 +1,11 @@
 package collections.utils;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-public class ListUtils {
-	private ListUtils() {
+public class CollectionUtils {
+	private CollectionUtils() {
 	}
 	
 	
@@ -11,7 +13,7 @@ public class ListUtils {
 	// E: generic type => compile: Object
 	// Integer, Double, Long
 	// technical restriction
-	public static <E> void printf(List<E> elements) {
+	public static <E> void printf(Collection<E> elements) {
 		for (E element: elements) {
 			System.out.println(element);
 		}
