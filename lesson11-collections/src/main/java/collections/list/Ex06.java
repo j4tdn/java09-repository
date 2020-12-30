@@ -8,7 +8,7 @@ import static java.util.Comparator.*;
 import java.util.List;
 
 import bean.Student;
-import collections.utils.ListUtils;
+import collections.utils.CollectionUtils;
 
 public class Ex06 {
 	public static void main(String[] args) {
