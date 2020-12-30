@@ -10,6 +10,6 @@ public class Ex01TraversableOne {
 		// convert to stream
 		int[] result = Arrays.stream(digits).filter(d -> d % 2 != 0).toArray();
 		
-		Arrays.stream(result).forEach(System.out::println);
+		Arrays.stream(result).forEach(System.out::println);	
 	}
 }
