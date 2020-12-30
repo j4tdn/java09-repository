@@ -7,14 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.TreeMap;
-import java.util.function.Function;
-
-import javax.naming.ldap.SortControl;
-
-import static java.util.Comparator.*;
-
-import java.util.ArrayList;
 public class Ex01 {
 	public static void main(String[] args) {
 //		Map<Integer, String> models = new TreeMap<>(nullsFirst(reverseOrder()));
