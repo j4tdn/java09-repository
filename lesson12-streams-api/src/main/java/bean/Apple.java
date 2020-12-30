@@ -9,6 +9,9 @@ public class Apple {
 	private String origin;
 	
 	
+	public Apple() {
+	}
+	
 	public Apple(String id) {
 		this.id = id;
 	}
