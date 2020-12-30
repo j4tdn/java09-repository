@@ -7,7 +7,11 @@ public class Apple {
 	private String color;
 	private double weight;
 	private String origin;
-	
+
+	public Apple() {
+
+	}
+
 	public Apple(String id) {
 		this.id = id;
 	}
@@ -35,11 +39,11 @@ public class Apple {
 		this.color = color;
 	}
 
-	public Double getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
-	public void setWeight(Double weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
@@ -50,23 +54,31 @@ public class Apple {
 	public void setOrigin(String origin) {
 		this.origin = origin;
 	}
+
 	@Override
 	public boolean equals(Object o) {
-		if(this == o) {
+		if (this == o) {
 			return true;
 		}
-		if(!(o instanceof Apple)) {
+
+		if (!(o instanceof Apple)) {
 			return false;
 		}
+
 		Apple that = (Apple) o;
-		return getId().equals(that.getId());
+		return getColor().equals(that.getColor());
 	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(getId());
+		// TODO Auto-generated method stub
+		return Objects.hash(getColor());
 	}
+
 	@Override
 	public String toString() {
+		// TODO Auto-generated method stub
 		return id + ", " + color + ", " + weight + ", " + origin;
 	}
+
 }

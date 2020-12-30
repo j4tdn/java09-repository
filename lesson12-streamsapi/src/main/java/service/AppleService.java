@@ -7,6 +7,6 @@ import bean.Apple;
 
 // dao, service pattern
 public interface AppleService {
-	 List<Apple> getAll();
-	 List<Apple> getApples(Predicate<Apple> predicate);
+	List<Apple> getAll();
+	List<Apple> getApples(Predicate<Apple> predicate);
 }
