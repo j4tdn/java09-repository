@@ -20,9 +20,8 @@ public class Demo {
 
 		ListUtils.show(service.getAll());
 		System.out.println("=====");
-		ListUtils.show(service.getApples(apple->apple.getWeight()>250));
-		
+		ListUtils.show(service.getApples(apple -> apple.getWeight() > 250));
 
-		ListUtils.show(service.getApples(apple->"red".equals(apple.getColor())));
+		ListUtils.show(service.getApples(apple -> "red".equals(apple.getColor())));
 	}
 }

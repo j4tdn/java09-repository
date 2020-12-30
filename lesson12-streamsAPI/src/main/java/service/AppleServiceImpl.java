@@ -22,17 +22,15 @@ public class AppleServiceImpl implements AppleService {
 	@Override
 	public List<Apple> getApples(Predicate<Apple> predicate) {
 
-		List<Apple> data= mockData();
-		List<Apple> result=new ArrayList<>();
-		for(Apple apple: data) {
-			if(predicate.test(apple)) {
+		List<Apple> data = mockData();
+		List<Apple> result = new ArrayList<>();
+		for (Apple apple : data) {
+			if (predicate.test(apple)) {
 				result.add(apple);
 			}
 		}
-		
-		
+
 		return result;
 	}
 
-	
 }

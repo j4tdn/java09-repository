@@ -13,7 +13,7 @@ public class Apple {
 	}
 
 	public Apple(String id) {
-		this.id=id;
+		this.id = id;
 	}
 
 	public Apple(String id, String color, double weight, String origin) {
@@ -67,7 +67,7 @@ public class Apple {
 		Apple that = (Apple) o;
 		return getId() == that.getId();
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(getId());
