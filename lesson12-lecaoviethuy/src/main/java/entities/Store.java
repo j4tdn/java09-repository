@@ -12,6 +12,8 @@ public class Store {
     private BigDecimal storePreviousDay;
     private BigDecimal expectedSales;
     private Boolean isSelected;
+    private Long demand;
+    private Long amountAllocated;
 
     public Store() {
 
@@ -68,6 +70,14 @@ public class Store {
     public void setSelected(final Boolean selected) {
         isSelected = selected;
     }
+    
+    public void setDemand(final Long demand) {
+        this.demand = demand;
+    }
+
+    public Long getDemand() {
+        return demand;
+    }
 
     @Override
     public boolean equals(final Object o) {
@@ -94,6 +104,16 @@ public class Store {
                 .append("storePreviousDay", storePreviousDay)
                 .append("expectedSales", expectedSales)
                 .append("isSelected", isSelected)
+                .append("demand", demand)
+                .append("amountAllocated" + amountAllocated)
                 .toString();
     }
+
+	public Long getAmountAllocated() {
+		return amountAllocated;
+	}
+
+	public void setAmountAllocated(Long amountAllocated) {
+		this.amountAllocated = amountAllocated;
+	}
 }
