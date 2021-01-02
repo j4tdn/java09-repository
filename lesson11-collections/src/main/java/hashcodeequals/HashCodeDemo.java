@@ -5,7 +5,7 @@ public class HashCodeDemo {
 		String s1 = "hello";
 		String s2 = new String("hello");
 		
-		hashcode(s1);
+		hashcode(s1); // ma hash duoc sinh ra tu gia tri cua doi tuong
 		hashcode(s2);
 		
 		identityHashCode(s1);
