@@ -28,8 +28,11 @@ public class AppleServiceImpl implements AppleService {
 	}
 
 	private List<Apple> mockData() {
-		return Arrays.asList(new Apple("R01", "red", 220, "Viet Nam"), new Apple("G02", "green", 420, "Lao"),
-				new Apple("R02", "red", 260, "Brunei"), new Apple("Y01", "yellow", 180, "Lao"),
+		return Arrays.asList(
+				new Apple("R01", "red", 220, "Viet Nam"), 
+				new Apple("G02", "green", 420, "Lao"),
+				new Apple("R02", "red", 260, "Brunei"), 
+				new Apple("Y01", "yellow", 180, "Lao"),
 				new Apple("Y02", "yello", 220, "Lao")
 
 		);
