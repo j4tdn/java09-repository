@@ -38,13 +38,13 @@ public class WhAllocatedAmountManager {
 				.collect(Collectors.toList());
 		//step1
 		calExceptedSale(storeSelected);
+		for (Store store2 : storeSelected) {
+			System.out.println(store2.getExpectedSales());
+		}
 		//step2
 		Map<Long,BigDecimal> allocationKey=calAllocationKey(storeSelected);
 		//step3
 		Map<Long,BigDecimal> amountAllocated=calAmountAllocated(storeSelected, 300);
-		for (Store store2 : storeSelected) {
-			System.out.println(amountAllocated.get(store2.getStoreId())+"   "+store2.getStorePreviousDay());
-		}
     }
 
     private static List<Store> getItems() {
@@ -77,15 +77,16 @@ public class WhAllocatedAmountManager {
 		Map<Long, Store> storeWithExpectedSale = storeSelected.stream()
 				.collect(Collectors.toMap(Store::getStoreId, Function.identity(), (s1, s2) -> s1, LinkedHashMap::new));
 
-		Optional<BigDecimal> sumAllExpectedSaleNotNull = storeSelected.stream()
-				.filter(store -> store.getExpectedSales() != null).map(Store::getExpectedSales)
-				.reduce((a, b) -> a.add(b));
-
+		BigDecimal sum=bd(0);
+		for (Store store2 : storeSelected) {
+			if(store2.getExpectedSales()!=null) {
+				sum=sum.add(store2.getExpectedSales());
+			}
+		}
 		Long count = storeSelected.stream().filter(store -> store.getExpectedSales() != null)
 				.count();
 
-		BigDecimal average = sumAllExpectedSaleNotNull.get()
-				.divide(BigDecimal.valueOf(count),1,RoundingMode.HALF_UP);
+		BigDecimal average = sum.divide(BigDecimal.valueOf(count),1,RoundingMode.HALF_UP);
 
 		storeSelected.stream().forEach(store -> {
 			BigDecimal expectedSale = store.getExpectedSales();
