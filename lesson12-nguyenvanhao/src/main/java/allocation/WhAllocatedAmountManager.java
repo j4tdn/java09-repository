@@ -12,6 +12,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -29,22 +30,30 @@ public class WhAllocatedAmountManager {
 	 * Rounding
 	 * a.setScale(10, RoundingMode.HALF_UP);
 	 */
-	
+	final static Integer allocationAmount = 300;
     public static void main(String[] args) {
-    	final Integer allocationAmount = 300;
     	final List<Store> data = getItems();
 		List<Store> storeSelected=data.stream()
 				.filter(store->store.getSelected()==Boolean.TRUE)
 				.collect(Collectors.toList());
 		//step1
 		calExceptedSale(storeSelected);
-		for (Store store2 : storeSelected) {
-			System.out.println(store2.getExpectedSales());
-		}
 		//step2
 		Map<Long,BigDecimal> allocationKey=calAllocationKey(storeSelected);
 		//step3
 		Map<Long,BigDecimal> amountAllocated=calAmountAllocated(storeSelected, 300);
+		Map<Long,BigDecimal> demand=demand(storeSelected);
+		Map<Long,Integer> difference=difference(storeSelected);
+		fixingIssuesUp(storeSelected, amountAllocated, difference);
+		for (Store store2 : storeSelected) {
+			System.out.println(amountAllocated.get(store2.getStoreId())+"  "+demand.get(store2.getStoreId())+"  "+difference.get(store2.getStoreId()));
+		}
+		//step4
+		fixingIssuesDown(storeSelected, amountAllocated, difference);
+		for (Store store2 : storeSelected) {
+			System.out.println(amountAllocated.get(store2.getStoreId()));
+		}
+		
     }
 
     private static List<Store> getItems() {
@@ -143,5 +152,75 @@ public class WhAllocatedAmountManager {
 		}
 		return rs;
 		
+	}
+	private static int sumAmountAllocated(List<Store> storeSelected,Map<Long,BigDecimal> amountAllocated) {
+		BigDecimal sum=bd(0);
+		for (Store store : storeSelected) {
+			sum=sum.add(amountAllocated.get(store.getStoreId()));
+		}
+		return sum.toBigInteger().intValueExact();
+	}
+	private static Map<Long,BigDecimal> demand(List<Store> storeSelected){
+		Map<Long,BigDecimal> demand=new HashMap<Long,BigDecimal >();
+		for (Store store : storeSelected) {
+			 BigDecimal d=store.getExpectedSales().subtract(store.getStorePreviousDay()).setScale(0, RoundingMode.HALF_UP);
+			 //d.setScale(0, RoundingMode.HALF_UP);
+			 if(d.signum()<0) {
+				 d=bd(0);
+			 }
+			demand.put(store.getStoreId(), d);
+		}
+		return demand;
+	}
+	private static Map<Long,Integer> difference(List<Store> storeSelected){
+		Map<Long,BigDecimal> amountAllocated=calAmountAllocated(storeSelected, 300);
+		Map<Long,BigDecimal> demand=demand(storeSelected);
+		Map<Long,Integer> difference=new HashMap<Long, Integer>();
+		for (Store store : storeSelected) {
+			BigDecimal am=amountAllocated.get(store.getStoreId());
+			BigDecimal dm=demand.get(store.getStoreId());
+			difference.put(store.getStoreId(), am.subtract(dm).toBigInteger().intValueExact());
+		}
+		return difference;
+	}
+	private static void fixingIssuesUp(List<Store> storeSelected,Map<Long,BigDecimal> amountAllocated,Map<Long,Integer> difference){
+		//amountAllocated=calAmountAllocated(storeSelected, 300);
+		//difference=difference(storeSelected);
+		//Map<Long,BigDecimal> result=new HashMap<Long, BigDecimal>();
+		int max=0;
+		Set<Long> key=difference.keySet();
+		for(Long k:key) {
+			if(difference.get(k)>max) {
+				max=difference.get(k);
+			}
+		}
+		while(sumAmountAllocated(storeSelected, amountAllocated)>300) {
+			for (Store store : storeSelected) {
+				if(difference.get(store.getStoreId())==max) {
+					amountAllocated.put(store.getStoreId(), amountAllocated.get(store.getStoreId()).subtract(bd(1)));
+					break;
+				}
+			}
+		}
+	}
+	private static void fixingIssuesDown(List<Store> storeSelected,Map<Long,BigDecimal> amountAllocated,Map<Long,Integer> difference){
+		//amountAllocated=calAmountAllocated(storeSelected, 300);
+		//difference=difference(storeSelected);
+		//Map<Long,BigDecimal> result=new HashMap<Long, BigDecimal>();
+		int min=0;
+		Set<Long> key=difference.keySet();
+		for(Long k:key) {
+			if(difference.get(k)<min) {
+				min=difference.get(k);
+			}
+		}
+		while(sumAmountAllocated(storeSelected, amountAllocated)<300) {
+			for (Store store : storeSelected) {
+				if(difference.get(store.getStoreId())==min) {
+					amountAllocated.put(store.getStoreId(), amountAllocated.get(store.getStoreId()).add(bd(1)));
+					break;
+				}
+			}
+		}
 	}
 }
