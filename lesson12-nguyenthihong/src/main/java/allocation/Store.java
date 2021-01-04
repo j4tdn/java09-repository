@@ -81,8 +81,7 @@ public class Store {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(storeId).append(referenceStoreId).append(storePreviousDay)
-				.append(expectedSales).append(isSelected).toHashCode();
+		return new HashCodeBuilder().append(storeId).toHashCode();
 	}
 
 	@Override
