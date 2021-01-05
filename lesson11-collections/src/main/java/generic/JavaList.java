@@ -5,6 +5,8 @@ import java.lang.reflect.Array;
 public class JavaList<E> implements IList<E> {
 	
 	private E[] element;
+	private int defaultCapacity;
+	private int modCount = 0;
 	
 	public JavaList() {
 		element = (E[])Array.newInstance(Object.class, 100);
@@ -15,7 +17,9 @@ public class JavaList<E> implements IList<E> {
 		return (E[])Array.newInstance(Object.class, size);
 	}
 	
-
+	private JavaList(int capacity){
+		
+	}
 	@Override
 	public boolean add(E e) {
 		
