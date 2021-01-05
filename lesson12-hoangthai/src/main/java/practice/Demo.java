@@ -17,8 +17,10 @@ public class Demo {
 		List<Trader> traders = getTraders();
 		List<Transaction> resutl=Ex01(transactions);
 		resutl.forEach(System.out::println);
+		System.out.println("========");
 		List<Transaction> resutl2=Ex02(transactions);
 		resutl.forEach(System.out::println);
+		System.out.println("========");
 		List<Trader> resutl3=Ex03(traders);
 		resutl.forEach(System.out::println);
 		
