@@ -10,6 +10,11 @@ public class Ex05Reducing {
 		Integer sum = digits.stream()
 			  .reduce(0, (a, b) -> a + b);//Integer::sum
 		
+		//use numeric stream
+		int sum2 = digits.stream()
+				.mapToInt(Integer::intValue)
+				.sum();
+		
 		System.out.println("sum: " + sum);
 	
 		Optional<Integer> sumOpt = digits.stream()
