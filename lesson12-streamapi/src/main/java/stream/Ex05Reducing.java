@@ -2,7 +2,6 @@ package stream;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 public class Ex05Reducing {
 	public static void main(String[] args) {
@@ -11,9 +10,9 @@ public class Ex05Reducing {
 
 		System.out.println("sum:" + sum);
 
-		Optional<Integer> sumOpt = digits.stream().reduce((a, b) -> a + b); //Integer::max
-		sumOpt.ifPresent(System.out::println);
+		Integer sumOpt = digits.stream()
+										 .mapToInt(Integer::intValue).sum();//Integer::max
 		
-		System.out.println(sumOpt.orElse(null));
+		System.out.println(sumOpt);
 	}
 }
