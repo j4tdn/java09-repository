@@ -2,12 +2,16 @@ package definition;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 public class Ex03 {
 public static void main(String[] args) {
 	File file =Create("apple"+File.separator+"data.txt");
 	System.out.println("file: "+file.getName());
-	
+//	file.delete();
+//	file.renameTo(file);
+//  Files.copy
+//	Files.move
 }
 
 private static File Create(String path) {

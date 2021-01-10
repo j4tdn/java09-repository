@@ -1,0 +1,5 @@
+R01,red,500.0,Viet Nam
+G02,green,220.0,Lao
+R02,red,400.0,Viet Nam
+Y01,green,220.0,Viet Nam
+Y02,red,220.0,Viet Nam
