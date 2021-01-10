@@ -1,0 +1,5 @@
+R01, red, 220.0, Viet Nam
+R02, green, 420.0, Lao
+R03, red, 260.0, Brunei
+Y01, yellow, 180.0, Lao
+Y02, yello, 220.0, Lao
