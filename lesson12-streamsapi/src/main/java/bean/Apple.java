@@ -78,4 +78,9 @@ public class Apple {
 	public String toString() {
 		return id + ", " + color + ", " + weight + ", " + origin;
 	}
+	
+	public static Apple toApple(String line) {
+		String[] splited = line.split(", ");
+		return new Apple(splited[0], splited[1], Double.parseDouble(splited[2]), splited[3]);
+	}
 }

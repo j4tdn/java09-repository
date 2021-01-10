@@ -1,0 +1,6 @@
+R01, red, 220.0, france
+G01, green, 420.0, vietnam
+H01, yellow, 410.0, lao
+K09, blue, 390.0, vietnam
+G01, green, 420.0, campuchia
+L01, red, 90.0, japan
