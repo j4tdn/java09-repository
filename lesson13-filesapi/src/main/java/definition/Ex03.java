@@ -18,7 +18,6 @@ public class Ex03 {
 	private static File createFile(String path) {
 		boolean isSuccess = false;
 		File file = new File(path);
-		
 		File parent = file.getParentFile();
 		if (!parent.exists()) {
 			parent.mkdirs();
