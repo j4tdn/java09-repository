@@ -2,7 +2,6 @@ package definition;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 
 public class Ex03 {
 	// apple/data.txt
