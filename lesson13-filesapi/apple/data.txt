@@ -1,0 +1,5 @@
+R01, Red, 220.0, Da Nang
+R02, green, 220.0, Lao
+R02, Red, 260.0, Brunei
+Y01, yellow, 150.0, Trung Quoc
+Y02, yellow, 220.0, Lao
