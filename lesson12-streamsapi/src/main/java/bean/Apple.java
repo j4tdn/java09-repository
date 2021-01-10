@@ -22,6 +22,14 @@ public class Apple {
 		this.weight = weight;
 		this.origin = origin;
 	}
+	
+	public Apple transfer(String line) {
+		String[] e = line.split("[, ]+");
+		if(e.length != 4) {
+			throw new IllegalArgumentException();
+		}
+		return new Apple(e[0], e[1], Double.valueOf(e[2]), e[3]);
+	}
 
 	public String getId() {
 		return id;
