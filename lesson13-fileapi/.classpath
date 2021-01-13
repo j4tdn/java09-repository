@@ -24,6 +24,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/DL/JAVA_CODE_09/workspace/javacore/java09-repository/lesson13-fileapi/appledata.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
