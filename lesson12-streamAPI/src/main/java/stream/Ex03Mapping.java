@@ -31,7 +31,9 @@ public class Ex03Mapping {
 		
 		List<String> result = cards.stream()
 				.flatMap(t -> t.stream())
+				.filter(card -> card.startsWith("2"))
 				.collect(Collectors.toList());
+		result.forEach(card -> System.out.println(card + " "));
 	}
 	
 	
