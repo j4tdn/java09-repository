@@ -1,8 +1,13 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Apple {
+public class Apple implements Serializable {
+	/**
+	 * 
+ */
+	private static final long serialVersionUID = -541801046761431382L;
 	private String id;
 	private String color;
 	private double weight;

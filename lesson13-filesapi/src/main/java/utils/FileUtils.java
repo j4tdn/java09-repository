@@ -1,10 +1,17 @@
 package utils;
 
+import java.awt.Desktop;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.Optional;
 
 public class FileUtils {
 
@@ -58,7 +65,30 @@ public class FileUtils {
 		}
 
 	}
-
+	public static void writeObject(File file, Object obj) {
+		FileOutputStream  fos =null;
+		ObjectOutputStream oos=null;
+		
+		try {
+			fos = new FileOutputStream(file);
+			oos =new ObjectOutputStream(fos);
+			oos.writeObject(obj);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(oos, fos);
+		}
+	}
+	public static void open(File file) {
+		Objects.requireNonNull(file,"file canbot be null");
+		try {
+			Desktop.getDesktop().open(file);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
 	public static <T extends AutoCloseable> void close(T... elements) {
 		for (T e : elements) {
 			try {
@@ -68,6 +98,23 @@ public class FileUtils {
 				e1.printStackTrace();
 			}
 		}
+	}
+	public static Optional<Object> readObject(File file) {
+		Object object =null;
+		FileInputStream  fis =null;
+		ObjectInputStream ois=null;
+		
+		try {
+			fis = new FileInputStream(file);
+			ois =new ObjectInputStream(fis);
+			object=	ois.readObject();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(ois, fis);
+		}
+		return Optional.ofNullable(object);
 	}
 
 }
