@@ -22,7 +22,6 @@ public class Apple {
 		this.weight = weight;
 		this.origin = origin;
 	}
-
 	public String getId() {
 		return id;
 	}
