@@ -32,5 +32,6 @@ public class Ex04 {
 		counter += 2;
 		System.out.println("main: " + counter);
 		System.out.println("Thread main end");
+		System.out.println("Thread main end");
 	}
 }
