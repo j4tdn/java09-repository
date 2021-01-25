@@ -13,7 +13,7 @@ public class Ex01 {
 		start = System.currentTimeMillis();
 		// create thread pool:
 		int coreNumber = Runtime.getRuntime().availableProcessors();
-		ExecutorService service = Executors.newFixedThreadPool(coreNumber);
+		ExecutorService service = Executors.newFixedThreadPool(100);
 
 		System.out.println("core: " + coreNumber);
 
