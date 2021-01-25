@@ -16,7 +16,7 @@ public class Ex01 {
 		start = System.currentTimeMillis();
 		int cores = Runtime.getRuntime().availableProcessors();
 		System.out.println(cores);
-		ExecutorService service = Executors.newFixedThreadPool(4);
+		ExecutorService service = Executors.newFixedThreadPool(8);
 
 		List<Task> tasks = new ArrayList<>();
 
