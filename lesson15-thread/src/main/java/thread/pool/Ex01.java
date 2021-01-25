@@ -13,10 +13,12 @@ public class Ex01 {
 	private static long start = 0;
 	
 	public static void main(String[] args) {
-		//create thread pool
+		
 		start=System.currentTimeMillis();
 		int cores=Runtime.getRuntime().availableProcessors();
 		System.out.println("Cores: " + cores);
+		
+		//create thread pool
 		ExecutorService service= Executors.newFixedThreadPool(cores);
 		
 		List<Task> tasks= new ArrayList<>();
