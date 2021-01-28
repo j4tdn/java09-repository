@@ -1,12 +1,14 @@
 package deadlock;
 
 public class SuspendResumeDeadlock {
+	private static Object shareData = new Object();
+	
 	public static void main(String[] args) throws InterruptedException {
 
 		final Thread thread1 = new Thread("Thread-1") {
 			public void run() {
 				System.out.println(Thread.currentThread().getName() + " has started.");
-				synchronized (String.class) {
+				synchronized (shareData) {
 					System.out.println(Thread.currentThread().getName() + " " + " has obtained lock on String.class "
 							+ " & suspended...");
 
@@ -16,8 +18,6 @@ public class SuspendResumeDeadlock {
 					 * thread, thread will go in waiting state.
 					 */
 					Thread.currentThread().suspend();
-					Thread.currentThread().resume();
-					System.out.println(Thread.currentThread().getName() + "has been resume");
 					System.out.println(Thread.currentThread().getName() + " " + " has released lock on String.class");
 				}
 				System.out.println(Thread.currentThread().getName() + " has ENDED.");
@@ -41,9 +41,9 @@ public class SuspendResumeDeadlock {
 				 * String.class, if lock is not released, Thread-2 will keep on waiting for
 				 * Thread-1 to release lock on String.class & deadlock will be formed.
 				 */
-
+				
 				System.out.println(Thread.currentThread().getName() + " is trying to obtain lock on String.class");
-				synchronized (String.class) {
+				synchronized (shareData) {
 					System.out.println(Thread.currentThread().getName() + " has obtained lock on String.class");
 					System.out.println(Thread.currentThread().getName() + " has released lock on String.class");
 				}
