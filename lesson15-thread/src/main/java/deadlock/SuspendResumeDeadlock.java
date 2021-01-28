@@ -1,6 +1,9 @@
 package deadlock;
 
 public class SuspendResumeDeadlock {
+	
+	
+	
 	public static void main(String[] args) throws InterruptedException {
 
 		final Thread thread1 = new Thread("Thread-1") {

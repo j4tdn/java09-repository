@@ -16,11 +16,11 @@ public class Ex01 {
 		start = System.currentTimeMillis();
 		int cores = Runtime.getRuntime().availableProcessors();
 		System.out.println(cores);
-		ExecutorService service = Executors.newFixedThreadPool(8);
+		ExecutorService service = Executors.newFixedThreadPool(10);
 
 		List<Task> tasks = new ArrayList<>();
 
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 12; i++) {
 			tasks.add(new Task());
 		}
 

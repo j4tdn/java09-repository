@@ -19,7 +19,6 @@ public class Ex02 {
 
 		@Override
 		public Integer call() throws Exception {
-
 			return (int) (Math.random() * 100);
 		}
 

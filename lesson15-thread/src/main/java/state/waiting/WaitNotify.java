@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Random;
+import java.util.Set;
 import java.awt.Image;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -128,6 +129,7 @@ public class WaitNotify extends JFrame implements Runnable {
 
         thread = new Thread(ex04);
         thread.start();
+        Set<E>
     }
 
     @Override
