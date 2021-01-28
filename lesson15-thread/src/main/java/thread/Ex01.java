@@ -5,7 +5,7 @@ public class Ex01 {
 		System.out.println("Thread main start");
 		
 		// using Thread
-		Thread t0 = new Thread() {
+		Thread t0 = new Thread("t0") {
 			@Override
 			public void run() {
 				//task
