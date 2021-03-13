@@ -17,6 +17,7 @@ public class Ex01 {
 		//using Thread, Runnable
 		
 		System.out.println("Thread main end");
+		System.out.println("Thread main end");
 	}
 
 }
