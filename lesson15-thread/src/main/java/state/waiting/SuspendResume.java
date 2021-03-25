@@ -103,7 +103,7 @@ public class SuspendResume extends JFrame implements Runnable {
         btResume.setFont(font);
         btResume.setFocusPainted(false);
         btResume.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        Dimension p3 = btResume.getPreferre	dSize();
+        Dimension p3 = btResume.getPreferredSize();
         btResume.setBounds(250, 350, (int) p3.getWidth(), (int) p3.getHeight());
         conn.add(btResume);
 
