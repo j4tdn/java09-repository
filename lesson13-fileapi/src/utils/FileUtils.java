@@ -2,9 +2,21 @@ package utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Properties;
+import java.util.stream.Stream;
+
+import bean.Student;
 
 public class FileUtils {
 	private FileUtils() {
@@ -68,5 +80,53 @@ public class FileUtils {
 				e1.printStackTrace();
 			}
 		}
+	}
+
+	public static void writeObject(File file, Object object) {
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+		try {
+			fos = new FileOutputStream(file);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(object);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(oos);
+		}
+	}
+	public static Optional<Object> readObject(File file) {
+		Object object = null;
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			fis = new FileInputStream(file);
+			ois = new ObjectInputStream(fis);
+			ois.readObject();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(ois);
+		}
+		return Optional.ofNullable(object);
+	}
+	public static void open(File file) {
+		
+	}
+	public static Properties getProperties(File file) {
+		Properties props = new Properties();
+		try {
+			props.load(new FileInputStream(file));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return props;
+	}
+	public static void writeJson(File file, Student student) {
+		
 	}
 }
