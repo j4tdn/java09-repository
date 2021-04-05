@@ -4,35 +4,63 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class ItemGroup {
-	private Integer id;
+public class Item {
+	private Integer id; 
 	private String name;
+	private Double saleIn;
+	private Double saleOut;
 	
-	public ItemGroup() {
+	public Item() {
 	}
 
-	public ItemGroup(Integer id, String name) {
+	
+	public Item(Integer id, String name, Double saleIn, Double saleOut) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.saleIn = saleIn;
+		this.saleOut = saleOut;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+
+	public Double getSaleIn() {
+		return saleIn;
+	}
+
+
+	public void setSaleIn(Double saleIn) {
+		this.saleIn = saleIn;
+	}
+
+
+	public Double getSaleOut() {
+		return saleOut;
+	}
+
+
+	public void setSaleOut(Double saleOut) {
+		this.saleOut = saleOut;
+	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -40,15 +68,17 @@ public class ItemGroup {
 			return true;
 		}
 		
-		if (! (obj instanceof ItemGroup)) {
+		if (!(obj instanceof Item)) {
 			return false;
 		}
 		
-		ItemGroup that = (ItemGroup) obj;
+		Item that = (Item) obj;
 		
 		return new EqualsBuilder()
-				.append(getId(),that.getId())
-				.append(getName(), that.getName())
+				.append(that.getId(), getId())
+				.append(that.getName(), getName())
+				.append(that.getSaleIn(), getSaleIn())
+				.append(that.getSaleOut(), getSaleOut())
 				.isEquals();
 	}
 	
@@ -57,6 +87,8 @@ public class ItemGroup {
 		return new HashCodeBuilder()
 				.append(getId())
 				.append(getName())
+				.append(getSaleIn())
+				.append(getSaleOut())
 				.toHashCode();
 	}
 	
@@ -65,6 +97,8 @@ public class ItemGroup {
 		return new ToStringBuilder(this)
 				.append(getId())
 				.append(getName())
+				.append(getSaleIn())
+				.append(getSaleOut())
 				.toString();
 	}
 }

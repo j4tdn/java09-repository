@@ -1,5 +1,10 @@
 package dao;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,12 +14,15 @@ import java.util.List;
 
 import connection.DBConnection;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 
 public class ItemGroupDao {
+	
+	Connection conn = DBConnection.getConnection();
+	
 	public List<ItemGroup> getAll(){
 		List<ItemGroup> result = new ArrayList<>();
 		
-		Connection conn = DBConnection.getConnection();
 		String sql = "SELECT * FROM LoaiHang";
 		
 		try {
@@ -30,4 +38,16 @@ public class ItemGroupDao {
 		
 		return result;
 	}
+	
+	public ItemGroupDto getIGD(int grId) {
+		String sql = "select lh.MaLoai, \r\n" + 
+				"	   lh.TenLoai, \r\n" + 
+				"       group_concat(TenMH, ':', SoLuong) DSMH,\r\n" + 
+				"       sum(SoLuong) TongSoLuong\r\n" + 
+				"from loaihang lh\r\n" + 
+				"join mathang mh on lh.MaLoai = mh.MaLoai\r\n" + 
+				"join kichcomathang kcmh on kcmh.MaMH = mh.MaMH\r\n" + 
+				"where lh.MaLoai = 1";
+	}
+	
 }
