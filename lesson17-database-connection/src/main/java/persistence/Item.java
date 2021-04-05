@@ -5,16 +5,20 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class ItemGroup {
+public class Item {
 	private Integer id;
 	private String name;
+	private Double saleIn;
+	private Double saleOut;
 	
-	public ItemGroup() {
+	public Item() {
 	}
 
-	public ItemGroup(Integer id, String name) {
+	public Item(Integer id, String name, Double saleIn, Double saleOut) {
 		this.id = id;
 		this.name = name;
+		this.saleIn = saleIn;
+		this.saleOut = saleOut;
 	}
 
 	public Integer getId() {
@@ -32,6 +36,22 @@ public class ItemGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Double getSaleIn() {
+		return saleIn;
+	}
+
+	public void setSaleIn(Double saleIn) {
+		this.saleIn = saleIn;
+	}
+
+	public Double getSaleOut() {
+		return saleOut;
+	}
+
+	public void setSaleOut(Double saleOut) {
+		this.saleOut = saleOut;
+	}
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -43,10 +63,12 @@ public class ItemGroup {
 			return false;
 		}
 		
-		ItemGroup that = (ItemGroup) obj;
+		Item that = (Item) obj;
 		return new EqualsBuilder()
 				.append(id, that.getId())
 				.append(name, that.getName())
+				.append(saleIn, that.getSaleIn())
+				.append(saleOut, that.getSaleOut())
 				.isEquals();
 	}
 	
@@ -55,6 +77,8 @@ public class ItemGroup {
 		return new HashCodeBuilder()
 			.append(id)
 			.append(name)
+			.append(saleIn)
+			.append(saleOut)
 			.toHashCode();
 	}
 	
@@ -63,7 +87,8 @@ public class ItemGroup {
 		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
 				.append(id)
 				.append(name)
+				.append(saleIn)
+				.append(saleOut)
 				.build();
 	}
-	
 }
