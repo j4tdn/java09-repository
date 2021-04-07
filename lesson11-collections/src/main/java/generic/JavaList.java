@@ -7,7 +7,7 @@ public class JavaList<E> implements IList<E> {
 
 	private E[] elements;
 	private int defaultCapacity = 3;
-	private int modCount = 0;
+	private int size = 0;
 
 	public JavaList() {
 		elements = create(defaultCapacity);
@@ -22,17 +22,15 @@ public class JavaList<E> implements IList<E> {
 
 	@Override
 	public boolean add(E e) {
-		int length = elements.length;
-		if (modCount == defaultCapacity) {
-			defaultCapacity++;
-			E[] result = create(defaultCapacity);
-			for(int i = 0; i < length; i++) {
+		if (size == elements.length) {
+			E[] result = create(size + 1);
+			for(int i = 0; i < elements.length; i++) {
 				result[i] = elements[i];
 			}
-			result[modCount++] = e;
+			result[size] = e;
 			elements = result;
 		} else {
-			elements[modCount++] = e;
+			elements[size] = e;
 		}
 		return true;
 	}
@@ -69,12 +67,12 @@ public class JavaList<E> implements IList<E> {
 
 	@Override
 	public boolean isEmpty() {
-		return modCount == 0;
+		return size == 0;
 	}
 
 	@Override
 	public int size() {
-		return modCount;
+		return size;
 	}
 	
 	@Override
@@ -83,12 +81,20 @@ public class JavaList<E> implements IList<E> {
 			return elements.length;
 		}
 		int count = 0;
-		for(int i = 0; i < modCount; i++) {
+		for(int i = 0; i < size; i++) {
 			if (elements[i] != null && predicate.test(elements[i])) {
 				count++;
 			}
 		}
 		return count;
+	}
+	
+	@Override
+	public String toString() {
+		for (int i = 0; i < size; i++) {
+			System.out.println(elements[i]);
+		}
+		return "";
 	}
 	
 	@Override

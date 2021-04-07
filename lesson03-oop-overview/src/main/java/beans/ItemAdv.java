@@ -1,5 +1,7 @@
 package beans;
 
+import java.util.Objects;
+
 public class ItemAdv {
 	private String id;
 	private String os;
