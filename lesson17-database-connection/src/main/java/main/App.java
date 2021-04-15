@@ -2,9 +2,10 @@ package main;
 
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import dao.ItemDao;
 import dao.ItemGroupDao;
-import dao.ItemGroupDtoDao;
 import dto.ItemGroupDto;
 import persistence.Item;
 import persistence.ItemGroup;
@@ -12,13 +13,10 @@ import persistence.ItemGroup;
 public class App {
 	private static ItemGroupDao itemGroupDao;
 	private static ItemDao itemDao;
-	private static ItemGroupDtoDao igrDtoDao;
-	
-	
+
 	static{
 		itemGroupDao = new ItemGroupDao();
 		itemDao = new ItemDao();
-		igrDtoDao = new ItemGroupDtoDao();
 	}
 	
 	public static void main(String[] args) {
@@ -32,8 +30,12 @@ public class App {
 		show(items2);
 		System.out.println("=========================");
 		
-		List<ItemGroupDto> igrDtoAll = igrDtoDao.getIgrDto();
+		List<ItemGroupDto> igrDtoAll = itemGroupDao.getItemGrpDetails();
 		show(igrDtoAll);
+		
+		System.out.println("====================");
+		String pass = "12345";
+		System.out.println("MD5: "+ DigestUtils.md5Hex(pass));
 	}
 	
 	private static <E> void show( List<E> elements) {

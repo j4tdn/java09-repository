@@ -8,6 +8,12 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import persistence.Item;
 
 public class ItemGroupDto {
+	public static final String IGR_ID = "igrId";
+	public static final String IGR_NAME = "igrName";
+	public static final String ITEM_LIST = "itemList";
+	public static final String TOTAL_OF_ITEMS = "totalOfItems";
+	
+	
 	private Integer igrId;
 	private String igrName;
 	private String itemList;
@@ -97,12 +103,16 @@ public class ItemGroupDto {
 	
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
-				.append(getIgrId())
-				.append(getIgrName())
-				.append(getItemList())
-				.append(getTotalOfItems())
-				.build();
+		return this.getIgrId() + ":"
+				+ this.getIgrName() + ":"
+				+ "[" + this.getItemList() + "]:"
+				+ this.getTotalOfItems();
+//		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
+//				.append(getIgrId())
+//				.append(getIgrName())
+//				.append(getItemList())
+//				.append(getTotalOfItems())
+//				.build();
 	}
 	
 	
