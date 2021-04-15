@@ -1,10 +1,15 @@
 package main;
 
+import java.time.LocalDateTime;
 import java.util.List;
+
+import org.apache.commons.codec.digest.DigestUtils;
 
 import dao.ItemDao;
 import dao.ItemGroupDao;
 import persitence.Item;
+import persitence.ItemGroup;
+import persitence.ItemGroupDto;
 
 
 public class App {
@@ -15,11 +20,17 @@ public class App {
 		itemDao = new ItemDao();
 	}
 	public static void main(String[] args) {
-//		 List<ItemGroup> itemGrAll = itemGroupDao.getAll();
-//		 show(itemGrAll);
+//		 List<ItemGroup> item = itemGroupDao.getTotalOfMoney(2);
+//		 show(item);
 		System.out.println("============");
-		List<Item> itemsByigrName= itemDao.getItems("Áo");
-		show(itemsByigrName);
+		List<ItemGroupDto> items= itemGroupDao.getTotalOfMoney(1);
+		show(items);
+		
+		System.out.println("=====================");
+		String pass="12345";
+		System.out.println("MD5: " + DigestUtils.md5Hex(pass));
+
+		
 				
 	}
 	private static <E> void show(List<E> es) {

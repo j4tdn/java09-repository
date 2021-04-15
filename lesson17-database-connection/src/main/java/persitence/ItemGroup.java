@@ -15,6 +15,7 @@ public class ItemGroup {
 		super();
 		this.id = id;
 		this.name = name;
+		
 	}
 
 	public Integer getId() {
@@ -29,6 +30,8 @@ public class ItemGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+
 	@Override
 	public boolean equals(Object o) {
 		if(this==o) {
