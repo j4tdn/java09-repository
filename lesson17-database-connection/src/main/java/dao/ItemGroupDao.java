@@ -48,16 +48,16 @@ public class ItemGroupDao {
 		return result;
 	}
 	
-	public List<ItemGroupDto> getItemGroupDto() {
+	public List<ItemGroupDto> getItemGrpDetails() {
 		String sql = "WITH ThongTinMatHang AS (\r\n" + 
 				"	select mh.MaMH, mh.MaLoai, mh.TenMH, sum(kcmh.SoLuong) SoLuong from MatHang mh\r\n" + 
 				"    join KichCoMatHang kcmh\r\n" + 
 				"		on mh.MaMH = kcmh.MaMH\r\n" + 
 				"	group by mh.MaMH\r\n" + 
 				")\r\n" + 
-				"select lh.MaLoai, lh.TenLoai,\r\n" + 
-				"group_concat(concat(mh.TenMH,':',mh.SoLuong) separator ', ') itemList,\r\n" + 
-				"sum(SoLuong) SoLuong from ThongTinMatHang mh\r\n" + 
+				"select lh.MaLoai AS " + ItemGroupDto.ID + ", lh.TenLoai AS " + ItemGroupDto.NAME + ",\r\n" + 
+				"group_concat(concat(mh.TenMH,':',mh.SoLuong) separator ', ') AS " + ItemGroupDto.ITEM_LIST + ",\r\n" + 
+				"sum(SoLuong) AS " + ItemGroupDto.TOTAL_OF_ITEM + " from ThongTinMatHang mh\r\n" + 
 				"join loaihang lh on mh.MaLoai = lh.Maloai\r\n" + 
 				"group by lh.MaLoai;";
 		List<ItemGroupDto> result = new ArrayList<>();
@@ -65,10 +65,9 @@ public class ItemGroupDao {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
 			while(rs.next()) {
-				result.add(new ItemGroupDto(rs.getInt("MaLoai")
-											, rs.getString("TenLoai")
-											, rs.getString("itemList")
-											, rs.getInt("SoLuong")));
+				ItemGroupDto igr = new ItemGroupDto();
+				transformer(igr);
+				result.add(igr);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -106,5 +105,12 @@ public class ItemGroupDao {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void transformer(ItemGroupDto igr) throws SQLException {
+		igr.setIgrId(rs.getInt(ItemGroupDto.ID));
+		igr.setIgrName(rs.getString(ItemGroupDto.NAME));
+		igr.setItemList(rs.getString(ItemGroupDto.ITEM_LIST));
+		igr.setTotalOfItems(rs.getInt(ItemGroupDto.TOTAL_OF_ITEM));
 	}
 }

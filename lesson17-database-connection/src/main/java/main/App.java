@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import dao.ItemDao;
 import dao.ItemGroupDao;
 import persistence.Item;
@@ -31,8 +33,11 @@ public class App {
 		List<Item> items1 = itemDao.getItems("Áo");
 		show(items1);
 		System.out.println("=======================");
-		List<ItemGroupDto> itemGrpDtoAll = itemGroupDao.getItemGroupDto();
+		List<ItemGroupDto> itemGrpDtoAll = itemGroupDao.getItemGrpDetails();
 		show(itemGrpDtoAll);
+		
+		String pass = "12345";
+		System.out.println("MD5: " + DigestUtils.md5Hex(pass));
 		
 //		List<Item> itemsBySale = itemDao.getItemsBySale();
 //		show(itemsBySale);

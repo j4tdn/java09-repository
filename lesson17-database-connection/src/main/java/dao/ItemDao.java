@@ -42,7 +42,6 @@ public class ItemDao {
 			preStatement.setInt(1, igrId);
 			preStatement.setDouble(2, saleFrom);
 			preStatement.setDouble(3, saleTo);
-//			Statement st = conn.createStatement();
 			rs = preStatement.executeQuery();
 			while(rs.next()) {
 				result.add(new Item(rs.getInt("MaMH")
@@ -51,7 +50,6 @@ public class ItemDao {
 									, rs.getDouble("GiaMua")));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			SqlUtils.close(rs, preStatement);
@@ -84,61 +82,5 @@ public class ItemDao {
 		}
 		return result;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	public List<Item> getItemsBySale(){
-//		List<Item> result = new ArrayList<>();
-//		String sql = "SELECT mh.MaMH, TenMH, GiaBan, SUM(kcmh.SoLuong) as SoLuong"
-//				+ " FROM MatHang mh"
-//				+ " JOIN KichCoMatHang kcmh ON kcmh.MaMH = mh.MaMH"
-//				+ " WHERE GiaBan BETWEEN 100 AND 500"
-//				+ " GROUP BY kcmh.MaMH";
-//		Connection conn = DBConnection.getConnection();
-//		try {
-//			Statement st = conn.createStatement();
-//			ResultSet rs = st.executeQuery(sql);
-//			while(rs.next()) {
-//				result.add(new Item(rs.getInt("MaMH"),
-//									rs.getString("TenMH"),
-//									rs.getDouble("GiaBan"),
-//									rs.getInt("SoLuong")));
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return result;
-//	}
-//	
-//	public List<Item> getItems(LocalDateTime salesDate){
-//		List<Item> result = new ArrayList<>();
-//		String sql = "SELECT * FROM MatHang mh" + 
-//				" JOIN ChiTietDonHang ctdh ON mh.MaMH = ctdh.MaMH" + 
-//				" JOIN DonHang dh ON dh.MaDH = ctdh.MaDH" + 
-//				" WHERE NgayTao = '" + salesDate.toString() +"'";
-//		System.out.println(sql);
-//		Connection conn = DBConnection.getConnection();
-//		try {
-//			Statement st = conn.createStatement();
-//			ResultSet rs = st.executeQuery(sql);
-//			while(rs.next()) {
-//				result.add(new Item(rs.getInt("MaMH"),
-//									rs.getString("TenMH"),
-//									rs.getDouble("GiaBan"),
-//									rs.getInt("SoLuong")));
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return result;
-//	}
+
 }
