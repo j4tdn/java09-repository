@@ -1,14 +1,20 @@
 package persistence;
 
-public class ItemIT {
+public class ItemGroupDto {
+	public static final String ID = "igrId";
+	public static final String NAME = "igrName";
+	public static final String ITEM_DETAIL = "itemList";
+	public static final String TOTAL_OF_ITEM = "totalOfItem";
+	
+	
+	
 	private Integer igrId;
 	private String igrName;
 	private String itemList;
 	private int totalOfItem;
-	public ItemIT() {
+	public ItemGroupDto() {
 	}
-	public ItemIT(Integer igrId, String igrName, String itemList, int totalOfItem) {
-		super();
+	public ItemGroupDto(Integer igrId, String igrName, String itemList, int totalOfItem) {
 		this.igrId = igrId;
 		this.igrName = igrName;
 		this.itemList = itemList;
@@ -43,5 +49,4 @@ public class ItemIT {
 		return "ItemIT [igrId=" + igrId + ", igrName=" + igrName + ", itemList=" + itemList + ", totalOfItem="
 				+ totalOfItem + "]";
 	}
-	
 }
