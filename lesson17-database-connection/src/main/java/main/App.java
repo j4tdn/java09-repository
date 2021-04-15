@@ -3,12 +3,10 @@ package main;
 import java.util.List;
 
 import dao.ItemGroupDao;
-import dao.TmpDao;
 import dto.ItemGroupDto;
 
 public class App {
 	private static ItemGroupDao itemGroupDao = new ItemGroupDao();
-	private static TmpDao tmpDao = new TmpDao();
 	public static void main(String[] args) {
 //		System.out.println("===========================");
 //		List<ItemGroup> itemGroups = itemGroupDao.getAll();
@@ -20,7 +18,7 @@ public class App {
 //		List<ItemGroup> itemGroupsByName = itemGroupDao.getAllByName();
 //		show(itemGroupsByName);
 		System.out.println("===========================");
-		List<ItemGroupDto> itemGroups = tmpDao.getItems();
+		List<ItemGroupDto> itemGroups = itemGroupDao.getItems();
 		show(itemGroups);
 	}
 	
