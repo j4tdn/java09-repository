@@ -3,6 +3,13 @@ package dto;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class ItemGroupDto {
+	
+	public static String ID = "MaLoai";
+	public static String NAME = "TenLoai";
+	public static String ITEM_DETAIL = "DS";
+	public static String TOTAL_ITEMS = "TongSoLuong";
+	
+	
 	private Integer igrId;
 	private String igrName;
 	private String itemList;

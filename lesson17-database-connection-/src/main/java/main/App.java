@@ -26,7 +26,7 @@ public class App {
 		show(itemsByIgrName);
 		
 		System.out.println("=========================");
-		List<ItemGroupDto> itemGroupDtos = itemGroupDao.getItemGroupDto();
+		List<ItemGroupDto> itemGroupDtos = itemGroupDao.getItemGroupDetail();
 		show(itemGroupDtos);
 	}
 	
