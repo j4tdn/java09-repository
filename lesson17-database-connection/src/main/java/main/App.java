@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import dao.EmployeeDao;
 import dao.ItemDao;
 import dao.ItemGroupDao;
 import persistence.Item;
@@ -17,10 +18,12 @@ import persistence.ItemGroupDto;
 public class App {
 	private static ItemGroupDao itemGroupDao;
 	private static ItemDao itemDao;
+	private static EmployeeDao empDao;
 	
 	static {
 		itemGroupDao = new ItemGroupDao();
 		itemDao = new ItemDao();
+		empDao = new EmployeeDao();
 	}
 	
 	public static void main(String[] args) {
@@ -38,6 +41,16 @@ public class App {
 		
 		String pass = "12345";
 		System.out.println("MD5: " + DigestUtils.md5Hex(pass));
+		
+		System.out.println("=======================");
+		
+//		if(empDao.login("com2.default.tp@gmail.com", "23456") != null) {
+//			System.out.println("User: " + empDao.login("com2.default.tp@gmail.com", "23456"));
+//		} else {
+//			System.out.println("Wrong user/pass");
+//			System.out.println("User: " + empDao.login("com2.default.tp@gmail.com", "23456"));
+//		}
+		empDao.login("com2.default.tp@gmail.com", "23456").ifPresent(System.out::println);
 		
 //		List<Item> itemsBySale = itemDao.getItemsBySale();
 //		show(itemsBySale);
