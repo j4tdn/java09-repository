@@ -27,7 +27,7 @@ public class ItemGroupDtoDao {
 		List<ItemGroupDto> result = new ArrayList<>();
 
 		String sql = "WITH SoLuongMatHang AS (\r\n" + 
-				"	SELECT mh.MaMH, mh.TenMH, mh.MaLoai, sum(kcmh.SoLuong) SoLuongTheoMH\r\n" + 
+				"	SELECT mh.MaMH, mh.TenMH, mh.MaLoai	, sum(kcmh.SoLuong) SoLuongTheoMH\r\n" + 
 				"    FROM mathang mh JOIN kichcomathang kcmh ON mh.MaMH = kcmh.MaMH\r\n" + 
 				"    GROUP BY mh.MaMH \r\n" + 
 				")\r\n" + 
@@ -47,7 +47,7 @@ public class ItemGroupDtoDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			SqlUtils.close(rs,pst);		
+			SqlUtils.close(rs,st);		
 		}
 
 		return result;
