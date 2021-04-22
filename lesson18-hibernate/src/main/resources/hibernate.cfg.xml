@@ -15,7 +15,9 @@
 
 		<!-- Echo the SQL to stdout -->
 		<property name="show_sql">true</property>
-
+		<!-- scan entities -->
+		<mapping class ="persistence.ItemGroup"></mapping>
+		<mapping class ="persistence.Items"></mapping>
 		
 	</session-factory>
 
