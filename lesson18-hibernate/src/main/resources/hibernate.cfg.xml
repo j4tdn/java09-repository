@@ -21,6 +21,10 @@
 		
 		<!-- persistence class -->
 		<!-- <mapping class="persistence.Student" /> -->
+		
+		<!--  Scan Entities -->
+		<mapping class="persistence.ItemGroup" />
+		<mapping class="persistence.Item"/>
 	</session-factory>
 
 </hibernate-configuration>
