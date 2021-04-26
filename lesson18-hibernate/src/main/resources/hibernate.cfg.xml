@@ -15,6 +15,7 @@
 
 		<!-- Echo the SQL to stdout -->
 		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
 
 		<!-- Set the current session context -->
 		<!--  
@@ -22,6 +23,7 @@
 		-->
 		<!--  Scan Entities -->
         <mapping class="persitence.Item"/>
+        <mapping class="persitence.ItemGroup"/>
 	</session-factory>
 
 </hibernate-configuration>

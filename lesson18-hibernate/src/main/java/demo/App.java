@@ -17,9 +17,18 @@ public class App {
 		itemService = new ItemServiceImpl(); 
 	}
 	public static void main(String[] args) {
-	//	List<ItemGroup> igrList = itemGroupService.getAll();
-	//	igrList.forEach(System.out::println);
-		List<Item> igrList = itemService.getAll();
-		igrList.forEach(System.out::println);
-	}
+//		List<ItemGroup> igrList = itemGroupService.getAll();
+//		igrList.forEach(System.out::println);
+//		
+//		igrList.forEach(igr ->{System.out.println("igr" +igr.getItems().size());
+//			});
+		
+		System.out.println("=======");
+		Item item = itemService.get(5);
+		System.out.println("item :" + item);
+		
+//		List<Item> itList = itemService.getAll();
+//		itList.forEach(System.out::println);
+
+}
 }
