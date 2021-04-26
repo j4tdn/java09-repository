@@ -23,10 +23,13 @@ public class App {
 		
 		itemGroupsList.forEach(System.out::println);
 		
-		List<Items> itemList = itemService.getAll();
-		System.out.println("size:"+itemList.size());
+//		List<Items> itemList = itemService.getAll();
+//		System.out.println("size:"+itemList.size());
+//		
+//		itemList.forEach(System.out::println);
 		
-		itemList.forEach(System.out::println);
-
+		System.out.println("_____________________");
+		Items items =itemService.get(5);
+		System.out.println(items);
 	}
 }
