@@ -110,6 +110,6 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [itemId=" + itemId + ", itemName=" + itemName + ", color=" + color 
-				+ ", material=" + material + ", salePrice=" + salePrice + ", buyPrice=" + buyPrice;
+				+ ", material=" + material + ", salePrice=" + salePrice + ", buyPrice=" + buyPrice + ", " + itemGroup;
 	}
 }

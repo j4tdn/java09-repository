@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 
 import persistence.Item;
-import persistence.ItemGroup;
 import utils.HibernateUtils;
 
 public class HibernateItemDao implements ItemDao {
@@ -21,6 +20,13 @@ public class HibernateItemDao implements ItemDao {
 		String sql = "SELECT * FROM MatHang"; // MaLoai, TenLoai
 		NativeQuery<Item> query = session.createNativeQuery(sql, Item.class);
 		return query.getResultList();
+	}
+	
+	@Override
+	public Item get(int id) {
+		SessionFactory sessionFactory = HibernateUtils.getSessionFactoryXml();
+		Session session = sessionFactory.openSession();
+		return session.get(Item.class, id);
 	}
 
 }
