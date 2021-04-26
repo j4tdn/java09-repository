@@ -20,6 +20,14 @@ public class HibernateItemDao implements ItemDao {
 		
 	 	return query.getResultList();
 	}
+
+	@Override
+	public Item get(int id) {
+		SessionFactory sessionFactory= HibernateUtils.getSessionFactoryXml();
+		Session session= sessionFactory.openSession();
+		
+		return session.get(Item.class, id); 
+	}
 	
 
 }

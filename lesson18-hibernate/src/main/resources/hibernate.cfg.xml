@@ -15,12 +15,12 @@
 
 		<!-- Echo the SQL to stdout -->
 		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
 
 		<mapping class="persistence.ItemGroup" />
 		<mapping class="persistence.Item" />
 		
         <!-- <property name="connection.autocommit">false</property>  -->
-		
 		
 	</session-factory>
 
