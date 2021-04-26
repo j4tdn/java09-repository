@@ -18,12 +18,18 @@ public class App {
 		itemService = new ItemServiceImpl();
 	}
 	public static void main(String[] args) {
-		List<ItemGroup> igrList = itemGroupService.getAll();
-		System.out.println(igrList.size());
-		igrList.forEach(System.out::println);
-		System.out.println("===================================");
-		List<Item> itemList = itemService.getAll();
-		System.out.println(itemList.size());
-		itemList.forEach(System.out::println);
+//		List<ItemGroup> igrList = itemGroupService.getAll();
+//		System.out.println(igrList.size());
+//		
+		System.out.println("=================================");
+		
+		Item item = itemService.get(5);
+		System.out.println("Item:" + item);
+		
+//		igrList.forEach(System.out::println);
+//		System.out.println("===================================");
+//		List<Item> itemList = itemService.getAll();
+//		System.out.println(itemList.size());
+//		itemList.forEach(System.out::println);
 	}
 }
