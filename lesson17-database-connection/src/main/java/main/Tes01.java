@@ -55,6 +55,7 @@ public class Tes01 {
 		for (int j = (combinations[i - 1] + 1); j < (n - k + i); j++) {
 			combinations[i] = j;
 			if (i == k) {
+				printS();
 				if (caculate() == distance) {
 					count++;
 				}

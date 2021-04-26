@@ -23,9 +23,16 @@ public class App {
 		List<ItemGroup> igrList = itemGroupService.getAll();
 		igrList.forEach(System.out::println);
 		
+		igrList.forEach(itemGroup -> {
+			System.out.println(System.identityHashCode(itemGroup.getItems().size()));
+		});
+		
 		System.out.println("=====================");
 		
-		List<Item> itemList = itemService.getAll();
-		itemList.forEach(System.out::println);
+		Item item = itemService.get(2);
+		System.out.println(item);
+		
+//		List<Item> itemList = itemService.getAll();
+//		itemList.forEach(System.out::println);
 	}
 }

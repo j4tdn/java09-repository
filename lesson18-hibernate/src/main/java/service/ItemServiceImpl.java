@@ -20,4 +20,9 @@ public class ItemServiceImpl implements ItemService {
 		return itemGroupDao.getAll();
 	}
 
+	@Override
+	public Item get(int id) {
+		return itemGroupDao.get(id);
+	}
+
 }
