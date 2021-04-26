@@ -6,4 +6,6 @@ import persistence.Item;
 public interface ItemService {
 
 	List<Item> getAll();
+	Item get(int id);
+	
 }

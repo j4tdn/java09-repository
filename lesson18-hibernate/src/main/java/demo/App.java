@@ -21,8 +21,15 @@ public class App {
 	public static void main(String[] args) {
 		List<ItemGroup> igrList = itemGroupService.getAll();
 		System.out.println("size" + igrList.size());
-		igrList.forEach(System.out::println);
+		
+		
+		igrList.forEach(igr -> {
+			System.out.println("igr: " + igr.getItems().size());
+			
+		});
 		System.out.println("===============================");
+		Item item = itemService.get(5);
+		System.out.println("item: " + item);
 		List<Item> itemList = itemService.getAll();
 		System.out.println("size" + itemList.size());
 		itemList.forEach(System.out::println);

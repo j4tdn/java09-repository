@@ -14,6 +14,11 @@ public class ItemServiceImpl implements ItemService {
 	public ItemServiceImpl() {
 		itemDao = new HibernateItemDao();
 	}
+	@Override
+	public Item get(int id) {
+		// TODO Auto-generated method stub
+		return itemDao.get(id);
+	}
 	public List<Item> getAll() {
 		// TODO Auto-generated method stub
 		return itemDao.getAll();

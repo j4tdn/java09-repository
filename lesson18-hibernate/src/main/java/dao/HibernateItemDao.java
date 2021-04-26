@@ -20,6 +20,14 @@ public class HibernateItemDao implements ItemDao{
 		NativeQuery<Item> query = session.createNativeQuery(sql, Item.class);
 		return query.getResultList();
 	}
+	@Override
+	public Item get(int id) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtils.getSessionFactoryXML();
+		 Session session = sessionFactory.openSession();
+		 session.get(Item.class, id);
+		return session.get(Item.class, id);
+	}
 	
 
 }

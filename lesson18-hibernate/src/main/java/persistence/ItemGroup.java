@@ -1,20 +1,47 @@
 package persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.NamedNativeQueries;
+import org.hibernate.annotations.NamedNativeQuery;
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
+import org.w3c.dom.ls.LSInput;
 
 @Entity
 @Table(name = "LoaiHang")
+@NamedQueries({
+	@NamedQuery(name = "SELECT_ALL_HQL" ,
+				query = "FROM ItemGroup")
+	
+})
+@NamedNativeQueries({
+	@NamedNativeQuery(name = "SELECT_ALL_NATIVE",
+					query = "SELECT *FROM LoaiHang",
+	resultClass = ItemGroup.class)
+})
 public class ItemGroup {
+	public static final String SELECT_ALL_NATIVE = "SELECT_ALL_NATIVE";
+	public static final String SELECT_ALL_HQL= "SELECT_ALL_HQL";
+
 	@Id
 	@Column(name = "MaLoai")
 	private Integer igId;
 	@Column(name = "TenLoai")
 	private  String igName;
+	
+	@OneToMany(mappedBy = "itemGroup" , fetch = FetchType.LAZY)
+	private List<Item> items;
+	
+	
 	// GPA default constructor
 	public ItemGroup() {
 	}
@@ -35,11 +62,17 @@ public class ItemGroup {
 	public void setIgName(String igName) {
 		this.igName = igName;
 	}
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+	public List<Item> getItems() {
+		return items;
+	}
+	
 	@Override
 	public String toString() {
 		return "ItemGroup [igId=" + igId + ", igName=" + igName + "]";
 	}
-	
 	
 	
 	
