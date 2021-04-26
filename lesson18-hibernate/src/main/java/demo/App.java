@@ -13,19 +13,23 @@ public class App {
 	
 	private static ItemGroupService itemGroupService;
 	private static ItemService itemService;
-	
+	 
 	static {
 		itemGroupService = new ItemGroupServiceImpl();
 		itemService = new ItemServiceImpl();
 	}
 	
 	public static void main(String[] args) {
-		List<ItemGroup> igrList = itemGroupService.getAll();
-		igrList.forEach(System.out::println);
-		
+//		List<ItemGroup> igrList = itemGroupService.getAll();
+//		igrList.forEach(igr -> {
+//			System.out.println("igr: " + igr.getItems().size());
+//		});
+//		
+//		System.out.println("=============");
+//		
+//		List<Item> itemList = itemService.getAll();
+//		itemList.forEach(System.out::println);
 		System.out.println("=============");
-		
-		List<Item> itemList = itemService.getAll();
-		itemList.forEach(System.out::println);
+		System.out.println(itemService.get(5));
 	}
 }
