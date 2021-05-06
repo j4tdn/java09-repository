@@ -23,6 +23,7 @@
 		<!-- Scan -->
 		<mapping class="persistence.ItemGroup"/>
 		<mapping class="persistence.Item"/>
+		<mapping class="persistence.ItemDetail"/>
 		
 		<!-- persistence class -->
 		

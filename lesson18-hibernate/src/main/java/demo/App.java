@@ -29,7 +29,11 @@ public class App {
 //		
 //		List<Item> itemList = itemService.getAll();
 //		itemList.forEach(System.out::println);
-		System.out.println("=============");
-		System.out.println(itemService.get(5));
+//		System.out.println("=============");
+//		System.out.println(itemService.get(5));
+//		System.out.println(itemService.getItemDtos());
+		ItemGroup ig = new ItemGroup(1, "Áo");
+		Item item = new Item(11, "Áo Khoác", "Xanh", "Vải", 200d, 100d, ig);
+		itemService.save(item);
 	}
 }

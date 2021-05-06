@@ -5,6 +5,7 @@ import java.util.List;
 import dao.HibernateItemDao;
 import dao.ItemDao;
 import persistence.Item;
+import persistence.ItemDto;
 
 public class ItemServiceImpl implements ItemService {
 
@@ -22,6 +23,17 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public Item get(int id) {
 		return itemDao.get(id);
+	}
+	
+	@Override
+	public List<ItemDto> getItemDtos() {
+		// TODO Auto-generated method stub
+		return itemDao.getItemDto();
+	}
+	
+	@Override
+	public void save(Item item) {
+		itemDao.save(item);
 	}
 
 }

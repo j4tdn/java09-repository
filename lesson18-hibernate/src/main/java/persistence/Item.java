@@ -2,9 +2,11 @@ package persistence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,6 +36,9 @@ public class Item {
 	@ManyToOne
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
+	
+	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY)
+	private ItemDetail itemDetail;
 	
 	public Item() {
 	}
@@ -104,6 +109,14 @@ public class Item {
 
 	public void setItemGroup(ItemGroup itemGroup) {
 		this.itemGroup = itemGroup;
+	}
+	
+	public void setItemDetail(ItemDetail itemDetail) {
+		this.itemDetail = itemDetail;
+	}
+	
+	public ItemDetail getItemDetail() {
+		return itemDetail;
 	}
 
 	@Override
