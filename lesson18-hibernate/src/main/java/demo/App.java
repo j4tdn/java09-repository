@@ -29,8 +29,14 @@ public class App {
 		
 		System.out.println("=====================");
 		
-		Item item = itemService.get(2);
-		System.out.println(item);
+//		List<ItemDto> itemDtos = itemService.getItemDtos();
+//		System.out.println(itemDtos);
+		
+//		Item item = itemService.get(1);
+//		System.out.println(item);
+		ItemGroup itemGroup = new ItemGroup(1, "Áo");
+		Item item = new Item(11, "IT1", "yellow", "Silk", 200d, 100d, "2.txt", itemGroup);
+		itemService.save(item);
 		
 //		List<Item> itemList = itemService.getAll();
 //		itemList.forEach(System.out::println);

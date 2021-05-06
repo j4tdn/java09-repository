@@ -81,14 +81,9 @@ public class Item {
 			.append(saleOut)
 			.toHashCode();
 	}
-	
+
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
-				.append(id)
-				.append(name)
-				.append(saleIn)
-				.append(saleOut)
-				.build();
+		return "Item [id=" + id + ", name=" + name + ", saleIn=" + saleIn + ", saleOut=" + saleOut + "]";
 	}
 }

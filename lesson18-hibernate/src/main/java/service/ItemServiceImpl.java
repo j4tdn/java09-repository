@@ -5,24 +5,34 @@ import java.util.List;
 import dao.HibernateItemDao;
 import dao.ItemDao;
 import persistence.Item;
+import persistence.ItemDto;
 
 public class ItemServiceImpl implements ItemService {
 
-	private ItemDao itemGroupDao;
+	private ItemDao itemDao;
 	
 	public ItemServiceImpl() {
-		itemGroupDao = new HibernateItemDao();
+		itemDao = new HibernateItemDao();
 	}
 	
 	@Override
 	public List<Item> getAll() {
 		
-		return itemGroupDao.getAll();
+		return itemDao.getAll();
 	}
 
 	@Override
 	public Item get(int id) {
-		return itemGroupDao.get(id);
+		return itemDao.get(id);
+	}
+	
+	@Override
+	public List<ItemDto> getItemDtos() {
+		return itemDao.getItemDtos();
 	}
 
+	@Override
+	public void save(Item item) {
+		itemDao.save(item);
+	}
 }

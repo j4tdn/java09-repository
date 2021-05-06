@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -40,6 +41,9 @@ public class Item {
 	@ManyToOne
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
+	
+	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY)
+	private ItemDetail itemDetail;
 	
 	public Item() {
 	}
@@ -120,17 +124,19 @@ public class Item {
 		this.saleOut = saleOut;
 	}
 	
+	public ItemDetail getItemDetail() {
+		return itemDetail;
+	}
+	
+	public void setItemDetail(ItemDetail itemDetail) {
+		this.itemDetail = itemDetail;
+	}
+
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
-				.append(id)
-				.append(name)
-				.append(color)
-				.append(material)
-				.append(saleIn)
-				.append(saleOut)
-				.append(picture)
-				.append(itemGroup)
-				.build();
+		return "Item [id=" + id + ", name=" + name + ", color=" + color + ", material=" + material + ", saleIn="
+				+ saleIn + ", saleOut=" + saleOut + ", picture=" + picture + ", itemGroup=" + itemGroup;
 	}
+	
+	
 }
