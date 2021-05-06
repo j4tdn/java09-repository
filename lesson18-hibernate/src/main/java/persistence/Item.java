@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -35,6 +36,9 @@ public class Item {
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
 
+	@OneToOne(mappedBy = "item")
+	private ItemDetail itemDetail;
+	
 	public Item() {
 	}
 
@@ -106,6 +110,14 @@ public class Item {
 		this.itemGroup = itemGroup;
 	}
 
+	public ItemDetail getItemDetail() {
+		return itemDetail;
+	}
+	
+	public void setItemDetail(ItemDetail itemDetail) {
+		this.itemDetail = itemDetail;
+	}
+	
 	@Override
 	public String toString() {
 		return "Item [itemId=" + itemId + ", itemName=" + itemName + ", color=" + color + ", material=" + material

@@ -15,10 +15,12 @@
 
 		<!-- Echo the SQL to stdout -->
 		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
 		
 		<!-- Scan Entities  -->
 		<mapping class = "persistence.ItemGroup"/> 
 		<mapping class = "persistence.Item"/>
+		<mapping class = "persistence.ItemDetail"/>
 
 	</session-factory>
 
