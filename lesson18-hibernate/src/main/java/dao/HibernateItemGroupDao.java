@@ -29,6 +29,4 @@ public class HibernateItemGroupDao implements ItemGroupDao {
 		return query.getResultList(); //query.uniqueResult();
 	}
 	
-	
-
 }
