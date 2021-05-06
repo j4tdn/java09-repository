@@ -4,6 +4,7 @@ package demo;
 import java.util.List;
 
 import persitence.Item;
+import persitence.ItemDto;
 import persitence.ItemGroup;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
@@ -17,18 +18,8 @@ public class App {
 		itemService = new ItemServiceImpl(); 
 	}
 	public static void main(String[] args) {
-//		List<ItemGroup> igrList = itemGroupService.getAll();
-//		igrList.forEach(System.out::println);
-//		
-//		igrList.forEach(igr ->{System.out.println("igr" +igr.getItems().size());
-//			});
-		
-		System.out.println("=======");
-		Item item = itemService.get(5);
-		System.out.println("item :" + item);
-		
-//		List<Item> itList = itemService.getAll();
-//		itList.forEach(System.out::println);
-
-}
+		ItemGroup ig = new ItemGroup(1,"Áo");
+			Item item = new Item(11, "Áo khoác", "Đen", "Vải", 200d, 100d, ig);
+			itemService.save(item);
+	}
 }

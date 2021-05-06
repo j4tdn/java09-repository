@@ -6,6 +6,7 @@ import dao.HibernateItemDao;
 import dao.ItemDao;
 import dao.ItemGroupDao;
 import persitence.Item;
+import persitence.ItemDto;
 import persitence.ItemGroup;
 
 public class ItemServiceImpl implements ItemService {
@@ -21,5 +22,13 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public Item get(int id) {
 		return itemDao.get(id);
+	}
+	@Override
+	public List<ItemDto> getItemDtos() {
+		return itemDao.getItemDto();
+	}
+	@Override
+	public void save(Item item) {
+		itemDao.save(item);
 	}
 }
