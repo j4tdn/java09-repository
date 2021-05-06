@@ -2,11 +2,12 @@ package persistence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "mathang")
@@ -14,28 +15,31 @@ public class Item {
 	@Id
 	@Column(name = "MaMH")
 	private Integer itemId;
-	
-	@Column (name = "TenMH")
+
+	@Column(name = "TenMH")
 	private String itemName;
-	
-	@Column (name = "MauSac")
+
+	@Column(name = "MauSac")
 	private String color;
-	
-	@Column (name = "ChatLieu")
+
+	@Column(name = "ChatLieu")
 	private String material;
-	
-	@Column (name = "GiaBan")
+
+	@Column(name = "GiaBan")
 	private Double salePrice;
-	
-	@Column (name = "GiaMua")
+
+	@Column(name = "GiaMua")
 	private Double buyPrice;
-	
+
 	// nameValue : FK_ColumnName sub table
-	// referencedName  = PK_ColumnName parent table
-	@ManyToOne 
+	// referencedName = PK_ColumnName parent table
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
-	
+
+	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY)
+	private ItemDetail itemDetail;
+
 	public Item() {
 
 	}
@@ -108,10 +112,18 @@ public class Item {
 		this.itemGroup = itemGroup;
 	}
 
+	public ItemDetail getItemDetail() {
+		return itemDetail;
+	}
+
+	public void setItemDetail(ItemDetail itemDetail) {
+		this.itemDetail = itemDetail;
+	}
+
 	@Override
 	public String toString() {
 		return "Item [itemId=" + itemId + ", itemName=" + itemName + ", color=" + color + ", material=" + material
 				+ ", salePrice=" + salePrice + ", buyPrice=" + buyPrice + ", itemGroup=" + itemGroup + "]";
 	}
-	
+
 }
