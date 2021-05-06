@@ -6,6 +6,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
+import persistence.Item;
+import persistence.ItemDetail;
+import persistence.ItemGroup;
+
 public class HibernateUtils {
 	private static SessionFactory sessionFactory = null;
 	private HibernateUtils() {
@@ -35,6 +39,10 @@ public class HibernateUtils {
 			// props.put(Environment.HBM2DDL_AUTO, "create-drop");
 			
 			cfg.setProperties(props);
+			
+			cfg.addAnnotatedClass(ItemGroup.class);
+			cfg.addAnnotatedClass(Item.class);
+			cfg.addAnnotatedClass(ItemDetail.class);
 			sessionFactory = cfg.buildSessionFactory();
 		}
 		return sessionFactory;

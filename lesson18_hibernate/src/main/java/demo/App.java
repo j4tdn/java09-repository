@@ -2,7 +2,10 @@ package demo;
 
 import java.util.List;
 
+import org.hibernate.internal.build.AllowSysOut;
+
 import persistence.Item;
+import persistence.ItemDto;
 import persistence.ItemGroup;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
@@ -19,10 +22,7 @@ public class App {
 		itemService = new ItemServiceImpl();
 	}
 	public static void main(String[] args) {
-		List<ItemGroup> igrList= itemGroupService.getAll();
-		igrList.forEach(System.out::println);
-		System.out.println("==============================");
-		List<Item> itList= itemService.getAll();
-		itList.forEach(System.out::println);
+		Item item =itemService.get(1);
+		System.out.println(item);
 }
 }
