@@ -2,9 +2,11 @@ package persistence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,6 +36,9 @@ public class Item {
 	//referencedComlumNameValue: PK_ColumName ParentTable
 	@JoinColumn(name = "maloai",referencedColumnName = "maloai")
 	private ItemGroup itemGroup;
+	
+	@OneToOne(mappedBy = "item",fetch = FetchType.LAZY)
+	private ItemDetail itemdetail;
 
 	public Item() {
 		// TODO Auto-generated constructor stub
@@ -104,6 +109,12 @@ public class Item {
 
 	public void setItemGroup(ItemGroup itemGroup) {
 		this.itemGroup = itemGroup;
+	}
+	public void setItemdetail(ItemDetail itemdetail) {
+		this.itemdetail = itemdetail;
+	}
+	public ItemDetail getItemdetail() {
+		return itemdetail;
 	}
 
 	@Override

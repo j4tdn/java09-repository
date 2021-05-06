@@ -1,13 +1,24 @@
 package persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "LoaiHang")
 
+@NamedQueries({
+	@NamedQuery(name="SELECT_ALL",
+				query ="FROM ItemGroup")	
+
+})
 public class ItemGroup {
 
 	@Id
@@ -17,6 +28,10 @@ public class ItemGroup {
 	@Column(name = "tenloai")
 	private String igName;
 
+	@OneToMany(mappedBy = "itemGroup", fetch = FetchType.EAGER)
+	private List<Item> items;	
+	
+	
 	// jpa
 	public ItemGroup() {
 
@@ -42,6 +57,13 @@ public class ItemGroup {
 
 	public void setIgName(String igName) {
 		this.igName = igName;
+	}
+	
+	public List<Item> getItems() {
+		return items;
+	}
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 
 	@Override
