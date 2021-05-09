@@ -26,7 +26,7 @@ public class HibernateItemGroupDao implements ItemGroupDao {
 //		String hql = "SELECT ig FROM ItemGroup ig WHERE	ig.igID = 2";
 //		TypedQuery<ItemGroup> query = session.createQuery(hql, ItemGroup.class);
 
-		Query<ItemGroup> query= session.createNamedQuery("SELECT_ALL", ItemGroup.class);
+		Query<ItemGroup> query= session.createNamedQuery(ItemGroup.SELECT_ALL_HQL, ItemGroup.class);
 		return query.getResultList();
 		
 	}

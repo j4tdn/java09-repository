@@ -13,7 +13,8 @@ public class EntityDao {
 		
 	}
 	 
-	 <E> List<E> safelist(NativeQuery<?> query) {
+	 @SuppressWarnings("unchecked")
+	<E> List<E> safelist(NativeQuery<?> query) {
 		 return (List<E>) query.list();
 	 }
 	 

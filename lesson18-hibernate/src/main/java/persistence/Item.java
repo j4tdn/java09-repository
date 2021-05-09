@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "LoaiHang")
+@Table(name = "MatHang")
 public class Item {
 	@Id
 	@Column(name = "mamh")
@@ -31,9 +31,9 @@ public class Item {
 	@Column(name = "giamua")
 	private Double buyPrice;
 	
-	@ManyToOne 
 	//nameValue: FK_ColumName
-	//referencedComlumNameValue: PK_ColumName ParentTable
+		//referencedComlumNameValue: PK_ColumName ParentTable 
+	@ManyToOne 
 	@JoinColumn(name = "maloai",referencedColumnName = "maloai")
 	private ItemGroup itemGroup;
 	

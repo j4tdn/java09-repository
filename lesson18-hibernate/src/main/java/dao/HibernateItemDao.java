@@ -33,7 +33,7 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 		// sesionFactory.getCurrentSession();
 
 		// native query, JPA/HQL
-		String sql = "Select * from MatHang";// maloai tenloai
+		String sql = "Select * from LoaiHang";// maloai tenloai
 		NativeQuery<Item> query = session.createNativeQuery(sql, Item.class);
 		
 		return query.getResultList();
