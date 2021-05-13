@@ -1,40 +1,63 @@
 package persistence;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.engine.jdbc.Size;
 
 @Entity
 @Table(name = "MatHang")
 public class Item {
 	@Id
-	@Column(name="MaMH")
+	@Column(name = "MaMH")
 	private Integer itemId;
-	
-	@Column(name="TenMH")
+
+	@Column(name = "TenMH")
 	private String itemName;
 
-	@Column(name="MauSac")
+	@Column(name = "MauSac")
 	private String color;
-	
-	@Column(name="ChatLieu")
+
+	@Column(name = "ChatLieu")
 	private String material;
-	
-	@Column(name="GiaBan")
+
+	@Column(name = "GiaBan")
 	private Double salePrice;
-	
-	@Column(name="GiaMua")
+
+	@Column(name = "GiaMua")
 	private Double byPrice;
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "MaLoai")
+	private ItemGroup itemGroup;
+
+	@OneToOne(mappedBy = "item")
+	private ItemDetail itemDetail;
+
+	@ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="mathang_has_kichco",
+		joinColumns= {
+				@JoinColumn(name="MaMH",referencedColumnName = "MaMH_NN")
+				},
+		inverseJoinColumns= {
+				@JoinColumn(name="KiHieu_NN",referencedColumnName = "KiHieu")
+				})
+		
+	private List<Size> sizes;
+	
 	
 
-	
-	@ManyToOne
-	@JoinColumn(name="MaLoai")
-	private ItemGroup itemGroup;
-	
 	public Item() {
 	}
 
@@ -48,7 +71,12 @@ public class Item {
 		this.byPrice = byPrice;
 		this.itemGroup = itemGroup;
 	}
-
+	public List<Size> getSizes() {
+		return sizes;
+	}
+	public void setSizes(List<Size> sizes) {
+		this.sizes = sizes;
+	}
 	public Integer getItemId() {
 		return itemId;
 	}
@@ -97,8 +125,6 @@ public class Item {
 		this.byPrice = byPrice;
 	}
 
-	
-
 	public ItemGroup getItemGroup() {
 		return itemGroup;
 	}
@@ -113,7 +139,4 @@ public class Item {
 				+ ", salePrice=" + salePrice + ", byPrice=" + byPrice + ", itemGroup=" + itemGroup + "]";
 	}
 
-	
-	
-	
 }

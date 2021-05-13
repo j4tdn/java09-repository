@@ -3,6 +3,7 @@ package demo;
 import java.util.List;
 
 import persistence.Item;
+import persistence.ItemDto;
 import persistence.ItemGroup;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
@@ -20,22 +21,12 @@ public class App {
 	}
 	
 	public static void main(String[] args) {
-//		List<ItemGroup> igrList=itemGroupService.getAll();
-//		System.out.println("size=  "+igrList.size());
-//		
-//		igrList.forEach(igr->{
-//			System.out.println("igl size="+igr.getItem().size());
-//		});
-//		
-//		igrList.forEach(System.out::println);
-//
-//		System.out.println("=====");
-//		List<Item> itemList=itemService.getAll();
-//		System.out.println("size=  "+itemList.size());
-//		itemList.forEach(System.out::println);
+		ItemGroup iga=new ItemGroup(14, "túi xách");
+//		itemGroupService.save(iga);
 		
-		System.out.println("=====");
-		Item item =itemService.get(2);
-		System.out.println(item);
+		
+		ItemGroup itemGroup=new ItemGroup(20, "tất");
+		Item item=new Item(16, "tất dài", "đen","vải",200d, 100d, "image", itemGroup);
+		itemService.save(item);
 	}
 }

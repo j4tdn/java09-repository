@@ -9,15 +9,19 @@ import persistence.ItemGroup;
 public class ItemGroupServiceImpl implements ItemGroupService {
 
 	private ItemGroupDao itemGroupDao;
+
 	public ItemGroupServiceImpl() {
-		itemGroupDao=new HibernateItemGroupDao();
+		itemGroupDao = new HibernateItemGroupDao();
 	}
-	
+
 	public List<ItemGroup> getAll() {
-		
-		
-		
+
 		return itemGroupDao.getAll();
+	}
+
+	@Override
+	public void save(ItemGroup group) {
+		itemGroupDao.save(group);
 	}
 
 }

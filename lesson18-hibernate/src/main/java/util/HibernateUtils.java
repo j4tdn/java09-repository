@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
+import persistence.ItemDetail;
 import persistence.ItemGroup;
 
 public class HibernateUtils {
@@ -43,6 +44,7 @@ public class HibernateUtils {
 			cfg.setProperties(props);
 //			cfg.addAnnotatedClass(ItemGroup.class);
 			sessionFactory = cfg.buildSessionFactory();
+			cfg.addAnnotatedClass(ItemDetail.class);
 		}
 		return sessionFactory;
 	}
