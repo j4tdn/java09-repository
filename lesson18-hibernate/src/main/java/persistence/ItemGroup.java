@@ -2,6 +2,7 @@ package persistence;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -38,7 +39,7 @@ public class ItemGroup {
 	@Column(name = "TenLoai")
 	private String igName;
 	
-	@OneToMany(mappedBy = "itemGroup")
+	@OneToMany(mappedBy = "itemGroup", cascade = CascadeType.ALL)
 	private List<Item> items;
 	
 	// JPA default constructor

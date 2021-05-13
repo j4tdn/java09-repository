@@ -8,8 +8,12 @@ import org.hibernate.query.NativeQuery;
 import utils.HibernateUtils;
 
 public class EntityDao {
-	Session openSession() {
+	public Session openSession() {
 		return HibernateUtils.getSessionFactory().openSession();
+	}
+
+	public Session getCurrentSession() {
+		return HibernateUtils.getSessionFactory().getCurrentSession();
 	}
 	
 	@SuppressWarnings("unchecked")

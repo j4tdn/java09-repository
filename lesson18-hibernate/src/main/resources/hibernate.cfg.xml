@@ -20,6 +20,8 @@
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
 		
+		<!-- <property name="hibernate.current_session_context_class">thread</property> -->
+		
         <!-- <property name="connection.autocommit">false</property>  -->
 		
 		<!-- persistence class -->
@@ -27,6 +29,8 @@
 		<mapping class="persistence.ItemGroup" />
 		<mapping class="persistence.Item" />
 		<mapping class="persistence.ItemDetail" />
+		<mapping class="persistence.Size" />
+		<mapping class="persistence.ItemSize" />
 	</session-factory>
 
 </hibernate-configuration>

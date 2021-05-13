@@ -1,10 +1,15 @@
 package persistence;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -38,12 +43,13 @@ public class Item {
 	@Column(name = "HinhAnh")
 	private String picture;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
 	
-	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private ItemDetail itemDetail;
+	
 	
 	public Item() {
 	}
