@@ -36,6 +36,7 @@ public class HibernateUtils {
 			props.put(Environment.PASS, "Lomap1234567");
 			props.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 			props.put(Environment.SHOW_SQL, "true");
+			props.put(Environment.FORMAT_SQL,"true");
 			// props.put(Environment.HBM2DDL_AUTO, "create-drop");
 			
 			cfg.setProperties(props);

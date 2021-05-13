@@ -28,5 +28,8 @@ public class ItemServiceImpl implements ItemService{
 	public List<ItemDto> getItemDtos() {
 		return itemDao.getItemDtos();
 	}
+	public void save(Item item) {
+		itemDao.save(item);
+	}
 	
 }

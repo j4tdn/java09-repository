@@ -1,8 +1,11 @@
 package demo;
 
+
+import java.sql.Array;
+import java.util.Arrays;
 import java.util.List;
 
-import org.hibernate.internal.build.AllowSysOut;
+import org.hibernate.engine.jdbc.Size;
 
 import persistence.Item;
 import persistence.ItemDto;
@@ -22,7 +25,7 @@ public class App {
 		itemService = new ItemServiceImpl();
 	}
 	public static void main(String[] args) {
-		Item item =itemService.get(1);
-		System.out.println(item);
+		ItemGroup igB= new ItemGroup(7,"Tất");
+		itemGroupService.save(igB);
 }
 }

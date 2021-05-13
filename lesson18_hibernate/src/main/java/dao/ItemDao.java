@@ -10,5 +10,5 @@ public interface ItemDao {
 	List<Item> getAll();
 	Item get(int id);
 	List<ItemDto> getItemDtos();
-	void 
+	void save(Item item);
 }

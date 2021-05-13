@@ -16,4 +16,8 @@ public class ItemGroupServiceImpl implements ItemGroupService{
 	public List<ItemGroup> getAll() {
 		return itemGroupDao.getAll();
 	}
+	@Override
+	public void save(ItemGroup itemGroup) {
+		itemGroupDao.save(itemGroup);
+	}
 }

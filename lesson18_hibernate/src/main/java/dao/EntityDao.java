@@ -9,8 +9,13 @@ import utils.HibernateUtils;
 
 public class EntityDao {
 	Session openSession() {
-		return HibernateUtils.getSessionFactoryJava().openSession();
+		return HibernateUtils.getSessionFactoryXML().openSession();
 	}
+	public Session getCurrentSession() {
+		return HibernateUtils.getSessionFactoryXML().openSession();
+		
+	}
+	
 	
 	<E> List<E> safeList(NativeQuery<?> query){
 		return (List<E>)query.list();

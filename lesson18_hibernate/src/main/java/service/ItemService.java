@@ -9,4 +9,5 @@ public interface ItemService {
 	List<Item> getAll();
 	Item get(int id);
 	List<ItemDto> getItemDtos();
+	void save(Item item);
 }

@@ -23,6 +23,9 @@
 		<!-- Scan Entities -->
 		<mapping class="persistence.ItemGroup"/>
 		<mapping class="persistence.Item"/>
+		<mapping class="persistence.ItemDetail"/>
+		<mapping class="persistence.Size"/>
+		<mapping class="persistence.ItemSize"/>
 		
 		
 	</session-factory>

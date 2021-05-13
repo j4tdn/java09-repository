@@ -2,8 +2,11 @@ package dao;
 
 import java.util.List;
 
+
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
@@ -50,5 +53,17 @@ public class HibernateItemDao extends EntityDao implements ItemDao{
 			 .setResultTransformer(Transformers.aliasToBean(ItemDto.class));
 		
 		return safeList(query);
+	}
+	@Override
+	public void save(Item item) {
+		Session session = getCurrentSession();
+		Transaction transaction = session.beginTransaction(); 
+		try {
+			session.save(item);
+			transaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+		}
 	}
 }
