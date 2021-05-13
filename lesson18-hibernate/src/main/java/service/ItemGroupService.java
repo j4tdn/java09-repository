@@ -6,4 +6,5 @@ import persitence.ItemGroup;
 
 public interface ItemGroupService {
 	List<ItemGroup> getAll();
+	void save();
 }

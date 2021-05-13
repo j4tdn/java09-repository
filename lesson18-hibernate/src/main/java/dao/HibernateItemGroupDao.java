@@ -6,13 +6,14 @@ import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import persitence.ItemGroup;
 import utils.HibernateUtils;
 
-public class HibernateItemGroupDao implements ItemGroupDao {
+public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 	public List<ItemGroup> getAll() {
 		SessionFactory sessionFactory = HibernateUtils.getSessionFactorXml();
 		Session session = sessionFactory.openSession();
@@ -27,6 +28,17 @@ public class HibernateItemGroupDao implements ItemGroupDao {
 		return query.getResultList();
 		//getResultList : get all 
 		//unqueResult : get one
-		
+	}
+	@Override
+	public void save(ItemGroup itemGroup) {
+		Session session = getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			session.save(itemGroup);
+			transaction.commit();
+			System.out.println("Save" + itemGroup.getIgName()+ "successfull !");
+		} catch (Exception e) {
+			transaction.rollback();
+		}
 	}
 }

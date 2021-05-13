@@ -18,13 +18,14 @@
 		<property name="format_sql">true</property>
 
 		<!-- Set the current session context -->
-		<!--  
+		 
 		<property name="current_session_context_class">thread</property>
-		-->
+		
 		<!--  Scan Entities -->
         <mapping class="persitence.Item"/>
         <mapping class="persitence.ItemGroup"/>
          <mapping class="persitence.ItemDetail"/>
+         <mapping class="persitence.ItemSize"/>
 	</session-factory>
 
 </hibernate-configuration>
