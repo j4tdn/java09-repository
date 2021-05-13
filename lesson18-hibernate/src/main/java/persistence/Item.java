@@ -1,10 +1,15 @@
 package persistence;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -33,12 +38,22 @@ public class Item {
 	
 	// nameValue: FK_ColumnName SubTable
 	// referencedColumnName: PK_ColumnName ParentTable
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
 	
 	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY)
 	private ItemDetail itemDetail;
+	
+//	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@JoinTable(name = "kichcomathang",
+//	joinColumns = {
+//			@JoinColumn(name = "MaMH", referencedColumnName = "MaMH")
+//	},
+//	inverseJoinColumns = {
+//			@JoinColumn(name = "KiHieu", referencedColumnName = "KiHieu")
+//	})
+//	private List<Size> sizes;
 	
 	public Item() {
 	}
@@ -106,6 +121,14 @@ public class Item {
 	public ItemGroup getItemGroup() {
 		return itemGroup;
 	}
+	
+//	public void setSizes(List<Size> sizes) {
+//		this.sizes = sizes;
+//	}
+//	
+//	public List<Size> getSizes() {
+//		return sizes;
+//	}
 
 	public void setItemGroup(ItemGroup itemGroup) {
 		this.itemGroup = itemGroup;
