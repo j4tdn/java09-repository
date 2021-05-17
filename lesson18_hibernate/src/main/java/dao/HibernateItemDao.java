@@ -66,4 +66,76 @@ public class HibernateItemDao extends EntityDao implements ItemDao{
 			transaction.rollback();
 		}
 	}
+	
+	@Override
+	public Item getFirstLevelCache(int id) {
+		Item item = null;
+		Session session = getCurrentSession();
+		
+		Transaction transaction = session.beginTransaction();
+		
+		try {
+			Item i1 = session.get(Item.class,id);
+			System.out.println("i1: " + i1);
+			
+			Item i2 = session.get(Item.class,id);
+			System.out.println("i2: " + i2);
+			
+			Item i3 = session.get(Item.class, 2);
+			System.out.println("i3: " + i3);
+		} catch (Exception e) {
+			transaction.rollback();
+		}
+		
+		
+		
+		return item;
+	}
+	
+	@Override
+	public Item getFirstLevelCacheTwoSessions(int id) {
+		Item item = null;
+		//session = single thread
+		Session session1=openSession();
+		Session session2=openSession();
+		
+		Item i1=session1.get(Item.class, id);
+		System.out.println("i1: "+ i1);
+		
+		//clear cache
+		session1.evict(i1); session1.clear();
+		// check whether is object in persistence state
+		session1.contains(i1);
+		
+		Item i2=session1.get(Item.class, id);
+		System.out.println("i2: "+ i2);
+		
+		Item i3=session1.get(Item.class, id);
+		System.out.println("i3: "+ i3);
+		
+		return item;
+	}
+	@Override
+	public Item getSecondLevelCache(int id) {
+		Item item = null;
+		//session = single thread
+		Session session1=openSession();
+		Session session2=openSession();
+		
+		Item i1=session1.get(Item.class, id);
+		System.out.println("i1: "+ i1);
+		
+		//clear cache
+		session1.evict(i1); session1.clear();
+		// check whether is object in persistence state
+		session1.contains(i1);
+		
+		Item i2=session1.get(Item.class, id);
+		System.out.println("i2: "+ i2);
+		
+		Item i3=session1.get(Item.class, id);
+		System.out.println("i3: "+ i3);
+		
+		return item;
+	}
 }

@@ -25,7 +25,6 @@ public class App {
 		itemService = new ItemServiceImpl();
 	}
 	public static void main(String[] args) {
-		ItemGroup igB= new ItemGroup(7,"Tất");
-		itemGroupService.save(igB);
+		itemService.getSecondLevelCache(1);
 }
 }

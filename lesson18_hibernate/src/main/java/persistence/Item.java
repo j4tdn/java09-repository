@@ -16,6 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="MatHang")
+
 public class Item {
 	@Id
 	@Column(name="MaMH")
