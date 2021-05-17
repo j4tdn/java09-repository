@@ -11,4 +11,12 @@ public interface ItemService {
 	Item get(int id);
 	List<ItemDto> getItemDtos();
 	void save(Item item);
+	
+	//demo first level cache
+	Item getFirstlevelCache(int id);
+	
+	Item getFirstlevelCacheTwoSessions(int id);
+	
+	//demo Second level cache
+	Item getSecondlevelCache(int id);
 }
