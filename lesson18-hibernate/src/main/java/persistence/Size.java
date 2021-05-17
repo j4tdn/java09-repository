@@ -4,36 +4,43 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "KiCo")
+@Table(name = "KichCo")
 public class Size {
 
 	@Id
 	@Column(name = "KiHieu")
-	private String id;
+	private Integer id;
 
 	@Column(name = "MoTa")
 	private String description;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "size")
+	private List<ItemSize> itemSizes;
 
 	public Size() {
 
 	}
 
-	public Size(String id, String description) {
-		super();
+	public Size(Integer id, String description) {
 		this.id = id;
 		this.description = description;
 	}
+	
+	public Size(Integer id) {
+		this.id = id;
+	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -25,7 +25,10 @@ public class ItemServiceImpl implements ItemService {
 		return itemDao.get(id);
 	}
 	
-
+	@Override
+	public List<Item> getByBuyPrice(int buyPrice) {
+		return itemDao.getByBuyPrice(buyPrice);
+	}
 
 	@Override
 	public List<ItemDto> getItemDtos() {
@@ -35,5 +38,20 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public void save(Item item) {
 		itemDao.save(item);
+	}
+  
+	@Override
+	public Item getFirstLevelCache(int id) {
+		return itemDao.getFirstLevelCache(id);
+	}
+	
+	@Override
+	public Item getFirstLevelCacheInTwoSessions(int id) {
+		return itemDao.getFirstLevelCacheInTwoSessions(id);
+	}
+	
+	@Override
+	public Item getSecondLevelCache(int id) {
+		return itemDao.getSecondLevelCache(id);
 	}
 }

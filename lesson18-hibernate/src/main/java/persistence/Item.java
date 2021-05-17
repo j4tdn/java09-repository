@@ -8,14 +8,17 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name = "mathang")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Item {
 	@Id
 	@Column(name = "MaMH")
@@ -38,20 +41,26 @@ public class Item {
 
 	// nameValue : FK_ColumnName sub table
 	// referencedName = PK_ColumnName parent table
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
 
-	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private ItemDetail itemDetail;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item" , cascade = CascadeType.ALL)
+	private List<ItemSize> itemSizes;
 
 	public Item() {
 
 	}
-
+	
+	public Item(Integer id) {
+		this.itemId = id;
+	}
+	
 	public Item(Integer itemId, String itemName, String color, String material, Double salePrice, Double buyPrice,
 			ItemGroup itemGroup) {
-		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
 		this.color = color;
@@ -123,6 +132,14 @@ public class Item {
 
 	public void setItemDetail(ItemDetail itemDetail) {
 		this.itemDetail = itemDetail;
+	}
+
+	public List<ItemSize> getItemSizes() {
+		return itemSizes;
+	}
+
+	public void setItemSizes(List<ItemSize> itemSizes) {
+		this.itemSizes = itemSizes;
 	}
 
 	@Override

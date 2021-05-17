@@ -2,10 +2,15 @@ package persistence;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -18,8 +23,30 @@ public class ItemSize {
 	@Column(name = "Soluong")
 	private Integer quantity;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@MapsId("itemId")
+	@JoinColumn(name = "MaMH", referencedColumnName = "MaMH")
+	private Item item;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@MapsId("sizeId")
+	@JoinColumn(name = "KiHieu", referencedColumnName = "KiHieu")
+	private Size size;
+
 	public ItemSize() {
 
+	}
+
+	public ItemSize(Id id, Integer quantity, Item item, Size size) {
+		this.id = id;
+		this.quantity = quantity;
+		this.item = item;
+		this.size = size;
+	}
+
+	public ItemSize(Id id, Integer quantity) {
+		this.id = id;
+		this.quantity = quantity;
 	}
 
 	public Id getId() {
@@ -35,12 +62,6 @@ public class ItemSize {
 	}
 
 	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
-	public ItemSize(Id id, Integer quantity) {
-		super();
-		this.id = id;
 		this.quantity = quantity;
 	}
 

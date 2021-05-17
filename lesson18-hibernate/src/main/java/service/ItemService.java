@@ -8,6 +8,12 @@ import persistence.ItemDto;
 public interface ItemService {
 	List<Item> getAll ();
 	Item get(int id);
+	List<Item> getByBuyPrice(int buyPrice);
 	List<ItemDto> getItemDtos();
 	void save(Item item);
+	
+	// demo first level cache
+	Item getFirstLevelCache(int id) ;
+	Item getFirstLevelCacheInTwoSessions(int id) ;
+	Item getSecondLevelCache(int id) ;
 }
