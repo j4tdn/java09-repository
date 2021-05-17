@@ -14,8 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name = "MatHang")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Item {
 	@Id
 	@Column(name = "MaMH")
@@ -38,7 +42,7 @@ public class Item {
 	
 	// nameValue: FK_ColumnName SubTable
 	// referencedColumnName: PK_ColumnName ParentTable
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
 	

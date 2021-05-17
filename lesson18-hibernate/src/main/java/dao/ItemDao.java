@@ -10,4 +10,8 @@ public interface ItemDao {
 	Item get(int id);
 	List<ItemDto> getItemDto();
 	void save(Item item);
+	
+	Item getFirstLevelCache(int id);
+	Item getFirstLevelCacheInTwoSession(int id);
+	Item getSecondLevelCache(int id);
 }

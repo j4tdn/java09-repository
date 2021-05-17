@@ -37,8 +37,14 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 	
 	@Override
 	public Item get(int id) {
-		SessionFactory sessionFactory = HibernateUtils.getSessionFactoryXml();
-		Session session = sessionFactory.openSession();
+		Item item = null;
+		Session session = openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		try {
+			
+		} catch (Exception e) {
+		}
 		return session.get(Item.class, id);
 	}
 	
@@ -66,6 +72,54 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 			e.printStackTrace();
 			transaction.rollback();
 		}
+	}
+	
+	@Override
+	public Item getFirstLevelCache(int id) {
+		Item item = null;
+		Session session = getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			Item i1 = session.get(Item.class, id);
+			session.evict(i1);
+			session.clear();
+			session.contains(i1);
+			System.out.println(i1);
+			Item i2 = session.get(Item.class, id);
+			System.out.println(i2);
+		} catch (Exception e) {
+			transaction.rollback();
+		}
+		return item;
+	}
+	
+	@Override
+	public Item getFirstLevelCacheInTwoSession(int id) {
+		Item item = null;
+		
+		Session session1 = openSession();
+		Session session2 = openSession();
+		return null;
+	}
+	
+	@Override
+	public Item getSecondLevelCache(int id) {
+		Session session1 = getCurrentSession();
+		Session session2 = getCurrentSession();
+		
+		Transaction transaction = session1.beginTransaction();
+		
+		try {
+			Item i1 = session1.get(Item.class, id);
+			System.out.println("i1" + i1);
+			Item i2 = session1.get(Item.class, id);
+			System.out.println("i2" + i2);
+			Item i3 = session1.get(Item.class, id);
+			System.out.println("i3" + i3);
+		} catch (Exception e) {
+		}
+		
+		return null;
 	}
 	
 }
