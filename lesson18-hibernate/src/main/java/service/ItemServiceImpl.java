@@ -35,5 +35,21 @@ public class ItemServiceImpl implements ItemService{
 		// TODO Auto-generated method stub
 		itemDao.save(item);
 	}
+	@Override
+	public Item getFirstLevelCache(int id) {
+		// TODO Auto-generated method stub
+		return itemDao.getFirstLevelCache(id)	;
+	}
+	@Override
+	public Item getFirstLevelCacheInTwoSession(int id) {
+		// TODO Auto-generated method stub
+			
+		return itemDao.getFirstLevelCacheInTwoSession(id);
+	}
+	@Override
+	public Item getSecondLevelCache(int id) {
+		// TODO Auto-generated method stub
+		return itemDao.getSecondLevelCache(id);
+	}
 
 }

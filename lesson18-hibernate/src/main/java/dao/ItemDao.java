@@ -14,5 +14,6 @@ public interface ItemDao {
 	
 	List<ItemDto> getItemDtos();
 	void save(Item item);
-	
+	Item getFirstLevelCache(int id);
+	Item getFirstLevelCacheInTwoSession(int id);
 }

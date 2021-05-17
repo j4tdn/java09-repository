@@ -27,12 +27,20 @@ public class App {
 	}
 
 	public static void main(String[] args) { 
-//
+
+		//itemService.getFirstLevelCache(1);
+//		itemService.getFirstLevelCacheInTwoSession(1);
+		
+		itemService.getSecondLevelCache(1);
+		//itemService.get(1);
+		
+		
+		
 //		ItemGroup igA = new ItemGroup(18,"tui xach");
 //		itemGroupService.save(igA);
 		
-		ItemGroup igB=new ItemGroup(19, "tat");
-		Item ita1=new Item(16, "itb2", "do", "da", 480d, 250d, igB);
+//		ItemGroup igB=new ItemGroup(19, "tat");
+//		Item ita1=new Item(16, "itb2", "do", "da", 480d, 250d, igB);
 
 		//		 ita1.setSizes(Arrays.asList(
 //				 new persistence.Size(6,"size a"),
