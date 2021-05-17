@@ -2,6 +2,7 @@ package demo;
 
 import java.util.List;
 
+import dao.ItemDao;
 import persistence.Item;
 import persistence.ItemDto;
 import persistence.ItemGroup;
@@ -19,8 +20,8 @@ public class App {
 	}
 
 	public static void main(String[] args) {
-		List<ItemGroup> igrList = itemGroupService.getAll();
-		System.out.println("igrsSize: " + igrList.size());
+//		List<ItemGroup> igrList = itemGroupService.getAll();
+//		System.out.println("igrsSize: " + igrList.size());
 //		
 //		
 //		
@@ -53,15 +54,18 @@ public class App {
 		//SAVE + No Transaction => No execution
 		//		+ Yes Transaction => execute query (error or non)
 		//Transaction: contains Sessions: rollback, 
-		Item item1 = new Item(101, "Áo", "Trắng", "Vải", 200d, 150d, igrList.get(1));
-		itemService.save(item1);
-		
-		ItemGroup itB = new ItemGroup(17, "Tất");
-		Item itA1 = new Item(13, "itA1", "Đỏ", "Da",250d,150d, itB);
-		itemService.save(itA1);
+//		Item item1 = new Item(101, "Áo", "Trắng", "Vải", 200d, 150d, igrList.get(1));
+//		itemService.save(item1);
+//		
+//		ItemGroup itB = new ItemGroup(17, "Tất");
+//		Item itA1 = new Item(13, "itA1", "Đỏ", "Da",250d,150d, itB);
+//		itemService.save(itA1);
 		// insert item => cascade all with ItemSize
 		// session.get(ItemSize id)
-		// mapping 1-n , n-1 : Item ItemSize Size
+		// mapping 1-n , n-1 : Item ItemSize Size 
+//		itemService.getFirstLevelCache(1);
+//		itemService.getFirstLevelCacheInTwoSession(1);
 		
+		itemService.getSecondLevelCache(1);
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import persistence.ItemGroup;
@@ -27,6 +28,21 @@ public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 		Query<ItemGroup> query = session.createNamedQuery(ItemGroup.SELECT_ALL_HQL, ItemGroup.class);
 
 		return query.getResultList(); //query.uniqueResult();
+	}
+
+	@Override
+	public void save(ItemGroup itemGroup) {
+		
+		Session session = getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+
+		try {
+			session.save(itemGroup);
+			transaction.commit();
+			System.out.println("Save " + itemGroup.getIgName() + " successful");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 }
