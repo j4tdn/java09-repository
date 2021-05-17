@@ -53,7 +53,15 @@ public class App {
 		//SAVE + No Transaction => No execution
 		//		+ Yes Transaction => execute query (error or non)
 		//Transaction: contains Sessions: rollback, 
-		Item item1 = new Item(100, "Áo", "Trắng", "Vải", 200d, 150d, igrList.get(1));
+		Item item1 = new Item(101, "Áo", "Trắng", "Vải", 200d, 150d, igrList.get(1));
 		itemService.save(item1);
+		
+		ItemGroup itB = new ItemGroup(17, "Tất");
+		Item itA1 = new Item(13, "itA1", "Đỏ", "Da",250d,150d, itB);
+		itemService.save(itA1);
+		// insert item => cascade all with ItemSize
+		// session.get(ItemSize id)
+		// mapping 1-n , n-1 : Item ItemSize Size
+		
 	}
 }

@@ -58,9 +58,12 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 	}
 	@Override
 	public void save(Item item) {
-		Session session = openSession();
+//		Session session = openSession();
+		Session session = getCurrentSession();
 		Transaction transaction = session.beginTransaction();
 		try {
+			// not exist: save
+			// exist: update
 			//insert or update
 			session.saveOrUpdate(item);
 			transaction.commit();

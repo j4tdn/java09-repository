@@ -6,5 +6,5 @@ import persistence.ItemGroup;
 
 public interface ItemGroupDao {
 	List<ItemGroup> getAll();
-	
+	void save(ItemGroup itemGroup);
 }

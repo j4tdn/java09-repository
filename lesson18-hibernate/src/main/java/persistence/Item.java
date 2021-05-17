@@ -1,5 +1,6 @@
 package persistence;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,8 +34,8 @@ public class Item {
 	
 	//nameValue: FK_ColumnName SubTable
 	//referencedColumnNameValue: PK_ColumnName ParenceTable
-	@ManyToOne 
-	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai") //
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) 
+	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
 	
 	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY)

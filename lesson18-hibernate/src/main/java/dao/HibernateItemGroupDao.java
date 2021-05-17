@@ -9,7 +9,7 @@ import org.hibernate.query.Query;
 import persistence.ItemGroup;
 import utils.HibernateUtils;
 
-public class HibernateItemGroupDao implements ItemGroupDao {
+public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 
 	public List<ItemGroup> getAll() {
 		SessionFactory sessionFactory = HibernateUtils.getSessionFactoryXml();
