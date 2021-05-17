@@ -1,10 +1,15 @@
-package persistence;
+ package persistence;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -33,13 +38,25 @@ public class Item {
 	
 	//nameValue: FK_ColumName
 		//referencedComlumNameValue: PK_ColumName ParentTable 
-	@ManyToOne 
+	@ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "maloai",referencedColumnName = "maloai")
 	private ItemGroup itemGroup;
 	
-	@OneToOne(mappedBy = "item",fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "item",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private ItemDetail itemdetail;
-
+	
+	
+//	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@JoinTable(name = "KichCoMatHang",
+//	joinColumns = {
+//			@JoinColumn(name="MAMH", referencedColumnName = "MAMH")
+//	},
+//	inverseJoinColumns  = {
+//			@JoinColumn(name="KiHieu",referencedColumnName = "KiHieu")
+//	})
+//	private List<Size> sizes;
+	
+	
 	public Item() {
 		// TODO Auto-generated constructor stub
 	}
@@ -116,7 +133,14 @@ public class Item {
 	public ItemDetail getItemdetail() {
 		return itemdetail;
 	}
-
+//	public List<Size> getSizes() {
+//		return sizes;
+//	}
+//	public void setSizes(List<Size> sizes) {
+//		this.sizes = sizes;
+//	}
+	
+	
 	@Override
 	public String toString() {
 		return "Item [temId=" + temId + ", itemName=" + itemName + ", color=" + color + ", material=" + material

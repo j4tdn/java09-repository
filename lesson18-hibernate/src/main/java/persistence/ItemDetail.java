@@ -23,6 +23,7 @@ public class ItemDetail {
 	@JoinColumn(name = "mamh", referencedColumnName = "mamh")		
 	private Item item;
 	
+	
 	public ItemDetail() {
 		// TODO Auto-generated constructor stub
 	}

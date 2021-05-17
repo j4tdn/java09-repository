@@ -37,7 +37,7 @@ public class HibernateUtils {
 			props.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 			props.put(Environment.SHOW_SQL, "true");
 			props.put(Environment.FORMAT_SQL, "true");
-			
+			props.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 			cfg.addAnnotatedClass(ItemGroup.class);
 			cfg.addAnnotatedClass(Item.class);
 			cfg.addAnnotatedClass(ItemDetail.class);

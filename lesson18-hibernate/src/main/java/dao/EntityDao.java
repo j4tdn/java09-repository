@@ -8,10 +8,14 @@ import org.hibernate.query.NativeQuery;
 import utils.HibernateUtils;
 
 public class EntityDao {
-	 Session openSession() {
-		return HibernateUtils.getSessionFactoryJava().openSession();
+	public Session openSession() {
+		return HibernateUtils.getSessionFactoryXml().openSession();
 		
 	}
+	 public Session getCurentSession() {
+		 return HibernateUtils.getSessionFactoryXml().getCurrentSession();
+	 }
+	 
 	 
 	 @SuppressWarnings("unchecked")
 	<E> List<E> safelist(NativeQuery<?> query) {

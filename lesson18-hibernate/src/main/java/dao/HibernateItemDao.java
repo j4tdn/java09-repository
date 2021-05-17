@@ -28,12 +28,12 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 			"	GROUP BY lh.MaLoai        ";
 	
 	public List<Item> getAll() {
-		SessionFactory sesionFactory = HibernateUtils.getSessionFactoryJava();
+		SessionFactory sesionFactory = HibernateUtils.getSessionFactoryXml();
 		Session session = sesionFactory.openSession();
 		// sesionFactory.getCurrentSession();
 
 		// native query, JPA/HQL
-		String sql = "Select * from LoaiHang";// maloai tenloai
+		String sql = "Select * from mathang";// maloai tenloai
 		NativeQuery<Item> query = session.createNativeQuery(sql, Item.class);
 		
 		return query.getResultList();
@@ -64,7 +64,7 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 
 	@Override
 	public void save(Item item) {
-		Session session = openSession();
+		Session session = getCurentSession();
 		Transaction transaction = session.beginTransaction();
 		try {
 			session.saveOrUpdate(item);
