@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -37,9 +38,19 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 
 	@Override
 	public Item get(int id) {
+		// demo proxy
+		Item item = null;
 		Session session = openSession();
+		Transaction transaction = session.beginTransaction();
 		
-		return session.get(Item.class, id);
+		try {
+			item = session.get(Item.class, id);
+			transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+		}
+		
+		return item;
 	}
 	
 	@Override
@@ -66,6 +77,82 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			transaction.rollback();
+		}
+	}
+	
+	@Override
+	public Item getFirstLevelCache(int id) {
+		Item i1 = null;
+		Session session = getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		
+		i1 = session.get(Item.class, id);
+		System.out.println("i1: " + i1);
+		
+		Item i2 = session.get(Item.class, id + 1);
+		System.out.println("i2: " + i2);
+		
+		transaction.commit();
+		
+		return i1;
+	}
+	
+	@Override
+	public Item getFirstLevelCacheIn2Session(int id) {
+		Item item = null;
+		
+		Session session1 = openSession();
+		Session session2 = openSession();
+		
+		Item i1 = session1.get(Item.class, id);
+		System.out.println("i1: " + i1);
+
+		// delete out 1st level cache
+		//session1.evict(i1);
+		Item i2 = session1.get(Item.class, id);
+		System.out.println("i2: " + i2);
+		
+		Item i3 = session2.get(Item.class, id);
+		System.out.println("i3: " + i3);
+		
+		return null;
+	}
+	
+	@Override
+	public Item getSecondLevelCache(int id) {
+		Item item = null;
+		
+		Session session1 = openSession();
+		Session session2 = openSession();
+		
+//		Transaction transaction1 = session1.beginTransaction();
+//		Transaction transaction2 = session2.beginTransaction();
+		
+		Item i1 = session1.get(Item.class, id);
+		System.out.println("i1: " + i1);
+		
+
+		// delete out 1st level cache
+		//session1.evict(i1);
+		Item i2 = session1.get(Item.class, id);
+		System.out.println("i2: " + i2);
+		
+//		sleep(5);
+		Item i3 = session2.get(Item.class, id);
+		System.out.println("i3: " + i3);
+		
+//		transaction1.commit();
+//		transaction2.commit();
+		
+		return null;
+	}
+	
+	private void sleep(int seconds) {
+		try {
+			TimeUnit.SECONDS.sleep(seconds);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

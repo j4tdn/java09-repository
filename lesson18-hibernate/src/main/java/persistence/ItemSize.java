@@ -1,5 +1,7 @@
 package persistence;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
@@ -48,8 +50,13 @@ public class ItemSize {
 	
 
 	@Embeddable
-	public static class Id {
+	public static class Id implements Serializable{
 		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -4243420332170357969L;
+
 		@Column(name = "MaMH")
 		private Integer itemId;
 		

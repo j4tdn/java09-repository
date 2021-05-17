@@ -25,8 +25,10 @@ public class App {
 //		List<ItemGroup> igrList = itemGroupService.getAll();
 //		igrList.forEach(System.out::println);
 		
-		ItemGroup igA = new ItemGroup(7, "Dep");
-		Item itB1 = new Item(17, "hihi", "yellow", "silk", 20d, 19d, "none", igA);
-		itemService.save(itB1);
+//		ItemGroup igA = new ItemGroup(7, "Dep");
+//		Item itB1 = new Item(18, "hihi", "yellow", "silk", 20d, 19d, "none", igA);
+//		itemService.save(itB1);
+		
+		itemService.getSecondLevelCache(1);
 	}
 }
