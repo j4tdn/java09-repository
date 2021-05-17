@@ -1,15 +1,22 @@
 package persistence;
 
+import javax.persistence.Cacheable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name = "MatHang")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Item {
 
 	@Id
@@ -31,12 +38,13 @@ public class Item {
 	@Column(name = "GiaMua")
 	private Double buyPrice;
 
-	@ManyToOne //nameValue = FK_columnName subtable
-			   //referencedColumnName = PK_columnName basetable 
+	//nameValue: FK_ColumnName SubTable
+	//referencedColumnName: PK_ColumnName Parenttable 
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
 
-	@OneToOne(mappedBy = "item")
+	@OneToOne(mappedBy = "item", fetch = FetchType.LAZY)
 	private ItemDetail itemDetail;
 	
 	public Item() {
@@ -117,11 +125,11 @@ public class Item {
 	public void setItemDetail(ItemDetail itemDetail) {
 		this.itemDetail = itemDetail;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Item [itemId=" + itemId + ", itemName=" + itemName + ", color=" + color + ", material=" + material
-				+ ", salePrice=" + salePrice + ", buyPrice=" + buyPrice + ", itemGroup=" + itemGroup + "]";
+				+ ", salePrice=" + salePrice + ", buyPrice=" + buyPrice + ", itemGroup=" + itemGroup + ", itemDetail="
+				+ itemDetail + "]";
 	}
-	
 }

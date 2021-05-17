@@ -12,7 +12,7 @@ import org.hibernate.query.Query;
 import persistence.ItemGroup;
 import utils.HibernateUtils;
 
-public class HibernateItemGroupDao implements ItemGroupDao {
+public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 
 	public List<ItemGroup> getAll() {
 		SessionFactory sessionFactory = HibernateUtils.getSessionFactoryXml();
@@ -36,6 +36,12 @@ public class HibernateItemGroupDao implements ItemGroupDao {
 		Query<ItemGroup> query = session.createNamedQuery(ItemGroup.SELECT_ALL_HQL, ItemGroup.class);
 		return query.getResultList();
 
+		
+	}
+
+	@Override
+	public void save(ItemGroup itemGroup) {
+		// TODO Auto-generated method stub
 		
 	}
 

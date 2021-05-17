@@ -37,4 +37,19 @@ public class ItemServiceImp implements ItemService {
 		itemDao.save(item);
 	}
 
+	@Override
+	public Item getFirstLevelCache(int id) {
+		return itemDao.getFirstLevelCache(id);
+	}
+
+	@Override
+	public Item getFirstLevelCacheInTwoSessions(int id) {
+		return itemDao.getFirstLevelCacheInTwoSessions(id);
+	}
+
+	@Override
+	public Item getSecondLevelCache(int id) {
+		return itemDao.getSecondLevelCache(id);
+	}
+
 }
