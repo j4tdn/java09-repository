@@ -2,9 +2,11 @@ package persistence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +33,9 @@ public class Items {
 	@JoinColumn(name="MaLoai",referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
 	
+	@OneToOne(mappedBy = "item",fetch = FetchType.LAZY)
+	private ItemDetail itemDetail;
+	
 	public Items() {
 		
 	}
@@ -45,6 +50,14 @@ public class Items {
 		this.sellPrice = sellPrice;
 		this.buyPrice = buyPrice;
 		this.itemGroup = itemGroup;
+	}
+
+	public ItemDetail getItemDetail() {
+		return itemDetail;
+	}
+
+	public void setItemDetail(ItemDetail itemDetail) {
+		this.itemDetail = itemDetail;
 	}
 
 	public Integer getItemId() {
@@ -107,7 +120,9 @@ public class Items {
 	public String toString() {
 		return "Items [itemId=" + itemId + ", name=" + name + ", color=" + color + ", material=" + material
 				+ ", sellPrice=" + sellPrice + ", buyPrice=" + buyPrice + ", photo=" + photo + ", itemGroup="
-				+ itemGroup + "]";
+				+ itemGroup + ", itemDetail=" + itemDetail + "]";
 	}
+
+	
 	
 }

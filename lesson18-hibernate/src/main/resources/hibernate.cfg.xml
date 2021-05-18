@@ -19,6 +19,7 @@
 		<!-- scan entities -->
 		<mapping class ="persistence.ItemGroup"></mapping>
 		<mapping class ="persistence.Items"></mapping>
+		<mapping class ="persistence.ItemDetail"></mapping>
 		
 	</session-factory>
 
