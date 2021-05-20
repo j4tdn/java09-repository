@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
@@ -31,6 +32,25 @@ public class HibarnateItemGroupDao implements ItemGroupDao {
 		Query<ItemGroup> query=session.createNamedQuery(ItemGroup.SELECT_ALL_NATIVE, ItemGroup.class);
 		
 		return query.getResultList();
+		
+	}
+
+	@Override
+	public void save(ItemGroup itemGroup) {
+		SessionFactory sessionFactory=HibernateUtils.getSessionFactory();
+		
+		Session session= sessionFactory.getCurrentSession();
+		
+		Transaction transaction= session.beginTransaction();
+		
+		try {
+			session.save(itemGroup);
+			transaction.commit();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+		}
 		
 	}
 

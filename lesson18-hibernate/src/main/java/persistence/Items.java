@@ -1,10 +1,15 @@
 package persistence;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -28,7 +33,7 @@ public class Items {
 	private Double buyPrice;
 	@Column(name="HinhAnh")
 	private String photo;
-	@ManyToOne //NameValue:FK_ColumnName sub table
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL) //NameValue:FK_ColumnName sub table
 				//referencedColumnName:pk_columnName parent table
 	@JoinColumn(name="MaLoai",referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
@@ -36,6 +41,33 @@ public class Items {
 	@OneToOne(mappedBy = "item",fetch = FetchType.LAZY)
 	private ItemDetail itemDetail;
 	
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinTable(name = "kichcomathang",
+	
+	joinColumns = {
+			@JoinColumn(name="MaMH", referencedColumnName = "MaMH")
+	},
+	inverseJoinColumns = {
+			@JoinColumn(name="KiHieu", referencedColumnName = "KiHieu")
+	})
+	private List<Size> sizes;
+	
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public List<Size> getSizes() {
+		return sizes;
+	}
+
+	public void setSizes(List<Size> sizes) {
+		this.sizes = sizes;
+	}
+
 	public Items() {
 		
 	}

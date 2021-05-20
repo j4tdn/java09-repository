@@ -64,7 +64,7 @@ public class HibarnateItemDao implements ItemDao {
 	@Override
 	public void save(Items item) {
 		SessionFactory sessionFactory=HibernateUtils.getSessionFactory();
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Transaction transaction= session.beginTransaction();
 		try {
 			session.saveOrUpdate(item);

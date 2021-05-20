@@ -1,10 +1,12 @@
 package demo;
 
+import java.util.Arrays;
 import java.util.List;
 
 import persistence.ItemDto;
 import persistence.ItemGroup;
 import persistence.Items;
+import persistence.Size;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
 import service.ItemService;
@@ -39,8 +41,13 @@ public class App {
 //		Items item=itemService.get(1);
 //		System.out.println(item);
 		
-		ItemGroup ig=new ItemGroup(1,"Aó");
-		Items item=new Items(11, "Aó khoác kaki", "Đen", "Vải", 100d, 200d, ig);
+		ItemGroup ig=new ItemGroup(20,"Tất");
+		Items item=new Items(15, "	Tất kaki", "Đen", "Vải", 100d, 200d, ig);
+		item.setSizes(Arrays.asList(new Size(6,"size A"),
+									new Size(7,"size B")));
 		itemService.save(item);
+		
+//		ItemGroup igA=new ItemGroup(18,"túi xách");
+//		itemGroupService.save(igA);
 	}
 }
