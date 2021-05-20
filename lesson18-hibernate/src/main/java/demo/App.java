@@ -1,10 +1,14 @@
 package demo;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import persistence.Item;
 import persistence.ItemDto;
 import persistence.ItemGroup;
+import persistence.Size;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
 import service.ItemService;
@@ -21,12 +25,6 @@ public class App {
 	}
 	
 	public static void main(String[] args) {
-		ItemGroup iga=new ItemGroup(14, "túi xách");
-//		itemGroupService.save(iga);
-		
-		
-		ItemGroup itemGroup=new ItemGroup(20, "tất");
-		Item item=new Item(16, "tất dài", "đen","vải",200d, 100d, "image", itemGroup);
-		itemService.save(item);
+		itemService.getFirstLevelCache(1);
 	}
 }

@@ -45,16 +45,6 @@ public class Item {
 	@OneToOne(mappedBy = "item")
 	private ItemDetail itemDetail;
 
-	@ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="mathang_has_kichco",
-		joinColumns= {
-				@JoinColumn(name="MaMH",referencedColumnName = "MaMH_NN")
-				},
-		inverseJoinColumns= {
-				@JoinColumn(name="KiHieu_NN",referencedColumnName = "KiHieu")
-				})
-		
-	private List<Size> sizes;
 	
 	
 
@@ -71,12 +61,7 @@ public class Item {
 		this.byPrice = byPrice;
 		this.itemGroup = itemGroup;
 	}
-	public List<Size> getSizes() {
-		return sizes;
-	}
-	public void setSizes(List<Size> sizes) {
-		this.sizes = sizes;
-	}
+	
 	public Integer getItemId() {
 		return itemId;
 	}

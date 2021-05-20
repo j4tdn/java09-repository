@@ -21,6 +21,8 @@
 		<mapping class="persistence.ItemGroup" />
 		<mapping class="persistence.Item" />
 		<mapping class="persistence.ItemDetail" />
+		<mapping class="persistence.Size" />
+		<mapping class="persistence.ItemSize" />
 		
         <!-- <property name="connection.autocommit">false</property>  -->
 		

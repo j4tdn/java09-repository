@@ -1,12 +1,13 @@
 package deadlock;
 
 public class SuspendResumeDeadlock {
+	private static Object shareData=new Object();
 	public static void main(String[] args) throws InterruptedException {
 
 		final Thread thread1 = new Thread("Thread-1") {
 			public void run() {
 				System.out.println(Thread.currentThread().getName() + " has started.");
-				synchronized (String.class) {
+				synchronized (shareData) {
 					System.out.println(Thread.currentThread().getName() + " " + " has obtained lock on String.class "
 							+ " & suspended...");
 

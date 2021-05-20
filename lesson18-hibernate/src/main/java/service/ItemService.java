@@ -10,4 +10,8 @@ public interface ItemService {
 	Item get(int id);
 	List<ItemDto> getItemDtos();
 	void save(Item item);
+	
+	
+	Item getFirstLevelCache(int id);
+	Item getFirstLevelCacheInTwoSessions(int id);
 }

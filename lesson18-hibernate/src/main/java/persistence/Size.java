@@ -20,13 +20,18 @@ public class Size {
 	@Column(name="MoTa")
 	private String decription;
 
-	@ManyToMany(mappedBy = "sizes")
-	private List<Item> items;
-	
+
 	
 	public Size() {
 	}
 	
+	
+	public Size(Integer id, String decription) {
+		this.id = id;
+		this.decription = decription;
+	}
+
+
 	public String getDecription() {
 		return decription;
 	}
@@ -39,12 +44,7 @@ public class Size {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	 public void setItems(List<Item> items) {
-		this.items = items;
-	}
-	 public List<Item> getItems() {
-		return items;
-	}
+
 	@Override
 	public String toString() {
 		return "Style [id=" + id + ", decription=" + decription + "]";
