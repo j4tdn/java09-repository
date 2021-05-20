@@ -1,0 +1,21 @@
+package utils;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateUtils {
+	
+	private static SessionFactory sessionFactory = null;
+
+	private HibernateUtils() {
+	}
+
+	public static SessionFactory getSessionFactory() {
+		if (sessionFactory == null) {
+			Configuration conf = new Configuration();
+			sessionFactory = conf.configure("hibernate.cfg.xml").buildSessionFactory();
+		}
+		
+		return sessionFactory;
+	}
+}
