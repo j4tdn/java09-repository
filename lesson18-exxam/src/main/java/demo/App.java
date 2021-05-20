@@ -15,7 +15,7 @@ public class App {
 		itemService=new ItemServiceImpl();
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		
 		itemGroupService.getItemAndToTal();
 	}
