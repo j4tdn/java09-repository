@@ -15,6 +15,9 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	public List<ItemGroup> getItemByItemGroup() {
 		SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 		Session session = sessionFactory.openSession();
+		// JOIN để làm gì
+		// Em select từ MatHang hoặc LoaiHang
+		// Trong Entity có mapping OneToMany và ManyToOne là nó đã get về cho mình rồi
 		String sql = "SELECT * FROM LoaiHang lh\n"
 				+ "JOIN MatHang mh ON mh.MaLoai = lh.MaLoai \n";
 		NativeQuery<ItemGroup> query = session.createNativeQuery(sql, ItemGroup.class);

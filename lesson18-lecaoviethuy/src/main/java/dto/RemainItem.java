@@ -1,5 +1,7 @@
 package dto;
 
+// RemainingItem
+// Hoặc ItemDto
 public class RemainItem {
 	private Integer id;
 	private String name;
@@ -12,6 +14,7 @@ public class RemainItem {
 	}
 	
 	public RemainItem() {
+		// Xóa code thừa
 		// TODO Auto-generated constructor stub
 	}
 

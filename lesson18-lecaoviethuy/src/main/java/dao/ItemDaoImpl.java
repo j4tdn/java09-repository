@@ -15,12 +15,16 @@ import utils.SqlUtils;
 public class ItemDaoImpl implements ItemDao {
 
 	private static final String Q_ITEMS_WITH_DATE = 
+			// Mapping alias tạo biến hằng số. Ko dc hardcode id, name, time như vậy
+			// Sử dụng Hibernate chứ ko dùng JDBC
 			"select mh.MaMH as id, \n"
 			+ "		mh.TenMH as name, \n"
 			+ "		time(dh.NgayTao) as time\n"
 			+ "from mathang mh\n" 
 			+ "join chitietdonhang ctdh on mh.MaMH = ctdh.MaMH\n" 
 			+ "join donhang dh on dh.MaDH = ctdh.MaDH\n"
+			// NgayTao kiểu LocalDate là tham số truyền vào
+			// Không được truyền trực tiếp như này
 			+ "where DATE(NgayTao) = '2020-12-18';";
 	
 	private static final String Q_GET_ITEMS_REMAINING = 
@@ -54,6 +58,9 @@ public class ItemDaoImpl implements ItemDao {
 		List<ItemWithDate> result = new ArrayList<>();
 		
 		try {
+			// Đang học Hibernate
+			// Không được dùng JDBC
+			// Áp dụng addScalar(alias, LocalTimeType.Instance)
 			st = conn.createStatement();
 			rs = st.executeQuery(Q_ITEMS_WITH_DATE);
 			
@@ -74,6 +81,7 @@ public class ItemDaoImpl implements ItemDao {
 		return result;
 	}
 	
+	// Hibernate
 	@Override
 	public List<RemainItem> getRemainItems() {
 		Statement st = null;
@@ -100,6 +108,8 @@ public class ItemDaoImpl implements ItemDao {
 		return result;
 	}
 	
+	
+	// Hibernate
 	@Override
 	public List<String> getSaleItems(int year) {
 		Statement st = null;
