@@ -10,6 +10,7 @@ import persistence.ItemGroup;
 import utils.HirbernateUtils;
 
 public class HibernateItemGroupDao implements ItemGroupDao {
+	// Câu 3: Tính số lượng theo loại hàng phải GroupBy theo MaLoai
 	public List<ItemGroup> getAll() {
 		SessionFactory sessionFactory = HirbernateUtils.getSessionFactorXml();
 		Session session = sessionFactory.openSession();
