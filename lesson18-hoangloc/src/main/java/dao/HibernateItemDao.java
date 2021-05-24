@@ -15,6 +15,12 @@ import persistence.ItemDto;
 public class HibernateItemDao extends EntityDao implements ItemDao {
 
 
+	// Hôm sau đặt tên project đúng chính tả. Cẩn thận
+	// Làm đoàng hoàng từng chữ.
+	
+	// Câu 4: Câu này làm DTO cũng dc. Nhưng e có thể trả về Entity Item hoặc ItemGround
+	// Đỡ mất công ngồi addScalar từng dòng
+	// Copy SQL từ workbench phải xóa \r
 	private static final String Q_GET_ITEMS = "select\r\n" + 
 			"lh.MaLoai AS " + ItemDto.Item_ID + " ,\r\n" + 
 			"lh.TenLoai AS " + ItemDto.Item_NAME + " ,\r\n" + 

@@ -13,6 +13,8 @@ import persistence.ItemGroup;
 
 public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 	
+	// Làm xong phải format lại code cẩn thận
+	// MaLoai mà sao lại tạo alias với Item_ID (MaMH)
 	private static final String Q_GET_ITEMS_AND_TOTAL ="	select  lh.maloai as " 
 			+ ItemDto.Item_ID + ", \n"
 			+ "			lh.tenloai as " + ItemDto.Item_NAME + ", \n" + "			sum(kcmh.soluong) " 
@@ -29,6 +31,9 @@ public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 
 		return query.getResultList();
 	}
+	
+	// Câu 3: Kết quả yêu cầu trả về là List<String> Tên Mặt Hàng
+	// Đọc kỹ đề trước khi làm
 	public List<ItemDto> getItemAndToTal() {
 		Session session = openSession();
 		NativeQuery<?> query = session.createNativeQuery(Q_GET_ITEMS_AND_TOTAL, ItemDto.class);
