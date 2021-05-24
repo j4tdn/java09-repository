@@ -12,11 +12,10 @@ import org.hibernate.query.Query;
 import persistence.ItemGroup;
 import utils.HibernateUtils;
 
-public class HibernateItemGroupDao implements ItemGroupDao {
+public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 	public List<ItemGroup> getAll() {
-		SessionFactory sessionFactory = HibernateUtils.getSessionFactoryXML();
-		Session session = sessionFactory.openSession();
-		String sql = "SELECT * FROM MatHang";
+		Session session = openSession();
+		String sql = "SELECT * FROM LoaiHang";
 		Query<ItemGroup>query= session.createNativeQuery(sql, ItemGroup.class);
 		return query.getResultList();
 	}

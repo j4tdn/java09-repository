@@ -11,6 +11,7 @@ import org.hibernate.type.StandardBasicTypes;
 
 import persistence.Item;
 import persistence.ItemDto;
+import persistence.ItemWithSizeDto;
 import utils.HibernateUtils;
 
 public class HibernateItemDao extends EntityDao implements ItemDao{
@@ -35,10 +36,22 @@ public class HibernateItemDao extends EntityDao implements ItemDao{
 			
 			+ "JOIN chitietdonhang ctdh ON mh.MaMH=ctdh.MaMH\n"
 			+ "JOIN donhang dh ON ctdh.MaDH=dh.MaDH\n"
-			+ "WHERE cast(dh.NgayTao AS YEAR) ='2020' \n"
+			+ "WHERE cast(dh.NgayTao AS YEAR) =2020 \n"
 			+ "GROUP BY mh.MaMH\n"
 			+ "ORDER BY "+ItemDto.NOF_ITEMS+" DESC\n"
 			+ "LIMIT 3";
+	
+	// QUERY CAU 4 - Lấy hết mặt hàng kèm mã loại và số lượng
+	private static final String Q_GET_ALL="SELECT lh.MaLoai AS "+ItemWithSizeDto.IG_ID+",\n"
+			+ "	   lh.TenLoai AS "+ItemWithSizeDto.IG_NAME+",\n"
+			+ "       mh.MaMH AS "+ItemWithSizeDto.IT_ID+",\n"
+			+ "       mh.TenMH AS "+ItemWithSizeDto.IT_NAME+",\n"
+			+ "       mh.GiaBan AS "+ItemWithSizeDto.SALE+",\n"
+			+ "       mh.GiaMua AS "+ItemWithSizeDto.BUY+",\n"
+			+ "       kcmh.SoLuong AS "+ItemWithSizeDto.NOF+"\n"
+			+ " FROM mathang mh\n"
+			+ "JOIN loaihang lh ON lh.MaLoai=mh.MaLoai\n"
+			+ "JOIN kichcomathang kcmh ON mh.MaMH=kcmh.MaMH;";
 	public List<Item> getAll() {
 		Session session= openSession();
 		
@@ -67,6 +80,20 @@ public class HibernateItemDao extends EntityDao implements ItemDao{
 			 .addScalar(ItemDto.NOF_ITEMS, StandardBasicTypes.LONG);
 		query.setResultTransformer(Transformers.aliasToBean(ItemDto.class));
 		return safeList(query) ;
+	}
+	@Override
+	public List<ItemWithSizeDto> getItemWithSize() {
+		Session session=openSession();
+		NativeQuery<?> query = session.createNativeQuery(Q_GET_ALL);
+		query.addScalar(ItemWithSizeDto.IG_ID, StandardBasicTypes.INTEGER)
+			 .addScalar(ItemWithSizeDto.IG_NAME, StandardBasicTypes.STRING)
+			 .addScalar(ItemWithSizeDto.IT_ID, StandardBasicTypes.INTEGER)
+			 .addScalar(ItemWithSizeDto.IT_NAME, StandardBasicTypes.STRING)
+			 .addScalar(ItemWithSizeDto.SALE, StandardBasicTypes.DOUBLE)
+			 .addScalar(ItemWithSizeDto.BUY, StandardBasicTypes.DOUBLE)
+			 .addScalar(ItemWithSizeDto.NOF, StandardBasicTypes.INTEGER);
+		query.setResultTransformer(Transformers.aliasToBean(ItemWithSizeDto.class));
+		return safeList(query);
 	}
 }
 
