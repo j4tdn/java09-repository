@@ -15,6 +15,7 @@ import utils.HibernateUtils;
 
 public class HibernateItemDao extends EntityDao implements ItemDao{
 	
+	// Câu 2: Code xong format lại
 	private static final String Q_GET_ITEMS_BY_IGR = "SELECT lh.MaLoai AS "+ItemDto.IGR_ID+",\n"
 			+ "	   lh.TenLoai AS "+ItemDto.IGR_NAME+",\n"
 			+ "    SUM(kcmh.SoLuong) AS "+ItemDto.NOF_ITEMS+"\n"
@@ -24,6 +25,9 @@ public class HibernateItemDao extends EntityDao implements ItemDao{
 			+ "JOIN kichcomathang kcmh\n"
 			+ "ON kcmh.MaMH=mh.MaMH\n"
 			+ "GROUP BY lh.MaLoai";
+			
+	// YEAR là tham số truyền vào
+	// Không được fix cứng. Đặt tên trên vấn lại >> Q_GET_NUMBER_IT << 
 	private static final String Q_GET_NUMBER_IT ="SELECT mh.MaMH AS "+ItemDto.IGR_ID+",\n"
 			+ "	   mh.TenMH AS "+ItemDto.IGR_NAME+",\n"
 			+ "       SUM(ctdh.SoLuong) AS "+ItemDto.NOF_ITEMS+"\n"
@@ -51,6 +55,9 @@ public class HibernateItemDao extends EntityDao implements ItemDao{
 		query.setResultTransformer(Transformers.aliasToBean(ItemDto.class));
 		return safeList(query) ;
 	}
+	
+	// Câu 3: Yêu cầu trả về List<String>. Danh sách tên mặt hàng chứ 
+	// Không phải trả về List<Dto>
 	@Override
 	public List<ItemDto> getNumberItem() {
 		Session session=openSession();
