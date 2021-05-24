@@ -15,6 +15,8 @@ import utils.HibernateUtil;
 
 public abstract class HibernateItemDao extends EntityDao implements ItemDao {
 
+	// Ở đây em phải thêm alias MaMH AS ItemCau1.ID
+	// Thì lúc addScalar nó mới hiểu và mapping qua chứ
 	private static final String CAU_1 = "SELECT mh.MaMH,ctttdh.ThoiGian\n" + 
 			"FROM MatHang mh\n" + 
 			"JOIN ChiTietDonHang ctdh ON mh.MaMH=ctdh.MaMH\n" + 
@@ -29,6 +31,9 @@ public abstract class HibernateItemDao extends EntityDao implements ItemDao {
 		NativeQuery<?> query = session.createSQLQuery(CAU_1);
 		query.addScalar(ItemCau1.ID, StandardBasicTypes.INTEGER)
 			 .addScalar(ItemCau1.NAME, StandardBasicTypes.STRING)
+			 // code lung tung rồi.
+			 // addScalar: Là nó sẽ lấy giá trị trong resultset từ các alias và set lại cho object ItemCau1 của em
+			 // Xem comment dòng 19. Chưa hiểu bài
 			 .addScalar(ItemCau1.TIME, StandardBasicTypes.LONG);
 		query.setResultTransformer(Transformers.aliasToBean(ItemCau1.class));
 		
