@@ -1,52 +1,67 @@
 package persistence;
 
+import java.sql.Date;
+
 public class ItemDto {
-	public static String IGR_ID = "igrId";
-	public static String IGR_NAME = "igrName";
-	public static String NOF_ITEMS = "nofItems";
-	
-	
-	private Integer igrId;
-	private String igrName;
-	private Long nofItems;
+	public static String ITEM_ID = "itemId";
+	public static String ITEM_NAME = "itemName";
+	public static String SALE_DATE = "saleDate";
+	public static String TOTAL = "total";
+
+	private Integer itemId;
+	private String itemName;
+	private Date saleDate;
+	private Integer total;
 
 	public ItemDto() {
 
 	}
 
-	public ItemDto(Integer igrId, String igrName, Long nofItems) {
+	public ItemDto(Integer itemId, String itemName, Date saleDate, Integer total) {
 		super();
-		this.igrId = igrId;
-		this.igrName = igrName;
-		this.nofItems = nofItems;
+		this.itemId = itemId;
+		this.itemName = itemName;
+		this.saleDate = saleDate;
+		this.total = total;
 	}
 
-	public Integer getIgrId() {
-		return igrId;
+	public Integer getItemId() {
+		return itemId;
 	}
 
-	public void setIgrId(Integer igrId) {
-		this.igrId = igrId;
+	public void setItemId(Integer itemId) {
+		this.itemId = itemId;
 	}
 
-	public String getIgrName() {
-		return igrName;
+	public String getItemName() {
+		return itemName;
 	}
 
-	public void setIgrName(String igrName) {
-		this.igrName = igrName;
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 
-	public Long getNofItems() {
-		return nofItems;
+	public Date getSaleDate() {
+		return saleDate;
 	}
 
-	public void setNofItems(Long nofItems) {
-		this.nofItems = nofItems;
+	public void setSaleDate(Date saleDate) {
+		this.saleDate = saleDate;
+	}
+
+	public Integer getTotal() {
+		return total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
 	}
 
 	@Override
 	public String toString() {
-		return "ItemDto [" + "igrId:" + igrId + ", igrName:" + igrName + ", nofItems:" + nofItems + "]";
+		return "ItemDto [" + "itemId:" + itemId 
+				+ ", itemName:" + itemName 
+				+ ", saleDate:" + saleDate 
+				+ " , total:" + total + "]";
 	}
 }

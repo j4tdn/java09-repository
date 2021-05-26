@@ -1,4 +1,4 @@
-package dto;
+package persistence;
 
 
 public class ItemGroupDto {

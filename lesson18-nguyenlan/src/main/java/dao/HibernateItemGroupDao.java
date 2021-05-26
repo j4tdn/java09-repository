@@ -10,7 +10,7 @@ import org.hibernate.query.Query;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
 
-import dto.ItemGroupDto;
+import persistence.ItemGroupDto;
 import persistence.ItemGroup;
 import utils.HibernateUtils;
 
@@ -25,29 +25,6 @@ public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 			"JOIN kichcomathang kcmh\n" + 
 			"	ON kcmh.MaMH = mh.MaMH\n" + 
 			"GROUP BY lh.MaLoai";
-	public List<ItemGroup> getAll() {
-		SessionFactory sessionFactory = HibernateUtils.getSessionFactoryXml();
-		Session session = sessionFactory.openSession();
-
-		Query<ItemGroup> query = session.createNamedQuery(ItemGroup.SELECT_ALL_HQL, ItemGroup.class);
-
-		return query.getResultList(); //query.uniqueResult();
-	}
-
-	@Override
-	public void save(ItemGroup itemGroup) {
-		
-		Session session = getCurrentSession();
-		Transaction transaction = session.beginTransaction();
-
-		try {
-			session.save(itemGroup);
-			transaction.commit();
-			System.out.println("Save " + itemGroup.getIgName() + " successful");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
 	@Override
 	public List<ItemGroupDto> getItemGroupDtos() {

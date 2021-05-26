@@ -1,12 +1,14 @@
 package service;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import persistence.Item;
 import persistence.ItemDto;
 
 public interface ItemService {
-	List<Item> getAll();
-	List<ItemDto> getItemsDtos();
+	List<ItemDto> getItemsBySaleDate(LocalDate saleDate);
+	List<String> getTop3BestSalerItemsInYear(int year);
 
 }

@@ -1,5 +1,6 @@
 package service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import dao.HibernateItemDao;
@@ -14,14 +15,13 @@ public class ItemServiceImpl implements ItemService {
 		itemDao = new HibernateItemDao();
 	}
 
-	public List<Item> getAll() {
-
-		return itemDao.getAll();
-	}
-
 	@Override
-	public List<ItemDto> getItemsDtos() {
-		return itemDao.getItemDtos();
+	public List<ItemDto> getItemsBySaleDate(LocalDate saleDate) {
+		return itemDao.getItemsBySaleDate(saleDate);
 	}
-
+	
+	@Override
+	public List<String> getTop3BestSalerItemsInYear(int year) {
+		return itemDao.getTop3BestSalerItemsInYear(year);
+	}
 }

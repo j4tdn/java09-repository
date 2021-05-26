@@ -4,7 +4,7 @@ import java.util.List;
 
 import dao.HibernateItemGroupDao;
 import dao.ItemGroupDao;
-import dto.ItemGroupDto;
+import persistence.ItemGroupDto;
 
 public class ItemGroupServiceImpl implements ItemGroupService {
 	private ItemGroupDao itemGroupDao;
