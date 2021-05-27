@@ -11,7 +11,9 @@ public class EntityDao {
 	Session openSession() {
 		return HibernateUtils.getSessionFactoryXML().openSession();
 	}
-	<E> List<E> safeList(NativeQuery<?> query){
-		return(List<E>)query.list(); 
+
+	<E> List<E> safeList(NativeQuery<?> query) {
+		return (List<E>) query.list();
 	}
+
 }

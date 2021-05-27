@@ -97,6 +97,8 @@ public class ItemWithSizeDto {
 		return "ItemWithSizeDto [igId=" + igId + ", igName=" + igName + ", itId=" + itId + ", itName=" + itName
 				+ ", SalePrice=" + SalePrice + ", BuyPrice=" + BuyPrice + ", Nof=" + Nof + "]";
 	}
+
 	
 	
 }
+
