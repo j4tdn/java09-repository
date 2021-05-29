@@ -1,13 +1,27 @@
 package persistence;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0083109... lesson18-buivanquoc Submit code 02
 // Generated Jul 20, 2015 10:09:07 PM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
+<<<<<<< HEAD
+=======
+=======
+import javax.persistence.CascadeType;
+>>>>>>> 1d0fe04... lesson18-buivanquoc submit code 02
+>>>>>>> 0083109... lesson18-buivanquoc Submit code 02
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0083109... lesson18-buivanquoc Submit code 02
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -74,4 +88,83 @@ public class Item implements java.io.Serializable {
 		this.orderses = orderses;
 	}
 
+<<<<<<< HEAD
+=======
+=======
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "MatHang")
+public class Item {
+	@Id
+	@Column(name = "MaMH")
+	private Integer itemId;
+	@Column(name = "TenMH")
+	private String itemName;
+	@Column(name = "GiaBan")
+	private Double salePrice;
+	@Column(name = "GiaMua")
+	private Double buyPrice;
+	@Column(name = "SoLuong")
+	private Double Total;
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
+	private ItemGroup itemGroup;
+	public Item() {
+	}
+	public Item(Integer itemId, String itemName, Double salePrice, Double buyPrice, Double total, ItemGroup itemGroup) {
+		super();
+		this.itemId = itemId;
+		this.itemName = itemName;
+		this.salePrice = salePrice;
+		this.buyPrice = buyPrice;
+		this.Total = total;
+		this.itemGroup = itemGroup;
+	}
+	public Integer getItemId() {
+		return itemId;
+	}
+	public void setItemId(Integer itemId) {
+		this.itemId = itemId;
+	}
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	public Double getSalePrice() {
+		return salePrice;
+	}
+	public void setSalePrice(Double salePrice) {
+		this.salePrice = salePrice;
+	}
+	public Double getBuyPrice() {
+		return buyPrice;
+	}
+	public void setBuyPrice(Double buyPrice) {
+		this.buyPrice = buyPrice;
+	}
+	public Double getTotal() {
+		return Total;
+	}
+	public void setTotal(Double total) {
+		this.Total = total;
+	}
+	public ItemGroup getItemGroup() {
+		return itemGroup;
+	}
+	public void setItemGroup(ItemGroup itemGroup) {
+		this.itemGroup = itemGroup;
+	}
+	@Override
+	public String toString() {
+		return "itemId=" +itemId + ", itemName=" + itemName + ", salePrice=" + salePrice + ", buyPrice="
+				+ buyPrice + ", Total=" + Total + ", itemGroup=" + itemGroup ;
+	}
+	
+>>>>>>> 1d0fe04... lesson18-buivanquoc submit code 02
+>>>>>>> 0083109... lesson18-buivanquoc Submit code 02
 }
