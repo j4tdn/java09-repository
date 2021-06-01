@@ -7,9 +7,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.transform.Transformers;
+import org.hibernate.type.LocalTimeType;
 import org.hibernate.type.StandardBasicTypes;
 
-import persistence.ItemDto;
+import dto.ItemDto;
+
 
 public class HibernateItemDao extends EntityDao implements ItemDao {
 	
@@ -20,7 +22,7 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 		Transaction transaction= session.beginTransaction();
 		String sql = "SELECT mh.MaMH AS " + ItemDto.IT_ID
 				+ ", mh.TenMH AS " + ItemDto.IT_NAME 
-				+ ",dh.NgayTao AS "+ ItemDto.IT_BUYDATE
+				+ ",dh.NgayTao AS "+ ItemDto.IT_BUYTIME
 				+"\n" + 
 				"FROM MatHang mh\n" + 
 				"JOIN ChiTietDonHang ctdh ON mh.MaMH = ctdh.MaMH\n" + 
@@ -30,7 +32,7 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 		try {
 			query.addScalar(ItemDto.IT_ID , StandardBasicTypes.INTEGER)
 					.addScalar(ItemDto.IT_NAME, StandardBasicTypes.STRING)
-					.addScalar(ItemDto.IT_BUYDATE, StandardBasicTypes.DATE);
+					.addScalar(ItemDto.IT_BUYTIME, LocalTimeType.INSTANCE);
 			String buyDateStr = buyDate.getYear() + "-" + buyDate.getMonthValue() + "-" + buyDate.getDayOfMonth();
 			System.out.println(buyDateStr);
 			query.setParameter("buyDate", buyDateStr);

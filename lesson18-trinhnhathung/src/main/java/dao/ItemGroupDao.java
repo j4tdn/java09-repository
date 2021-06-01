@@ -2,8 +2,10 @@ package dao;
 
 import java.util.List;
 
-import persistence.ItemGroup;
+import dto.ItemGroupDto;
+import dto.ItemsOfItemGroupDto;
 
 public interface ItemGroupDao {
-	List<ItemGroup> get();
+	List<ItemGroupDto> getItemGroupDtos();
+	List<ItemsOfItemGroupDto> getItemsOfItemGroupDtos();
 }

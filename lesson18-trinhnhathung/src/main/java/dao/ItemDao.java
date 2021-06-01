@@ -3,7 +3,7 @@ package dao;
 import java.time.LocalDate;
 import java.util.List;
 
-import persistence.ItemDto;
+import dto.ItemDto;
 
 public interface ItemDao {
 	List<ItemDto> getItemByBuyDate(LocalDate buyDate);

@@ -1,27 +1,27 @@
-package persistence;
+package dto;
 
-import java.util.Date;
+import java.time.LocalTime;
 
 public class ItemDto {
 
 	public static final String IT_ID = "itemId";
 	public static final String IT_NAME = "itemName";
-	public static final String IT_BUYDATE = "buyDate";
+	public static final String IT_BUYTIME = "buyTime";
 	public static final String IT_QUANTITY = "quantity";
 
 	private Integer itemId;
 	private String itemName;
-	private Date buyDate;
+	private LocalTime buyTime;
 	private Integer quantity;
 
 	public ItemDto() {
 	}
 
-	public ItemDto(Integer itemId, String itemName, Date buyDate, Integer quantity) {
+	public ItemDto(Integer itemId, String itemName, LocalTime buyTime, Integer quantity) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
-		this.buyDate = buyDate;
+		this.buyTime = buyTime;
 		this.quantity = quantity;
 	}
 
@@ -41,12 +41,12 @@ public class ItemDto {
 		this.itemName = itemName;
 	}
 
-	public Date getBuyDate() {
-		return buyDate;
+	public LocalTime getBuyTime() {
+		return buyTime;
 	}
 
-	public void setBuyDate(Date buyDate) {
-		this.buyDate = buyDate;
+	public void setBuyTime(LocalTime buyTime) {
+		this.buyTime = buyTime;
 	}
 
 	public Integer getQuantity() {
@@ -56,4 +56,11 @@ public class ItemDto {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
+
+	@Override
+	public String toString() {
+		return "ItemDto [itemId=" + itemId + ", itemName=" + itemName + ", buyTime=" + buyTime + ", quantity="
+				+ quantity + "]";
+	}
+
 }

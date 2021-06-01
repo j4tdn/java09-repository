@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import dao.HibernateItemDao;
 import dao.ItemDao;
-import persistence.ItemDto;
+import dto.ItemDto;
 
 public class ItemServiceImpl implements ItemService {
 

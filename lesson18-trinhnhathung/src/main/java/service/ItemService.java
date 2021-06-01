@@ -3,7 +3,8 @@ package service;
 import java.time.LocalDate;
 import java.util.List;
 
-import persistence.ItemDto;
+import dto.ItemDto;
+
 
 public interface ItemService {
 	List<ItemDto> getItemByBuyDate(LocalDate buyDate);
